@@ -783,55 +783,129 @@ footer p {
 }
 
 /* Media Query: Max Width 768px */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column; /* Elemen vertikal */
-        align-items: flex-start; /* Rata kiri */
+@media (max-width: 1060px){
+    .container{
+        margin: 0 auto;
+        width: 95%;
     }
 
-    .header-logo {
-        margin-bottom: 1rem;
-        font-size: 1.3rem;
-    }
-
-    .header-nav {
-        flex-direction: column; /* Navigasi vertikal */
-        gap: 1rem;
-        display: none; /* Sembunyi default */
-        width: 100%; /* Lebar penuh */
-    }
-
-    .header-nav.show {
-        display: flex; /* Tampil ketika tombol menu di klik */
-    }
-
-    .menu-toggle {
-        display: block; /* Tombol menu muncul */
+    .home-text{
+        width: 100%
     }
 }
 
-/* Media Query: Max Width 570px */
-@media (max-width: 570px) {
-    .header-logo {
-        font-size: 1.2rem;
+@media (max-width: 768px){
+    .nav{
+        padding: 10px 0;
     }
 
-    .header-nav a {
+    section{
+        padding: 2rem 0 !important;
+    }
+
+    .header-content{
+        margin-top: 3rem !important;
+    }
+
+    .home{
+        min-height: 380px;
+    }
+
+    .home-title{
+        font-size: 3rem;
+    }
+
+    .header-title{
+        font-size: 2rem;
+    }
+
+    .header-img{
+        height: 370px;
+    }
+
+    .about{
+        flex-direction: column;
+    }
+
+    .about .contentBx{
+        min-width: 100%;
+        width: 100%;
+        text-align: center;
+        padding-right: 0px;
+    }
+
+    .about .contentBx,
+    .about .imgBx{
+        min-width: 100%;
+        width: 100%;
+        padding-right: 0px;
+        text-align: center;
+    }
+
+    .about .imgBx{
+        min-height: 250px;
+    }
+
+    .btn2{
+        margin-bottom: 30px;
+    }
+
+    .post-header{
+        height: 435px;
+    }
+
+    .post-header{
+        margin-top: 9rem !important;
+    }
+}
+
+@media (max-width: 570px){
+    .post-header{
+        height: 390px;
+    }
+
+    .header-title{
+        width: 100%;
+    }
+
+    .header-img{
+        height: 340px;
+    }
+}
+
+@media (max-width: 396px){
+    .home-title{
+        font-size: 2rem;
+    }
+
+    .home-subtitle{
         font-size: 0.9rem;
     }
-}
 
-/* Media Query: Max Width 396px */
-@media (max-width: 396px) {
-    .header-logo {
-        font-size: 1.1rem;
+    .home{
+        min-height: 300px;
     }
 
-    .header-nav a {
-        font-size: 0.8rem;
+    .post-box{
+        padding: 10px;
+    }
+
+    .header-title{
+        font-size: 1.4rem;
+    }
+
+    .header-img{
+        height: 240px;
+    }
+
+    .post-header{
+        height: 335px;
+    }
+
+    .header-img{
+        height: 340px;
     }
 }
-
 
 /* Footer Media Query */
 @media (max-width: 991px) {
