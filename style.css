@@ -782,100 +782,128 @@ footer p {
     color: white;
 }
 
-@media (max-width: 1060px) {
-    .container {
+
+@media (max-width: 1060px){
+    .container{
         margin: 0 auto;
         width: 95%;
     }
 
-    .home-text {
-        width: 100%;
-        text-align: center; /* Center text for better appearance */
+    .home-text{
+        width: 100%
     }
 }
 
-@media (max-width: 768px) {
-    .nav {
+@media (max-width: 768px){
+    .nav{
         padding: 10px 0;
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center items */
     }
 
-    section {
-        padding: 2rem 0 !important; /* Add padding to the section */
+    section{
+        padding: 2rem 0 !important;
     }
 
-    .home {
-        min-height: 380px; /* Ensure a minimum height */
+    .header-content{
+        margin-top: 3rem !important;
     }
 
-    .home-title {
-        font-size: 3rem; /* Adjust title size */
+    .home{
+        min-height: 380px;
     }
 
-    .home-subtitle {
-        font-size: 1.5rem; /* Adjust subtitle size */
+    .home-title{
+        font-size: 3rem;
     }
 
-    .intro, .outro {
-        padding: 15px; /* Add padding for better spacing */
+    .header-title{
+        font-size: 2rem;
     }
 
-    .gambartikel {
-        width: 100%; /* Make images responsive */
-        height: auto; /* Maintain aspect ratio */
+    .header-img{
+        height: 370px;
     }
 
-    .post-content h3 {
-        font-size: 1.8rem; /* Adjust header size in post content */
+    .about{
+        flex-direction: column;
     }
 
-    .post-description {
-        font-size: 0.9rem; /* Adjust post description size */
+    .about .contentBx{
+        min-width: 100%;
+        width: 100%;
+        text-align: center;
+        padding-right: 0px;
     }
 
-    .post-box {
-        margin: 10px 0; /* Add margin between post boxes */
+    .about .contentBx,
+    .about .imgBx{
+        min-width: 100%;
+        width: 100%;
+        padding-right: 0px;
+        text-align: center;
+    }
+
+    .about .imgBx{
+        min-height: 250px;
+    }
+
+    .btn2{
+        margin-bottom: 30px;
+    }
+
+    .post-header{
+        height: 435px;
+    }
+
+    .post-header{
+        margin-top: 9rem !important;
     }
 }
 
-@media (max-width: 570px) {
-    .post-header {
-        height: auto; /* Allow height to adjust based on content */
+@media (max-width: 570px){
+    .post-header{
+        height: 390px;
     }
 
-    .home-title {
-        font-size: 2.5rem; /* Adjust title size for smaller screens */
+    .header-title{
+        width: 100%;
     }
 
-    .home-subtitle {
-        font-size: 1.2rem; /* Adjust subtitle size for smaller screens */
-    }
-
-    .gambartikel {
-        height: auto; /* Maintain aspect ratio */
+    .header-img{
+        height: 340px;
     }
 }
 
-@media (max-width: 396px) {
-    .home-title {
-        font-size: 2rem; /* Further reduce title size */
+@media (max-width: 396px){
+    .home-title{
+        font-size: 2rem;
     }
 
-    .home-subtitle {
-        font-size: 0.9rem; /* Further reduce subtitle size */
+    .home-subtitle{
+        font-size: 0.9rem;
     }
 
-    .post-box {
-        padding: 10px; /* Adjust padding for post boxes */
+    .home{
+        min-height: 300px;
     }
 
-    .post-content h3 {
-        font-size: 1.5rem; /* Adjust header size in post content */
+    .post-box{
+        padding: 10px;
     }
 
-    .post-description {
-        font-size: 0.8rem; /* Further adjust post description size */
+    .header-title{
+        font-size: 1.4rem;
+    }
+
+    .header-img{
+        height: 240px;
+    }
+
+    .post-header{
+        height: 335px;
+    }
+
+    .header-img{
+        height: 340px;
     }
 }
 
