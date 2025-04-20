@@ -488,7 +488,6 @@ h3 {
 }
 
 .swiper-slide {
-    width: 30%;
     box-sizing: border-box;
     margin: 0 10px;
     transition: transform 0.5s ease, opacity 0.5s ease;
@@ -889,7 +888,6 @@ footer p {
 
     .post-box{
         padding: 10px;
-        width: 240px;
     }
 
     .header-title{
