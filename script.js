@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const toggle = document.getElementById("dark-mode-toggle");
   toggle.addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
+    // Replace 'dark-mode' with Tailwind's 'dark' class
+    document.documentElement.classList.toggle("dark");
   });
 
   function throttle(func, limit) {
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const sidebarToggle = document.querySelector(".sidebar-toggle");
   sidebarToggle.addEventListener("click", function () {
+    // Retain 'sidebar-visible' for toggling visibility
     document.body.classList.toggle("sidebar-visible");
   });
 
@@ -41,10 +43,11 @@ document.addEventListener("DOMContentLoaded", function () {
     header.id = headerId;
     header.setAttribute("tabindex", "0");
 
+    // Replace 'sidebar-link' with a Tailwind-compatible class
     const link = document.createElement("a");
     link.href = `#${headerId}`;
     link.textContent = header.textContent;
-    link.className = "sidebar-link";
+    link.className = "text-blue-500"; // Example Tailwind class
     link.dataset.headerId = headerId;
 
     sidebar.insertBefore(link, readingProgressContainer);
@@ -82,9 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const sidebarLinks = document.querySelectorAll(".sidebar-link");
     sidebarLinks.forEach((link) => {
       if (lastPassedHeaderId === link.dataset.headerId) {
-        link.classList.add("active");
+        // Replace 'active' with a Tailwind-compatible class
+        link.classList.add("font-bold"); // Example Tailwind class
       } else {
-        link.classList.remove("active");
+        link.classList.remove("font-bold");
       }
     });
 

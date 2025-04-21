@@ -7,103 +7,98 @@
     <title>CYBERTHERAPY</title>
     <!-- Box-icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-        <div class="nav container">
-            <a href="index.html" class="logo">Cyber<span>Therapy</span></a>
-            <a href="https://iqbalkopling01.github.io/PortCyPhy/" class="login">Get in Touch</a>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <header class="bg-white shadow">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <a href="index.html" class="text-2xl font-bold text-blue-600">Cyber<span class="text-gray-800">Therapy</span></a>
+            <a href="https://iqbalkopling01.github.io/PortCyPhy/" class="text-sm font-medium text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700">Get in Touch</a>
         </div>
     </header>
 
-    <section class="home" id="home">
-        <div class="home-text container">
-            <h2 class="home-title">CyberTherapy</h2>
-            <span class="home-subtitle">CyberSecurity X Physiotherapy Content</span>
+    <section class="home bg-blue-50 py-16" id="home">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold text-gray-800">CyberTherapy</h2>
+            <span class="text-lg text-gray-600">CyberSecurity X Physiotherapy Content</span>
         </div>
     </section>
 
-    <div class="konten">
+    <div class="konten container mx-auto py-8 px-6">
+        <button class="sidebar-toggle text-xl font-bold text-gray-800">☰</button>
 
-
-        <button class="sidebar-toggle">☰</button>
-
-        <div class="intro">
-            <h1>Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</h1>
-            <img src="images/img6.jpg" alt="Fisioterapi101" class="gambartikel fotoutama">
-            <p>Fisioterapi adalah profesi di bidang kesehatan yang membantu pemulihan pasien dari cedera, sakit, atau disabilitas dengan memanfaatkan teknik terapi fisik, latihan, dan teknologi modern.</p>
+        <div class="intro mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</h1>
+            <img src="images/img6.jpg" alt="Fisioterapi101" class="w-full h-auto object-cover rounded mb-4">
+            <p class="text-gray-600">Fisioterapi adalah profesi di bidang kesehatan yang membantu pemulihan pasien dari cedera, sakit, atau disabilitas dengan memanfaatkan teknik terapi fisik, latihan, dan teknologi modern.</p>
         </div>
-        <div class="sidebar-container">
-            <div class="sidebar-wrapper">
-                <div class="sidebar">
-                    <div class="reading-progress-container">
-                        <div class="reading-progress-bar"></div>
+
+        <div class="sidebar-container flex flex-col md:flex-row">
+            <div class="sidebar-wrapper md:w-1/4">
+                <div class="sidebar bg-gray-200 p-4 rounded mb-4">
+                    <div class="reading-progress-container h-2 bg-gray-300 rounded">
+                        <div class="reading-progress-bar h-2 bg-blue-600 rounded"></div>
                     </div>
                 </div>
-                <div class="author-box">
-                    <img src="images/testi1.jpg" alt="Author's Gravatar"
-                        class="author-gravatar">
+                <div class="author-box bg-white shadow p-4 rounded flex items-center">
+                    <img src="images/testi1.jpg" alt="Author's Gravatar" class="w-12 h-12 rounded-full mr-4">
                     <div class="author-info">
-                        <span class="author-title">Author</span>
-                        <span class="author-name">Run</span>
+                        <span class="block text-sm font-medium text-gray-800">Author</span>
+                        <span class="block text-sm text-gray-600">Run</span>
                     </div>
-
-                    <span id="dark-mode-toggle" class="material-symbols-outlined light-icon"></span>
-                    </span>
-
                 </div>
             </div>
-            <div class="post-content">
-                <h3 class="header-one">Fisioterapi Secara Umum</h3>
-                <img src="images/img7.jpg" alt="Fisioterapi Secara Umum" class="gambartikel fotosub">
-                <p>Fisioterapi adalah profesi di bidang kesehatan yang bertujuan untuk membantu pemulihan pasien dari cedera, sakit, atau disabilitas. Melalui berbagai teknik seperti terapi manual, latihan fisik, dan penggunaan alat bantu, fisioterapi berfokus pada pemulihan fungsi tubuh dan peningkatan kualitas hidup pasien.
+
+            <div class="post-content md:w-3/4 md:pl-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Fisioterapi Secara Umum</h3>
+                <img src="images/img7.jpg" alt="Fisioterapi Secara Umum" class="w-full h-auto object-cover rounded mb-4">
+                <p class="text-gray-600 mb-6">Fisioterapi adalah profesi di bidang kesehatan yang bertujuan untuk membantu pemulihan pasien dari cedera, sakit, atau disabilitas. Melalui berbagai teknik seperti terapi manual, latihan fisik, dan penggunaan alat bantu, fisioterapi berfokus pada pemulihan fungsi tubuh dan peningkatan kualitas hidup pasien.
                 
                 </p>
 
-                <h3>Profesi dan Lulusan Fisioterapi</h3>
-                <img src="images/img8.jpg" alt="Profesi dan Lulusan Fisioterapi" class="gambartikel fotosub">
-                <p>Lulusan Fisioterapi akan mampu memberikan pelayanan dengan mengembangkan, memelihara, dan memulihkan gerak dan fungsi tubuh sepanjang rentang kehidupan dengan menggunakan penanganan secara manual, peningkatan gerak, peralatan (fisik, elektroterapeutis dan mekanis), pelatihan fungsi, serta komunikasi, dan edukasi (PMK No 80, tahun 2013). Lulusan fisioterapi dapat bekerja di rumah sakit, klinik rehabilitasi, tim olahraga, atau membuka praktik mandiri.
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Profesi dan Lulusan Fisioterapi</h3>
+                <img src="images/img8.jpg" alt="Profesi dan Lulusan Fisioterapi" class="w-full h-auto object-cover rounded mb-4">
+                <p class="text-gray-600 mb-6">Lulusan Fisioterapi akan mampu memberikan pelayanan dengan mengembangkan, memelihara, dan memulihkan gerak dan fungsi tubuh sepanjang rentang kehidupan dengan menggunakan penanganan secara manual, peningkatan gerak, peralatan (fisik, elektroterapeutis dan mekanis), pelatihan fungsi, serta komunikasi, dan edukasi (PMK No 80, tahun 2013). Lulusan fisioterapi dapat bekerja di rumah sakit, klinik rehabilitasi, tim olahraga, atau membuka praktik mandiri.
                 </p>
 
-                <h3>Sejarah Fisioterapi di Dunia</h3>
-                <img src="images/img9.jpg" alt="Sejarah Fisioterapi di Dunia" class="gambartikel fotosub">
-                <p>Sejarah fisioterapi dimulai sejak zaman Mesir Kuno (2500 SM). Pada masa Hippocrates (460 SM), teknik pijat dan hidroterapi telah digunakan. Fisioterapi modern mulai berkembang di Eropa pada abad ke-18 dengan kontribusi besar dari Per Henrik Ling.</p>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Sejarah Fisioterapi di Dunia</h3>
+                <img src="images/img9.jpg" alt="Sejarah Fisioterapi di Dunia" class="w-full h-auto object-cover rounded mb-4">
+                <p class="text-gray-600 mb-6">Sejarah fisioterapi dimulai sejak zaman Mesir Kuno (2500 SM). Pada masa Hippocrates (460 SM), teknik pijat dan hidroterapi telah digunakan. Fisioterapi modern mulai berkembang di Eropa pada abad ke-18 dengan kontribusi besar dari Per Henrik Ling.</p>
 
-                <h3>Sejarah Fisioterapi di Indonesia</h3>
-                <img src="images/img10.jpg" alt="Sejarah Fisioterapi di Indonesia" class="gambartikel fotosub">
-                <p>Fisioterapi di Indonesia bermula pada tahun 1956 dengan didirikannya Sekolah Perawat Physiotherapy di Solo oleh Prof. Dr. Soeharso. Pendidikan fisioterapi terus berkembang dengan banyak institusi yang mendukung profesi ini.</p>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Sejarah Fisioterapi di Indonesia</h3>
+                <img src="images/img10.jpg" alt="Sejarah Fisioterapi di Indonesia" class="w-full h-auto object-cover rounded mb-4">
+                <p class="text-gray-600 mb-6">Fisioterapi di Indonesia bermula pada tahun 1956 dengan didirikannya Sekolah Perawat Physiotherapy di Solo oleh Prof. Dr. Soeharso. Pendidikan fisioterapi terus berkembang dengan banyak institusi yang mendukung profesi ini.</p>
 
-                <h3>Tokoh Penting dalam Fisioterapi Global</h3>
-                <img src="images/img11.jpg" alt="Tokoh Penting dalam Fisioterapi Global" class="gambartikel fotosub">
-                <p> 1. Hippocrates: Bapak Kedokteran, menggunakan teknik pijat dan hidroterapi.<br>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Tokoh Penting dalam Fisioterapi Global</h3>
+                <img src="images/img11.jpg" alt="Tokoh Penting dalam Fisioterapi Global" class="w-full h-auto object-cover rounded mb-4">
+                <p class="text-gray-600 mb-6"> 1. Hippocrates: Bapak Kedokteran, menggunakan teknik pijat dan hidroterapi.<br>
                     2. Per Henrik Ling: Pendiri metode terapi fisik modern.<br>
                     3. Mary McMillan: Pendiri American Physical Therapy Association.
                 </p>
 
-                <h3>Tokoh Penting dalam Fisioterapi Indonesia</h3>
-                <img src="images/img12.jpg" alt="Tokoh Penting dalam Fisioterapi Indonesia" class="gambartikel fotosub">
-                <p> 1. Prof. Dr. Soeharso: Bapak Fisioterapi Indonesia.<br>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Tokoh Penting dalam Fisioterapi Indonesia</h3>
+                <img src="images/img12.jpg" alt="Tokoh Penting dalam Fisioterapi Indonesia" class="w-full h-auto object-cover rounded mb-4">
+                <p class="text-gray-600 mb-6"> 1. Prof. Dr. Soeharso: Bapak Fisioterapi Indonesia.<br>
                     2. Matias Ibo: Fisioterapis terkenal di dunia olahraga.<br>
                     3. Wahyudin: Doktor fisioterapi pertama di Indonesia.
                 </p>
 
-                <h3>Jurusan Fisioterapi Di Indonesia</h3>
-                <p> Fisioterapi adalah profesi kesehatan yang bertujuan memulihkan fungsi tubuh pasien melalui berbagai teknik rehabilitasi fisik. Sejarahnya telah berkembang sejak zaman kuno dengan pijat dan hidroterapi, hingga menjadi praktik modern yang diakui secara global. Di Indonesia, fisioterapi dimulai pada tahun 1956 oleh Prof. Dr. Soeharso yang juga dikenal sebagai Bapak Fisioterapi Indonesia. Berbagai tokoh penting baik dari dunia maupun Indonesia berperan besar dalam pengembangan profesi ini. Seiring kemajuan teknologi dan ilmu pengetahuan, fisioterapi terus berkembang menjadi bagian esensial dari sistem pelayanan kesehatan global.                </p>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Jurusan Fisioterapi Di Indonesia</h3>
+                <p class="text-gray-600 mb-6"> Fisioterapi adalah profesi kesehatan yang bertujuan memulihkan fungsi tubuh pasien melalui berbagai teknik rehabilitasi fisik. Sejarahnya telah berkembang sejak zaman kuno dengan pijat dan hidroterapi, hingga menjadi praktik modern yang diakui secara global. Di Indonesia, fisioterapi dimulai pada tahun 1956 oleh Prof. Dr. Soeharso yang juga dikenal sebagai Bapak Fisioterapi Indonesia. Berbagai tokoh penting baik dari dunia maupun Indonesia berperan besar dalam pengembangan profesi ini. Seiring kemajuan teknologi dan ilmu pengetahuan, fisioterapi terus berkembang menjadi bagian esensial dari sistem pelayanan kesehatan global.                </p>
             </div>
         </div>
-        <div class="outro">
-            <p>
+        <div class="outro mt-8">
+            <p class="text-gray-600 mb-4">
                 Fisioterapi adalah profesi kesehatan yang bertujuan memulihkan fungsi tubuh pasien melalui berbagai teknik rehabilitasi fisik. Sejarahnya telah berkembang sejak zaman kuno dengan pijat dan hidroterapi, hingga menjadi praktik modern yang diakui secara global. Di Indonesia, fisioterapi dimulai pada tahun 1956 oleh Prof. Dr. Soeharso yang juga dikenal sebagai Bapak Fisioterapi Indonesia. Berbagai tokoh penting baik dari dunia maupun Indonesia berperan besar dalam pengembangan profesi ini. Seiring kemajuan teknologi dan ilmu pengetahuan, fisioterapi terus berkembang menjadi bagian esensial dari sistem pelayanan kesehatan global.<br> <br></p>
             
-                 <h3>Referensi: </h3>
-                 <p>https://vokasi.ui.ac.id/web/fisioterapi-2/</p>
-                <p>http://forumfisio.blogspot.com/2014/01/sejarah-fisioterapi-di-indonesia.html </p>
-                <p>https://www.esaunggul.ac.id/wahyudin-doktor-s3-fisioterapi-pertama-di-indonesia/</p>
-                <p> https://www.nkhealth.fit/sejarah-fisioterapi-di-indonesia/</p>
-                <p> https://solopos.espos.id/selamat-5-fisioterapis-indonesia-raih-pengakuan-kepakaran-spesialis-dari-ifi-897942</p>
-                <p>https://www.ifi.or.id </p>
-                <p>https://campus.quipper.com/careers/terapis-fisik-fisioterapis</p>
+                 <h3 class="text-xl font-bold text-gray-800 mb-2">Referensi: </h3>
+                 <p class="text-gray-600 mb-4"><a href="https://vokasi.ui.ac.id/web/fisioterapi-2/" class="text-blue-600 hover:underline">https://vokasi.ui.ac.id/web/fisioterapi-2/</a></p>
+                <p class="text-gray-600 mb-4"><a href="http://forumfisio.blogspot.com/2014/01/sejarah-fisioterapi-di-indonesia.html" class="text-blue-600 hover:underline">http://forumfisio.blogspot.com/2014/01/sejarah-fisioterapi-di-indonesia.html</a></p>
+                <p class="text-gray-600 mb-4"><a href="https://www.esaunggul.ac.id/wahyudin-doktor-s3-fisioterapi-pertama-di-indonesia/" class="text-blue-600 hover:underline">https://www.esaunggul.ac.id/wahyudin-doktor-s3-fisioterapi-pertama-di-indonesia/</a></p>
+                <p class="text-gray-600 mb-4"><a href="https://www.nkhealth.fit/sejarah-fisioterapi-di-indonesia/" class="text-blue-600 hover:underline">https://www.nkhealth.fit/sejarah-fisioterapi-di-indonesia/</a></p>
+                <p class="text-gray-600 mb-4"><a href="https://solopos.espos.id/selamat-5-fisioterapis-indonesia-raih-pengakuan-kepakaran-spesialis-dari-ifi-897942" class="text-blue-600 hover:underline">https://solopos.espos.id/selamat-5-fisioterapis-indonesia-raih-pengakuan-kepakaran-spesialis-dari-ifi-897942</a></p>
+                <p class="text-gray-600 mb-4"><a href="https://www.ifi.or.id" class="text-blue-600 hover:underline">https://www.ifi.or.id</a></p>
+                <p class="text-gray-600 mb-4"><a href="https://campus.quipper.com/careers/terapis-fisik-fisioterapis" class="text-blue-600 hover:underline">https://campus.quipper.com/careers/terapis-fisik-fisioterapis</a></p>
                 
             </p>
         </div>
@@ -112,56 +107,55 @@
 
     </div>
 
-    <div class="post-filter container">
-        <span class="filter-item active-filter" data-filter="all">All Recomended Posts</span>
+    <div class="post-filter container mx-auto flex justify-center space-x-4 py-6">
+        <span class="filter-item active-filter text-blue-600 font-medium cursor-pointer" data-filter="all">All Recommended Posts</span>
     </div>
 
-    <div class="carousel-container">
+    <div class="carousel-container container mx-auto py-8">
         <div class="mySwiper" id="1234">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Post 1 -->
-                <div class="swiper-slide">
-                    <div class="post-box news">
-                        <img src="images/img1.jpg" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="page1.html" class="post-title">The Delightful World of Crayfish.</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
-                            freshwater ecosystems...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">RUNNIMG</span>
+                <div class="swiper-slide bg-white shadow rounded overflow-hidden">
+                    <img src="images/img1.jpg" alt="" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-sm font-medium text-blue-600">News</h2>
+                        <a href="page1.html" class="block text-lg font-bold text-gray-800 hover:text-blue-600">The Delightful World of Crayfish.</a>
+                        <span class="text-sm text-gray-500">10 Des 2024</span>
+                        <p class="text-gray-600 mt-2">Crayfish, also known as crawfish or crawdads in certain regions...</p>
+                        <div class="profile flex items-center mt-4">
+                            <img src="images/testi1.jpg" alt="" class="w-10 h-10 rounded-full">
+                            <span class="ml-2 text-sm text-gray-800">RUNNIMG</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Post 2 -->
-                <div class="swiper-slide">
-                    <div class="post-box health">
-                        <img src="images/img2.png" alt="" class="post-img">
-                        <h2 class="category">Health</h2>
-                        <a href="blogpost1.html" class="post-title">Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Fisioterapi adalah profesi di bidang kesehatan yang membantu pemulihan pasien dengan memanfaatkan teknik terapi fisik, latihan, dan teknologi modern.</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">RUNNIMG</span>
+                <div class="swiper-slide bg-white shadow rounded overflow-hidden">
+                    <img src="images/img2.png" alt="" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-sm font-medium text-blue-600">Health</h2>
+                        <a href="blogpost1.html" class="block text-lg font-bold text-gray-800 hover:text-blue-600">Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</a>
+                        <span class="text-sm text-gray-500">10 Des 2024</span>
+                        <p class="text-gray-600 mt-2">Fisioterapi adalah profesi di bidang kesehatan yang membantu pemulihan pasien dengan memanfaatkan teknik terapi fisik, latihan, dan teknologi modern.</p>
+                        <div class="profile flex items-center mt-4">
+                            <img src="images/testi1.jpg" alt="" class="w-10 h-10 rounded-full">
+                            <span class="ml-2 text-sm text-gray-800">RUNNIMG</span>
                         </div>
                     </div>
                 </div>
 
                 <!--Post3-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/img13.jpg" alt="" class="post-img">
-                        <h2 class="category">Tech</h2>
-                        <a href="blogpost2.html" class="post-title">Simple WebApp Penetration Testing</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
+                <div class="swiper-slide bg-white shadow rounded overflow-hidden">
+                    <img src="images/img13.jpg" alt="" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-sm font-medium text-blue-600">Tech</h2>
+                        <a href="blogpost2.html" class="block text-lg font-bold text-gray-800 hover:text-blue-600">Simple WebApp Penetration Testing</a>
+                        <span class="text-sm text-gray-500">10 Des 2024</span>
+                        <p class="text-gray-600 mt-2">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
                             freshwater ecosystems...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">RUNNIMG</span>
+                        <div class="profile flex items-center mt-4">
+                            <img src="images/testi1.jpg" alt="" class="w-10 h-10 rounded-full">
+                            <span class="ml-2 text-sm text-gray-800">RUNNIMG</span>
                         </div>
                     </div>
                 </div>
@@ -169,44 +163,44 @@
             </div>
 
 
-            <div class="slider-button-wrap d-flex justify-content-center">
-                <div class="slider-button-prev swiperSignpostingPrev"> <span class="icon"></span></div>
-                <div class="slider-button-next swiperSignpostingNext"><span class="icon"></span></div>
+            <div class="slider-button-wrap flex justify-center mt-4">
+                <div class="slider-button-prev swiperSignpostingPrev text-gray-600 hover:text-gray-800 cursor-pointer">Prev</div>
+                <div class="slider-button-next swiperSignpostingNext text-gray-600 hover:text-gray-800 cursor-pointer">Next</div>
             </div>
             
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination mt-4"></div>
         </div>
     </div>
 
-    <footer>
-        <div class="footer-container">
+    <footer class="bg-gray-800 text-gray-200 py-12">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="sec aboutus">
-                <h2>About Us</h2>
-                <p>CyberSecurity and Physiotherapy Student at Universitas Indonesia. Care to learn and increasing knowledge from zero to hero.</p>
-                <ul class="sci">
-                    <li><a href="https://www.facebook.com/profile.php?id=100072590963891"><i class="bx bxl-facebook"></i></a></li>
-                    <li><a href="https://www.instagram.com/iqb.mln/"><i class="bx bxl-instagram"></i></a></li>
-                    <li><a href="https://github.com/iqbalkopling01" ><i class="bx bxl-github"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/nur-iqbal-maulana-7375371ba"><i class="bx bxl-linkedin"></i></a></li>
+                <h2 class="text-xl font-bold mb-4">About Us</h2>
+                <p class="text-gray-400">CyberSecurity and Physiotherapy Student at Universitas Indonesia. Care to learn and increasing knowledge from zero to hero.</p>
+                <ul class="flex space-x-4 mt-4">
+                    <li><a href="https://www.facebook.com/profile.php?id=100072590963891" class="text-gray-400 hover:text-white"><i class="bx bxl-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/iqb.mln/" class="text-gray-400 hover:text-white"><i class="bx bxl-instagram"></i></a></li>
+                    <li><a href="https://github.com/iqbalkopling01" class="text-gray-400 hover:text-white"><i class="bx bxl-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/nur-iqbal-maulana-7375371ba" class="text-gray-400 hover:text-white"><i class="bx bxl-linkedin"></i></a></li>
                 </ul>
             </div>
             <div class="sec quicklinks">
-                <h2>Quick Links</h2>
+                <h2 class="text-xl font-bold mb-4">Quick Links</h2>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="https://iqbalkopling01.github.io/PortCyPhy/">About</a></li>
+                    <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                    <li><a href="https://iqbalkopling01.github.io/PortCyPhy/" class="text-gray-400 hover:text-white">About</a></li>
                 </ul>
             </div>
             <div class="sec contactBx">
-                <h2>Contact Info</h2>
+                <h2 class="text-xl font-bold mb-4">Contact Info</h2>
                 <ul class="info">
-                    <li>
-                        <span><i class='bx bxs-map'></i></span>
-                        <span>Universitas Indonesia, Depok <br> West Java <br> Id</span>
+                    <li class="flex items-center mb-4">
+                        <span class="text-gray-400"><i class='bx bxs-map'></i></span>
+                        <span class="ml-2 text-gray-400">Universitas Indonesia, Depok <br> West Java <br> Id</span>
                     </li>
-                    <li>
-                        <span><i class='bx bx-envelope' ></i></span>
-                        <p><a href="mailto:Iqbalmaulana5011@gmail.com">Iqbalmaulana5011@gmail.com</a></p>
+                    <li class="flex items-center mb-4">
+                        <span class="text-gray-400"><i class='bx bx-envelope' ></i></span>
+                        <p class="ml-2 text-gray-400"><a href="mailto:Iqbalmaulana5011@gmail.com" class="text-gray-400 hover:text-white">Iqbalmaulana5011@gmail.com</a></p>
                     </li>
                 </ul>
             </div>
@@ -216,7 +210,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.querySelectorAll('.mySwiper').forEach(function (thisSlider) {
