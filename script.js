@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const toggle = document.getElementById("dark-mode-toggle");
   toggle.addEventListener("click", function () {
-    // Replace 'dark-mode' with Tailwind's 'dark' class
-    document.documentElement.classList.toggle("dark");
+    document.body.classList.toggle("dark-mode");
   });
 
   function throttle(func, limit) {
@@ -28,8 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const sidebarToggle = document.querySelector(".sidebar-toggle");
   sidebarToggle.addEventListener("click", function () {
-    // Replace 'sidebar-visible' with Tailwind's equivalent class
-    document.body.classList.toggle("lg:translate-x-0"); // Example Tailwind class for visibility
+    document.body.classList.toggle("sidebar-visible");
   });
 
   const sidebar = document.querySelector(".sidebar");
@@ -43,17 +41,16 @@ document.addEventListener("DOMContentLoaded", function () {
     header.id = headerId;
     header.setAttribute("tabindex", "0");
 
-    // Replace 'sidebar-link' with a Tailwind-compatible class
     const link = document.createElement("a");
     link.href = `#${headerId}`;
     link.textContent = header.textContent;
-    link.className = "text-blue-500 hover:underline"; // Example Tailwind classes
+    link.className = "sidebar-link";
     link.dataset.headerId = headerId;
 
     sidebar.insertBefore(link, readingProgressContainer);
   });
 
-  const sidebarLinks = document.querySelectorAll(".sidebar a");
+  const sidebarLinks = document.querySelectorAll(".sidebar-link");
   sidebarLinks.forEach((link) => {
     link.addEventListener("click", function (event) {
       event.preventDefault();
@@ -82,13 +79,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    const sidebarLinks = document.querySelectorAll(".sidebar a");
+    const sidebarLinks = document.querySelectorAll(".sidebar-link");
     sidebarLinks.forEach((link) => {
       if (lastPassedHeaderId === link.dataset.headerId) {
-        // Replace 'active' with a Tailwind-compatible class
-        link.classList.add("font-bold", "text-blue-700"); // Example Tailwind classes
+        link.classList.add("active");
       } else {
-        link.classList.remove("font-bold", "text-blue-700");
+        link.classList.remove("active");
       }
     });
 

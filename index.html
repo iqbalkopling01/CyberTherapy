@@ -7,124 +7,119 @@
     <title>CYBERTHERAPY</title>
     <!-- Box-icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="font-sans bg-gray-100 text-gray-800">
-    <header class="bg-white shadow">
-        <div class="container mx-auto flex justify-between items-center py-4 px-6">
-            <a href="index.html" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition">Cyber<span class="text-gray-800">Therapy</span></a>
-            <a href="https://iqbalkopling01.github.io/PortCyPhy/" class="text-sm font-medium text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition">Get in Touch</a>
+<body>
+    <header>
+        <div class="nav container">
+            <a href="index.html" class="logo">Cyber<span>Therapy</span></a>
+            <a href="https://iqbalkopling01.github.io/PortCyPhy/" class="login">Get in Touch</a>
         </div>
     </header>
 
-    <section class="home bg-blue-50 py-16" id="home">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold text-gray-800">CyberTherapy</h2>
-            <span class="text-lg text-gray-600">CyberSecurity X Physiotherapy Content</span>
+    <section class="home" id="home">
+        <div class="home-text container">
+            <h2 class="home-title">CyberTherapy</h2>
+            <span class="home-subtitle">CyberSecurity X Physiotherapy Content</span>
         </div>
     </section>
 
-    <section class="about container mx-auto py-16 px-6" id="about">
-        <div class="flex flex-col md:flex-row items-center">
-            <div class="contentBx md:w-1/2">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Dapatkan Informasi Menarik dari Dunia Cybersecurity dan Fisioterapi Disini!!!</h2>
-                <p class="text-gray-600 mb-6">Dalam era digital yang semakin maju, teknologi telah memengaruhi hampir setiap aspek kehidupan 
+    <section class="about container" id="about">
+        <div class="contentBx">
+            <h2 class="titleText">Dapatkan Informasi Menarik dari Dunia Cybersecurity dan Fisioterapi Disini!!!</h2>
+            <p class="title-text">
+                <p>Dalam era digital yang semakin maju, teknologi telah memengaruhi hampir setiap aspek kehidupan 
                     kita, termasuk bidang kesehatan. Sebagai mahasiswa yang mempelajari baik cybersecurity maupun 
                     fisioterapi, kita memiliki kesempatan unik untuk memahami dan menjembatani dua bidang ini. 
                     Artikel ini akan menggali dasar-dasar cybersecurity dan fisioterapi serta bagaimana keduanya 
                     dapat saling melengkapi.</p>
-                <a href="page2.html" class="text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition">Read more</a>
-            </div>
-            <div class="imgBx md:w-1/2 mt-6 md:mt-0">
-                <img src="images/about.png" alt="About CyberTherapy" class="w-full h-auto object-cover rounded shadow">
-            </div>
+            </p>
+            <a href="page2.html" class="btn2">Read more</a>
+        </div>
+        <div class="imgBx">
+            <img src="images/about.png" alt="" class="fitBg">
         </div>
     </section>
 
-    <div class="post-filter container mx-auto flex justify-center space-x-4 py-6">
-        <span class="filter-item active-filter text-blue-600 font-medium cursor-pointer hover:text-blue-700 transition" data-filter="all">All</span>
-        <span class="filter-item text-gray-600 font-medium cursor-pointer hover:text-blue-700 transition" data-filter="tech">Tech</span>
-        <span class="filter-item text-gray-600 font-medium cursor-pointer hover:text-blue-700 transition" data-filter="health">Health</span>
-        <span class="filter-item text-gray-600 font-medium cursor-pointer hover:text-blue-700 transition" data-filter="news">News</span>
+    <div class="post-filter container">
+        <span class="filter-item active-filter" data-filter="all">All</span>
+        <span class="filter-item" data-filter="tech">Tech</span>
+        <span class="filter-item" data-filter="health">Health</span>
+        <span class="filter-item" data-filter="news">News</span>
     </div>
     
-    <div class="post container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="post container">
         <!-- Post 1 -->
-        <div class="post-box news bg-white shadow rounded overflow-hidden">
-            <img src="images/img1.jpg" alt="News Image" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h2 class="text-sm font-medium text-blue-600">News</h2>
-                <a href="page1.html" class="block text-lg font-bold text-gray-800 hover:text-blue-600 transition">The Delightful World of Crayfish.</a>
-                <span class="text-sm text-gray-500">10 Des 2024</span>
-                <p class="text-gray-600 mt-2">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
-                    freshwater ecosystems...</p>
-                <div class="profile flex items-center mt-4">
-                    <img src="images/testi1.jpg" alt="Profile Image" class="w-10 h-10 rounded-full">
-                    <span class="ml-2 text-sm text-gray-800">RUNNIMG</span>
-                </div>
+        <div class="post-box news">
+            <img src="images/img1.jpg" alt="" class="post-img">
+            <h2 class="category">News</h2>
+            <a href="page1.html" class="post-title">The Delightful World of Crayfish.</a>
+            <span class="post-date">10 Des 2024</span>
+            <p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
+                freshwater ecosystems...</p>
+            <div class="profile">
+                <img src="images/testi1.jpg" alt="" class="profile-img">
+                <span class="profile-name">RUNNIMG</span>
             </div>
         </div>
         <!-- Post 2 -->
-        <div class="post-box health bg-white shadow rounded overflow-hidden">
-            <img src="images/img2.png" alt="Health Image" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h2 class="text-sm font-medium text-blue-600">Health</h2>
-                <a href="blogpost1.html" class="block text-lg font-bold text-gray-800 hover:text-blue-600 transition">Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</a>
-                <span class="text-sm text-gray-500">10 Des 2024</span>
-                <p class="text-gray-600 mt-2">Fisioterapi adalah profesi di bidang kesehatan yang berfokus pada rehabilitasi, pencegahan, dan 
-                    pengelolaan gangguan gerak tubuh.</p>
-                <div class="profile flex items-center mt-4">
-                    <img src="images/testi1.jpg" alt="Profile Image" class="w-10 h-10 rounded-full">
-                    <span class="ml-2 text-sm text-gray-800">RUNNIMG</span>
-                </div>
+        <div class="post-box health">
+            <img src="images/img2.png" alt="" class="post-img">
+            <h2 class="category">Health</h2>
+            <a href="blogpost1.html" class="post-title">Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</a>
+            <span class="post-date">10 Des 2024</span>
+            <p class="post-description">Fisioterapi adalah profesi di bidang kesehatan yang berfokus pada rehabilitasi, pencegahan, dan 
+                pengelolaan gangguan gerak tubuh.</p>
+            <div class="profile">
+                <img src="images/testi1.jpg" alt="" class="profile-img">
+                <span class="profile-name">RUNNIMG</span>
             </div>
         </div>
-        <!-- Post 3 -->
-        <div class="post-box tech bg-white shadow rounded overflow-hidden">
-            <img src="images/img13.jpg" alt="Tech Image" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h2 class="text-sm font-medium text-blue-600">Tech</h2>
-                <a href="blogpost2.html" class="block text-lg font-bold text-gray-800 hover:text-blue-600 transition">Simple WebApp Penetration Testing</a>
-                <span class="text-sm text-gray-500">10 Des 2024</span>
-                <p class="text-gray-600 mt-2">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
-                    freshwater ecosystems...</p>
-                <div class="profile flex items-center mt-4">
-                    <img src="images/testi1.jpg" alt="Profile Image" class="w-10 h-10 rounded-full">
-                    <span class="ml-2 text-sm text-gray-800">RUNNIMG</span>
-                </div>
+        <!--Post3-->
+        <div class="post-box tech">
+            <img src="images/img13.jpg" alt="" class="post-img">
+            <h2 class="category">Tech</h2>
+            <a href="blogpost2.html" class="post-title">Simple WebApp Penetration Testing</a>
+            <span class="post-date">10 Des 2024</span>
+            <p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
+                freshwater ecosystems...</p>
+            <div class="profile">
+                <img src="images/testi1.jpg" alt="" class="profile-img">
+                <span class="profile-name">RUNNIMG</span>
             </div>
         </div>
+
     </div>
 
-    <footer class="bg-gray-800 text-gray-200 py-12">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+    <footer>
+        <div class="footer-container">
             <div class="sec aboutus">
-                <h2 class="text-xl font-bold mb-4">About Us</h2>
-                <p class="text-gray-400">CyberSecurity and Physiotherapy Student at Universitas Indonesia. Care to learn and increasing knowledge from zero to hero.</p>
-                <ul class="sci flex space-x-4 mt-4">
-                    <li><a href="https://www.facebook.com/profile.php?id=100072590963891" class="text-gray-400 hover:text-white"><i class="bx bxl-facebook"></i></a></li>
-                    <li><a href="https://www.instagram.com/iqb.mln/" class="text-gray-400 hover:text-white"><i class="bx bxl-instagram"></i></a></li>
-                    <li><a href="https://github.com/iqbalkopling01" class="text-gray-400 hover:text-white"><i class="bx bxl-github"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/nur-iqbal-maulana-7375371ba" class="text-gray-400 hover:text-white"><i class="bx bxl-linkedin"></i></a></li>
+                <h2>About Us</h2>
+                <p>CyberSecurity and Physiotherapy Student at Universitas Indonesia. Care to learn and increasing knowledge from zero to hero.</p>
+                <ul class="sci">
+                    <li><a href="https://www.facebook.com/profile.php?id=100072590963891"><i class="bx bxl-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/iqb.mln/"><i class="bx bxl-instagram"></i></a></li>
+                    <li><a href="https://github.com/iqbalkopling01" ><i class="bx bxl-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/nur-iqbal-maulana-7375371ba"><i class="bx bxl-linkedin"></i></a></li>
                 </ul>
             </div>
             <div class="sec quicklinks">
-                <h2 class="text-xl font-bold mb-4">Quick Links</h2>
+                <h2>Quick Links</h2>
                 <ul>
-                    <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
-                    <li><a href="https://iqbalkopling01.github.io/PortCyPhy/" class="text-gray-400 hover:text-white">About</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="https://iqbalkopling01.github.io/PortCyPhy/">About</a></li>
                 </ul>
             </div>
             <div class="sec contactBx">
-                <h2 class="text-xl font-bold mb-4">Contact Info</h2>
-                <ul class="info space-y-4">
-                    <li class="flex items-start">
-                        <span class="text-blue-500"><i class='bx bxs-map'></i></span>
-                        <span class="ml-2">Universitas Indonesia, Depok <br> West Java <br> Id</span>
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class='bx bxs-map'></i></span>
+                        <span>Universitas Indonesia, Depok <br> West Java <br> Id</span>
                     </li>
-                    <li class="flex items-start">
-                        <span class="text-blue-500"><i class='bx bx-envelope'></i></span>
-                        <p class="ml-2"><a href="mailto:Iqbalmaulana5011@gmail.com" class="text-gray-400 hover:text-white">Iqbalmaulana5011@gmail.com</a></p>
+                    <li>
+                        <span><i class='bx bx-envelope' ></i></span>
+                        <p><a href="mailto:Iqbalmaulana5011@gmail.com">Iqbalmaulana5011@gmail.com</a></p>
                     </li>
                 </ul>
             </div>
