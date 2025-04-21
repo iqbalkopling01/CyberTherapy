@@ -474,24 +474,24 @@ h3 {
 
 .carousel-container {
     margin: 1em 0;
+    overflow: hidden; /* Ensure content stays within the container */
 }
 
 .mySwiper {
     height: auto;
+    display: flex; /* Ensure the swiper behaves as a carousel */
 }
 
-/* .swiper-wrapper {
+.swiper-wrapper {
     display: flex;
-    margin: 0 1em;
-    padding: 10px;
-
-} */
+    transition: transform 0.5s ease; /* Smooth transition for slides */
+}
 
 .swiper-slide {
-    box-sizing: border-box;
-    margin: 0 10px;
+    flex-shrink: 0;
+    width: 340px !important; /* Ensure consistent slide width */
+    margin: 0 10px; /* Add spacing between slides */
     transition: transform 0.5s ease, opacity 0.5s ease;
-    width: 340px !important; 
 }
 
 .swiper-slide.fade-out {
@@ -499,6 +499,7 @@ h3 {
     filter: blur(5px);
 }
 
+/* Adjust navigation buttons */
 .slider-button-wrap {
     margin-top: 32px;
     column-gap: 24px;
@@ -514,10 +515,15 @@ h3 {
     color: #1d0430;
     padding: auto;
     align-items: center;
-    border-radius: 30%;
+    border-radius: 50%; /* Circular buttons */
     transition: all 0.3s ease;
 }
 
+.slider-button-wrap .slider-button-prev:hover,
+.slider-button-wrap .slider-button-next:hover {
+    background-color: hsl(199, 98%, 56%);
+    color: #fff;
+}
 
 .post-box {
     background: var(--bg-color);
