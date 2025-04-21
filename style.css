@@ -480,18 +480,18 @@ h3 {
     height: auto;
 }
 
-.swiper-wrapper {
+/* .swiper-wrapper {
     display: flex;
     margin: 0 1em;
     padding: 10px;
 
-}
+} */
 
 .swiper-slide {
-    width: 30%;
     box-sizing: border-box;
     margin: 0 10px;
     transition: transform 0.5s ease, opacity 0.5s ease;
+    width: 340px !important; 
 }
 
 .swiper-slide.fade-out {
@@ -527,6 +527,7 @@ h3 {
     -webkit-box-shadow: 5px 3px 11px 0px #1d0430;
     -moz-box-shadow: 5px 3px 11px 0px #1d0430;
     box-shadow: 5px 3px 11px 0px #1d0430;
+    /* width: 340px; */
 }
 
 .post-box:hover {
