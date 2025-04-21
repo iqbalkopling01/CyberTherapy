@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const sidebarToggle = document.querySelector(".sidebar-toggle");
   sidebarToggle.addEventListener("click", function () {
-    // Retain 'sidebar-visible' for toggling visibility
-    document.body.classList.toggle("sidebar-visible");
+    // Replace 'sidebar-visible' with Tailwind's equivalent class
+    document.body.classList.toggle("lg:translate-x-0"); // Example Tailwind class for visibility
   });
 
   const sidebar = document.querySelector(".sidebar");
@@ -47,13 +47,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const link = document.createElement("a");
     link.href = `#${headerId}`;
     link.textContent = header.textContent;
-    link.className = "text-blue-500"; // Example Tailwind class
+    link.className = "text-blue-500 hover:underline"; // Example Tailwind classes
     link.dataset.headerId = headerId;
 
     sidebar.insertBefore(link, readingProgressContainer);
   });
 
-  const sidebarLinks = document.querySelectorAll(".sidebar-link");
+  const sidebarLinks = document.querySelectorAll(".sidebar a");
   sidebarLinks.forEach((link) => {
     link.addEventListener("click", function (event) {
       event.preventDefault();
@@ -82,13 +82,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    const sidebarLinks = document.querySelectorAll(".sidebar-link");
+    const sidebarLinks = document.querySelectorAll(".sidebar a");
     sidebarLinks.forEach((link) => {
       if (lastPassedHeaderId === link.dataset.headerId) {
         // Replace 'active' with a Tailwind-compatible class
-        link.classList.add("font-bold"); // Example Tailwind class
+        link.classList.add("font-bold", "text-blue-700"); // Example Tailwind classes
       } else {
-        link.classList.remove("font-bold");
+        link.classList.remove("font-bold", "text-blue-700");
       }
     });
 

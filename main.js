@@ -35,3 +35,8 @@ menuToggle.addEventListener("click", () => {
     headerNav.classList.toggle("hidden"); // Use Tailwind's hidden class
 });
 
+// Ensure the following Tailwind classes are present in the HTML:
+// - `shadow-md` for the header shadow effect on scroll
+// - `font-bold` and `text-blue-500` for the active filter styling
+// - `block` and `hidden` for toggling the menu visibility
+
