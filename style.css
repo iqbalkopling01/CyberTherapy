@@ -463,6 +463,8 @@ h3 {
 .carousel-container {
     position: relative;
     margin: 1em 0;
+    width: 100%;
+    overflow: hidden;
 }
 
 .mySwiper {
@@ -476,14 +478,23 @@ h3 {
 }
 
 .swiper-slide {
+    flex: 0 0 auto;
+    width: calc(100% / 3); /* Show 3 posts at a time */
     box-sizing: border-box;
-    margin: 0 10px;
+    padding: 10px;
     transition: transform 0.5s ease, opacity 0.5s ease;
-    width: 340px !important; 
-    flex-shrink: 0;
-    width: auto; /* Adjust width dynamically */
-    margin-right: 16px; /* Add spacing between slides */
-    box-sizing: border-box;
+}
+
+@media (max-width: 992px) {
+    .swiper-slide {
+        width: calc(100% / 2); /* Show 2 posts on medium screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .swiper-slide {
+        width: 100%; /* Show 1 post on small screens */
+    }
 }
 
 .swiper-slide.fade-out {
