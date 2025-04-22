@@ -476,7 +476,7 @@ h3 {
 
 .swiper-wrapper {
     display: flex;
-    flex-wrap: wrap; /* Wrap posts to the next row if needed */
+    /*flex-wrap: wrap;  Wrap posts to the next row if needed */
     justify-content: center; /* Center posts within the container */
     gap: 1.5rem; /* Add spacing between posts */
     transition: transform 0.5s ease; /* Smooth transition for slides */
