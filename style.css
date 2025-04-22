@@ -505,45 +505,49 @@ h3 {
 /* Pastikan parent carousel‑mu diberi `position: relative` */
 
 .slider-button-wrap {
-    position: absolute;    /* posisikan di atas carousel */
-    top: 50%;              /* vertikal tengah */
-    left: 0;               
-    right: 0;              /* span penuh lebar parent */
+    position: absolute;       /* posisikan relatif ke .carousel */
+    top: 50%;                 /* vertikal tengah */
+    left: 0;                  
+    right: 0;                 /* melebar penuh */
     transform: translateY(-50%);
+    
     display: flex;
-    justify-content: space-between; /* tombol kiri & kanan terpisah */
-    padding: 0 1rem;       /* jarak dari pinggir carousel */
-    pointer-events: none;  /* biar kliknya hanya diterima tombol */
-}
-
-.slider-button-wrap .slider-button-prev,
-.slider-button-wrap .slider-button-next {
-    position: relative;    /* bisa diklik, override pointer-events: none */
-    pointer-events: all;
+    justify-content: space-between; /* tombol kiri & kanan di ujung */
+    align-items: center;
+    
+    padding: 0 1rem;          /* jarak dari pinggir carousel */
+    pointer-events: none;     /* biar klik hanya diterima tombol */
+  }
+  
+  /* 3) Aktifkan klik pada tombol dan styling dasar */
+  .slider-button-wrap .slider-button-prev,
+  .slider-button-wrap .slider-button-next {
+    pointer-events: all;      /* override pointer‑events:none */
     background-color: var(--second-color);
     border: none;
     color: #fff;
     padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 50%;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
     font-size: 1.5rem;
-}
-
-.slider-button-wrap .slider-button-prev:hover,
-.slider-button-wrap .slider-button-next:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 4) Hover & active */
+  .slider-button-wrap .slider-button-prev:hover,
+  .slider-button-wrap .slider-button-next:hover {
     background-color: hsl(199, 98%, 56%);
     transform: scale(1.1);
-}
-
-.slider-button-wrap .slider-button-prev:active,
-.slider-button-wrap .slider-button-next:active {
+  }
+  
+  .slider-button-wrap .slider-button-prev:active,
+  .slider-button-wrap .slider-button-next:active {
     transform: scale(0.9);
     transition-duration: 100ms;
-}
+  }
 
 
 
