@@ -430,6 +430,28 @@ h3 {
 
 /* POST.FILTER */
 
+.post-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1.5rem;
+    margin-top: 2rem !important;
+}
+
+.filter-item {
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.active-filter {
+    background: var(--second-color);
+    color: var(--bg-color);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+/* POSTINGAN REKOMENDASI*/
 .post {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, auto));
@@ -439,31 +461,43 @@ h3 {
 }
 
 .carousel-container {
-    max-width: 1068px;
-    margin: 0 auto;
-    padding: 2rem 0;
     position: relative;
-}
-
-.mySwiper {
+    margin: 1em 0;
+    overflow: hidden; /* Ensure content stays within the container */
     width: 100%;
-    padding: 20px 0;
-    overflow: hidden;
+    max-width: 1068px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .swiper-wrapper {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease; /* Smooth transition for slides */
+    will-change: transform;
+    user-select: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+}
+
+.swiper-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .swiper-slide {
-    width: 300px !important;
-    flex-shrink: 0;
+    flex: 0 0 auto;
+    width: 300px !important; /* Fixed slide width */
     margin: 0 10px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
     border-radius: 8px;
-    background-color: var(--bg-color);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    background: var(--bg-color);
+}
+
+.swiper-slide.fade-out {
+    opacity: 0;
+    filter: blur(5px);
 }
 
 
