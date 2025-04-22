@@ -463,7 +463,8 @@ h3 {
 .carousel-container {
     position: relative;
     margin: 1em 0;
-    overflow: hidden; /* Ensure content stays within the container */
+    overflow: visible; /* Allow all posts to be visible */
+    height: auto; /* Adjust height dynamically */
     width: 100%;
     max-width: 1068px;
     margin-left: auto;
@@ -479,6 +480,8 @@ h3 {
     scroll-behavior: smooth;
     overflow-x: auto;
     scrollbar-width: none; /* Firefox */
+    flex-wrap: wrap; /* Wrap posts to the next row if needed */
+    justify-content: center; /* Center posts within the container */
 }
 
 .swiper-wrapper::-webkit-scrollbar {
