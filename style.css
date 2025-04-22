@@ -439,44 +439,34 @@ h3 {
 }
 
 .carousel-container {
-    position: relative;
-    margin: 1em 0;
-    overflow: hidden; /* Ensure content stays within the container */
-    width: 100%;
     max-width: 1068px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.mySwiper {
+    width: 100%;
+    padding: 20px 0;
+    overflow: hidden;
 }
 
 .swiper-wrapper {
     display: flex;
-    transition: transform 0.5s ease; /* Smooth transition for slides */
-    will-change: transform;
-    user-select: none;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
-}
-
-.swiper-wrapper::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    transition: transform 0.5s ease;
 }
 
 .swiper-slide {
-    flex: 0 0 auto;
-    width: 300px !important; /* Fixed slide width */
+    width: 300px !important;
+    flex-shrink: 0;
     margin: 0 10px;
-    transition: transform 0.5s ease, opacity 0.5s ease;
     border-radius: 8px;
+    background-color: var(--bg-color);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    background: var(--bg-color);
+    transition: transform 0.3s ease;
 }
 
-.swiper-slide.fade-out {
-    opacity: 0;
-    filter: blur(5px);
-}
+
 /* Navigation buttons */
 .slider-button-wrap {
     position: relative;
