@@ -478,20 +478,23 @@ h3 {
 
 .mySwiper {
     height: auto;
+    overflow: visible; /* Ensure the slides are fully visible */
 }
 
-/* .swiper-wrapper {
+.swiper-wrapper {
     display: flex;
-    margin: 0 1em;
-    padding: 10px;
-
-} */
+    transition: transform 0.3s ease-in-out;
+}
 
 .swiper-slide {
     box-sizing: border-box;
     margin: 0 10px;
     transition: transform 0.5s ease, opacity 0.5s ease;
     width: 340px !important; 
+    flex-shrink: 0;
+    width: auto; /* Adjust width dynamically */
+    margin-right: 16px; /* Add spacing between slides */
+    box-sizing: border-box;
 }
 
 .swiper-slide.fade-out {
@@ -516,8 +519,26 @@ h3 {
     align-items: center;
     border-radius: 30%;
     transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
 }
 
+.slider-button-wrap .slider-button-prev {
+    left: -20px;
+}
+
+.slider-button-wrap .slider-button-next {
+    right: -20px;
+}
+
+@media (max-width: 768px) {
+    .swiper-slide {
+        margin-right: 8px;
+    }
+}
 
 .post-box {
     background: var(--bg-color);
