@@ -463,7 +463,7 @@ h3 {
 .carousel-container {
     position: relative;
     margin: 1em 0;
-    overflow: visible; /* Ensure content stays within the container */
+    overflow: hidden; /* Ensure content stays within the container */
     width: 100%;
     max-width: 1068px;
     margin-left: auto;
