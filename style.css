@@ -497,57 +497,35 @@ h3 {
     }
 }
 
-.swiper-slide.fade-out {
-    opacity: 0;
-    filter: blur(5px);
+.slider-button-wrap {
+    position: relative;
+    margin: 1rem auto 0 auto;
+    column-gap: 24px;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
 }
 
-/* Pastikan parent carousel‑mu diberi `position: relative` */
-
-.slider-button-wrap {
-    position: absolute;       /* posisikan relatif ke .carousel */
-    top: 50%;                 /* vertikal tengah */
-    left: 0;                  
-    right: 0;                 /* melebar penuh */
-    transform: translateY(-50%);
-    
-    display: flex;
-    justify-content: space-between; /* tombol kiri & kanan di ujung */
-    align-items: center;
-    
-    padding: 0 1rem;          /* jarak dari pinggir carousel */
-    pointer-events: none;     /* biar klik hanya diterima tombol */
-  }
-  
-  /* 3) Aktifkan klik pada tombol dan styling dasar */
-  .slider-button-wrap .slider-button-prev,
-  .slider-button-wrap .slider-button-next {
-    pointer-events: all;      /* override pointer‑events:none */
+.slider-button-wrap .slider-button-prev,
+.slider-button-wrap .slider-button-next {
     background-color: var(--second-color);
-    border: none;
-    color: #fff;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    font-size: 1.5rem;
-    display: flex;
+    border: 1px solid var(--second-color);
+    color: #1d0430;
+    padding: 10px 15px;
     align-items: center;
+    border-radius: 50%; /* Circular buttons */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
     justify-content: center;
-  }
-  
-  /* 4) Hover & active */
-  .slider-button-wrap .slider-button-prev:hover,
-  .slider-button-wrap .slider-button-next:hover {
+    font-size: 1.5rem;
+}
+
+.slider-button-wrap .slider-button-prev:hover,
+.slider-button-wrap .slider-button-next:hover {
     background-color: hsl(199, 98%, 56%);
-    transform: scale(1.1);
-  }
-  
-  .slider-button-wrap .slider-button-prev:active,
-  .slider-button-wrap .slider-button-next:active {
-    transform: scale(0.9);
-    transition-duration: 100ms;
-  }
+    color: #fff;
+}
 
 
 
