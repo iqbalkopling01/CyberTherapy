@@ -474,29 +474,35 @@ h3 {
 
 .swiper-wrapper {
     display: flex;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.5s ease; /* Smooth transition for slides */
+    will-change: transform;
+    user-select: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+}
+
+.swiper-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .swiper-slide {
     flex: 0 0 auto;
-    width: calc(100% / 3); /* Show 3 posts at a time */
-    box-sizing: border-box;
-    padding: 10px;
+    width: 300px !important; /* Fixed slide width */
+    margin: 0 10px;
     transition: transform 0.5s ease, opacity 0.5s ease;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: var(--bg-color);
 }
 
-@media (max-width: 992px) {
-    .swiper-slide {
-        width: calc(100% / 2); /* Show 2 posts on medium screens */
-    }
+.swiper-slide.fade-out {
+    opacity: 0;
+    filter: blur(5px);
 }
 
-@media (max-width: 576px) {
-    .swiper-slide {
-        width: 100%; /* Show 1 post on small screens */
-    }
-}
-
+/* Navigation buttons */
 .slider-button-wrap {
     position: relative;
     margin: 1rem auto 0 auto;
@@ -526,6 +532,19 @@ h3 {
     background-color: hsl(199, 98%, 56%);
     color: #fff;
 }
+
+@media (max-width: 992px) {
+    .swiper-slide {
+        width: calc(100% / 2); /* Show 2 posts on medium screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .swiper-slide {
+        width: 100%; /* Show 1 post on small screens */
+    }
+}
+
 
 
 
