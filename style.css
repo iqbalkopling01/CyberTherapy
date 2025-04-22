@@ -508,15 +508,8 @@ h3 {
     margin: 1rem auto 0 auto;
     column-gap: 24px;
     display: flex;
-    justify-content: center;
-    width: fit-content;
-}
-.slider-button-wrap {
-    position: relative;
-    margin: 1rem auto 0 auto;
-    column-gap: 24px;
-    display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Ensure buttons are side by side */
+    align-items: center; /* Align buttons vertically */
     width: fit-content;
 }
 
