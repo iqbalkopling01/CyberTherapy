@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-
+ 
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -26,8 +26,6 @@ body{
     background: var(--second-color);
 }
 
-
-
 a {
     text-decoration: none;
 }
@@ -36,8 +34,6 @@ li {
     list-style: none;
 }
 
-
-
 .gambartikel {
     max-width: 100%;
     height: auto;
@@ -45,7 +41,6 @@ li {
     margin: 10px 0;
     padding-bottom: .5rem;
 }
-
 
 img {
     width: 100%;
@@ -72,7 +67,6 @@ header {
     left: 0;
     width: 100%;
     z-index: 200;
-
 }
 
 header.shadow {
@@ -139,8 +133,6 @@ header.shadow .logo {
     font-weight: 400;
 }
 
-
-
 .konten {
     --sidebar-bg-color: #f6f6f6;
     --active-link-color: #000;
@@ -196,7 +188,6 @@ h3 {
 
 .konten html {
     scroll-behavior: smooth;
-
 }
 
 .konten .header-one {
@@ -385,7 +376,6 @@ h3 {
     }
 }
 
-
 .about {
     position: relative;
     width: 100%;
@@ -440,7 +430,6 @@ h3 {
 
 /* POST.FILTER */
 
-
 .post-filter {
     display: flex;
     justify-content: center;
@@ -462,7 +451,6 @@ h3 {
     border-radius: 4px;
 }
 
-
 /* POSTINGAN REKOMENDASI*/
 .post {
     display: grid;
@@ -473,6 +461,7 @@ h3 {
 }
 
 .carousel-container {
+    position: relative;
     margin: 1em 0;
 }
 
@@ -502,12 +491,14 @@ h3 {
     filter: blur(5px);
 }
 
+/* Navigation buttons */
 .slider-button-wrap {
-    margin-top: 32px;
+    position: relative;
+    margin: 1rem auto 0 auto;
     column-gap: 24px;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: fit-content;
 }
 
 .slider-button-wrap .slider-button-prev,
@@ -515,9 +506,10 @@ h3 {
     background-color: var(--second-color);
     border: 1px solid var(--second-color);
     color: #1d0430;
-    padding: auto;
+    padding: 10px 15px;
     align-items: center;
-    border-radius: 30%;
+    border-radius: 50%; /* Circular buttons */
+    cursor: pointer;
     transition: all 0.3s ease;
     position: absolute;
     top: 50%;
@@ -618,10 +610,6 @@ h3 {
     font-weight: 500;
 }
 
-
-
-
-
 footer {
     position: relative;
     width: 100%;
@@ -632,7 +620,6 @@ footer {
     display: flex;
     font-family: sans-serif;
     justify-content: space-between;
-
 }
 
 .footer-container {
@@ -803,7 +790,6 @@ footer p {
     cursor: pointer;
     color: white;
 }
-
 
 @media (max-width: 1060px){
     .container{
