@@ -430,28 +430,6 @@ h3 {
 
 /* POST.FILTER */
 
-.post-filter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 1.5rem;
-    margin-top: 2rem !important;
-}
-
-.filter-item {
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.active-filter {
-    background: var(--second-color);
-    color: var(--bg-color);
-    padding: 4px 10px;
-    border-radius: 4px;
-}
-
-/* POSTINGAN REKOMENDASI*/
 .post {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, auto));
@@ -463,25 +441,26 @@ h3 {
 .carousel-container {
     position: relative;
     margin: 1em 0;
-    overflow: visible; /* Ensure all posts are visible */
-    height: auto; /* Adjust height dynamically */
+    overflow: hidden; /* Ensure content stays within the container */
     width: 100%;
     max-width: 1068px;
     margin-left: auto;
     margin-right: auto;
-    display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Wrap posts to the next row if needed */
-    justify-content: center; /* Center posts within the container */
 }
 
 .swiper-wrapper {
     display: flex;
-    flex-wrap: wrap;  /*Wrap posts to the next row if needed */
-    justify-content: center; /* Center posts within the container */
-    gap: 1.5rem; /* Add spacing between posts */
     transition: transform 0.5s ease; /* Smooth transition for slides */
-    overflow: visible; /* Ensure no clipping */
-    width: 100%; /* Ensure full width */
+    will-change: transform;
+    user-select: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+}
+
+.swiper-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .swiper-slide {
@@ -498,7 +477,6 @@ h3 {
     opacity: 0;
     filter: blur(5px);
 }
-
 /* Navigation buttons */
 .slider-button-wrap {
     position: relative;
