@@ -511,41 +511,35 @@ h3 {
     justify-content: center;
     width: fit-content;
 }
+.slider-button-wrap {
+    position: relative;
+    margin: 1rem auto 0 auto;
+    column-gap: 24px;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+}
 
 .slider-button-wrap .slider-button-prev,
 .slider-button-wrap .slider-button-next {
     background-color: var(--second-color);
-    border: none;
-    color: #fff;
-    padding: 10px;
+    border: 1px solid var(--second-color);
+    color: #1d0430;
+    padding: 10px 15px;
     align-items: center;
     border-radius: 50%; /* Circular buttons */
     cursor: pointer;
     transition: all 0.3s ease;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-}
-
-.slider-button-wrap .slider-button-prev {
-    left: 10px; /* Adjust for proper alignment */
-}
-
-.slider-button-wrap .slider-button-next {
-    right: 10px; /* Adjust for proper alignment */
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
 }
 
 .slider-button-wrap .slider-button-prev:hover,
 .slider-button-wrap .slider-button-next:hover {
-    background-color: hsl(199, 98%, 56%); /* Add hover effect */
-    transform: scale(1.1);
+    background-color: hsl(199, 98%, 56%);
+    color: #fff;
 }
-
-.slider-button-wrap .slider-button-prev:active,
-.slider-button-wrap .slider-button-next:active {
-    transform: scale(0.9);
-    transition: transform 100ms;
 }
 
 @media (max-width: 768px) {
