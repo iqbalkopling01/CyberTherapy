@@ -463,29 +463,25 @@ h3 {
 .carousel-container {
     position: relative;
     margin: 1em 0;
-    overflow: visible; /* Allow all posts to be visible */
+    overflow: visible; /* Ensure all posts are visible */
     height: auto; /* Adjust height dynamically */
     width: 100%;
     max-width: 1068px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.swiper-wrapper {
-    display: flex;
-    transition: transform 0.5s ease; /* Smooth transition for slides */
-    will-change: transform;
-    user-select: none;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
+    display: flex; /* Use flexbox for layout */
     flex-wrap: wrap; /* Wrap posts to the next row if needed */
     justify-content: center; /* Center posts within the container */
 }
 
-.swiper-wrapper::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+.swiper-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Wrap posts to the next row if needed */
+    justify-content: center; /* Center posts within the container */
+    gap: 1.5rem; /* Add spacing between posts */
+    transition: transform 0.5s ease; /* Smooth transition for slides */
+    overflow: visible; /* Ensure no clipping */
+    width: 100%; /* Ensure full width */
 }
 
 .swiper-slide {
