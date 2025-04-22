@@ -502,43 +502,49 @@ h3 {
     filter: blur(5px);
 }
 
-/* Navigation buttons */
-/* Container tombol jadi full‑width dan di‑center */
+/* Pastikan parent carousel‑mu diberi `position: relative` */
+
 .slider-button-wrap {
-    position: absolute;       /* posisinya relatif ke parent carousel */
-    top: 50%;                 /* di tengah vertikal */
-    left: 50%;                /* di tengah horizontal */
-    transform: translate(-50%, -50%);
-    width: 100%;              /* mengisi lebar parent */
+    position: absolute;    /* posisikan di atas carousel */
+    top: 50%;              /* vertikal tengah */
+    left: 0;               
+    right: 0;              /* span penuh lebar parent */
+    transform: translateY(-50%);
     display: flex;
-    justify-content: space-between; /* tombol kiri dan kanan menyebar */
-    align-items: center;
-    padding: 0 1rem;          /* sedikit padding kiri/kanan */
-    pointer-events: none;     /* agar area kosong di antara tombol tidak menangkap klik */
+    justify-content: space-between; /* tombol kiri & kanan terpisah */
+    padding: 0 1rem;       /* jarak dari pinggir carousel */
+    pointer-events: none;  /* biar kliknya hanya diterima tombol */
 }
 
-/* Tombol tetap bisa diklik */
 .slider-button-wrap .slider-button-prev,
 .slider-button-wrap .slider-button-next {
-    position: relative;       /* override pointer-events:none di parent */
+    position: relative;    /* bisa diklik, override pointer-events: none */
     pointer-events: all;
     background-color: var(--second-color);
-    border: 1px solid var(--second-color);
-    color: #1d0430;
-    padding: 10px 15px;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    display: flex;
-    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
     font-size: 1.5rem;
 }
 
 .slider-button-wrap .slider-button-prev:hover,
 .slider-button-wrap .slider-button-next:hover {
     background-color: hsl(199, 98%, 56%);
-    color: #fff;
+    transform: scale(1.1);
 }
+
+.slider-button-wrap .slider-button-prev:active,
+.slider-button-wrap .slider-button-next:active {
+    transform: scale(0.9);
+    transition-duration: 100ms;
+}
+
 
 
 @media (max-width: 768px) {
