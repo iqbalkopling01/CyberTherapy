@@ -461,25 +461,29 @@ h3 {
 }
 
 .carousel-container {
-    position: relative;
-    margin: 1em 0;
-    overflow: hidden; /* Ensure content stays within the container */
     width: 100%;
     max-width: 1068px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.swiper-wrapper {
-    display: flex;
-    transition: transform 0.5s ease; /* Smooth transition for slides */
-    will-change: transform;
-    user-select: none;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Track carousel yang bisa discroll horizontal */
+  .mySwiper {
     overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
-}
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+  }
+  
 
 .swiper-wrapper::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
@@ -487,13 +491,12 @@ h3 {
 
 .swiper-slide {
     flex: 0 0 auto;
-    width: 300px !important; /* Fixed slide width */
-    margin: 0 10px;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    width: 280px;
+    scroll-snap-align: start;
     border-radius: 8px;
+    background-color: var(--bg-color);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    background: var(--bg-color);
-}
+  }
 
 .swiper-slide.fade-out {
     opacity: 0;
