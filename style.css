@@ -470,9 +470,12 @@ h3 {
   
   /* Track carousel yang bisa discroll horizontal */
   .mySwiper {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none; /* IE & Edge */
+    scrollbar-width: none;    /* Firefox */
+  }
+  
+  .mySwiper::-webkit-scrollbar {
+    display: none;            /* Chrome, Safari, Opera */
   }
 
   .swiper-wrapper {
