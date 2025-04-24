@@ -316,6 +316,14 @@
 
 
 <button class="sidebar-toggle">☰</button>
+<script>
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const sidebarWrapper = document.querySelector('.sidebar-wrapper');
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebarWrapper.classList.toggle('sidebar-visible');
+    });
+</script>
 </body>
 
 </html>
