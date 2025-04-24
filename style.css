@@ -1013,3 +1013,13 @@ footer p {
   .slider-button-wrap .slider-button-next .icon::before {
     content: ">";
   }
+
+.outro a {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+.outro a:hover {
+    color: var(--second-color);
+    text-decoration: none;
+}
