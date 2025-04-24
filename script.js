@@ -26,9 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const sidebarToggle = document.querySelector(".sidebar-toggle");
-  sidebarToggle.addEventListener("click", function () {
-    document.body.classList.toggle("sidebar-visible");
-  });
+  if (sidebarToggle) {
+    sidebarToggle.addEventListener("click", function () {
+      document.body.classList.toggle("sidebar-visible");
+    });
+  }
 
   const sidebar = document.querySelector(".sidebar");
   const readingProgressContainer = document.querySelector(

@@ -333,48 +333,43 @@ h3 {
     color: var(--active-link-color);
 }
 
-.konten .sidebar-toggle {
+.sidebar-toggle {
     display: none;
-}
-
-@media (max-width: 750px) {
-    .konten .sidebar-wrapper {
-        position: fixed;
-        left: 50%;
-        top: 25px;
-        width: 90vw;
-        transform: translate(-50%, -150%);
-        transition: transform 0.5s;
-        z-index: 10;
+  }
+  
+  @media (max-width: 750px) {
+    .sidebar-toggle {
+      display: block;
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 999;
+      padding: 10px 14px;
+      font-size: 28px;
+      background-color: #23282d;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease;
     }
-
-    .konten .sidebar-visible .sidebar-wrapper {
-        transform: translate(-50%, 0%);
+  
+    .sidebar-toggle:hover {
+      transform: scale(1.1);
     }
-
-    .konten .post-content {
-        margin: 0px 0px 0px 0px;
+  
+    .sidebar-toggle:active {
+      transform: scale(0.95);
     }
-
-    .konten .sidebar-toggle {
-        display: block;
-        position: fixed;
-        right: 10px;
-        bottom: 10px;
-        z-index: 100;
-        padding: 7px 13px 10px 14px;
-        font-size: 24px;
-        background-color: #23282d;
-        color: #fff;
-        border-radius: 50%;
-        cursor: pointer;
+  
+    .sidebar-wrapper {
+      transition: transform 0.4s ease;
     }
-
-    .konten .sidebar-visible .sidebar-wrapper {
-        margin: auto;
-        position: fixed;
+  
+    .sidebar-visible .sidebar-wrapper {
+      transform: translate(-50%, 0%);
     }
-}
+  }
 
 .about {
     position: relative;
