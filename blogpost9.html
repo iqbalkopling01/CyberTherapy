@@ -31,7 +31,6 @@
     
         <div class="intro">
             <h1>Sistem Operasi dan Keamanannya: Antara Windows dan Linux</h1>
-            <img src="images/blog8-1.png" alt="Operating System" class="gambartikel fotoutama">
             <p>Di balik layar setiap perangkat komputer, terdapat sistem operasi (OS) yang berperan sebagai otak pengendali. Mulai dari menjalankan aplikasi, mengatur perangkat keras, hingga menjaga keamanan data pengguna. Dua sistem operasi yang paling sering digunakan adalah Microsoft Windows dan Linux. Meskipun keduanya memiliki tujuan serupa, pendekatan mereka terhadap keamanan berbeda jauh. Di tengah ancaman siber yang kian berkembang, memahami perbedaan ini menjadi kunci untuk menjaga sistem tetap aman dan andal.</p>
         </div>
         <div class="sidebar-container">
@@ -52,45 +51,81 @@
             </div>
             <div class="post-content">
                 <h3>Perbedaan Filosofi: Proprietary vs. Open Source</h3>
-                <p><strong>Windows:</strong> Sistem tertutup dari Microsoft dengan pengaturan keamanan terpusat, termasuk Windows Defender, UAC, dan BitLocker.</p>
-                <p><strong>Linux:</strong> Sistem open-source yang dapat dimodifikasi, diperiksa, dan ditingkatkan oleh komunitas. Fitur seperti iptables, SELinux, dan kontrol akses memperkuat keamanan sistem.</p>
+                <p><strong>Windows</strong><br>Windows adalah sistem operasi proprietary milik Microsoft. Artinya, pengguna tidak bisa mengakses atau memodifikasi kode sumbernya. Microsoft mengatur keamanan secara terpusat melalui pembaruan rutin dan fitur keamanan bawaan seperti Windows Defender, UAC (User Account Control), dan BitLocker.</p>
+                <p><strong>Linux</strong><br>Linux bersifat open-source, memungkinkan pengguna dan komunitas untuk memodifikasi, mengaudit, dan memperbaiki celah keamanan secara kolaboratif. Sistem seperti Ubuntu, Debian, dan Fedora menawarkan kontrol penuh terhadap keamanan sistem, mulai dari firewall iptables hingga fitur kontrol akses seperti SELinux.</p>
     
-                <h3>Fitur Keamanan Inti</h3>
+                <h3>Referensi Populer:</h3>
                 <ul>
-                    <li>Windows menggunakan <strong>UAC</strong>, firewall GUI, dan <strong>BitLocker</strong>.</li>
-                    <li>Linux memakai <strong>DAC</strong>, <strong>MAC</strong>, firewall <strong>iptables</strong>/<strong>ufw</strong>, dan <strong>LUKS</strong> untuk enkripsi.</li>
-                    <li>Windows memperbarui sistem secara otomatis melalui Windows Update, sedangkan Linux bergantung pada distro (apt, dnf, pacman).</li>
-                    <li>Sistem audit: <strong>Event Viewer</strong> di Windows vs <strong>logwatch, auditd</strong> di Linux.</li>
-                    <li>Antivirus: <strong>Windows Defender</strong> vs <strong>fail2ban, portsentry</strong> pada Linux.</li>
+                    <li>Microsoft: How Windows Keeps You Protected</li>
+                    <li>Red Hat: SELinux Overview</li>
                 </ul>
+    
+                <h3>Fitur Keamanan Inti: Siapa yang Lebih Aman?</h3>
+                <p>Windows dan Linux memiliki pendekatan keamanan yang berbeda secara fundamental. Windows, sebagai sistem tertutup yang dikembangkan oleh Microsoft, menggunakan model keamanan berbasis peran (role-based security) yang dilengkapi dengan fitur User Account Control (UAC). UAC bertugas membatasi hak akses pengguna terhadap sistem agar tidak sembarangan menjalankan aplikasi dengan hak administrator. Sistem ini dirancang agar ramah pengguna namun tetap mencegah modifikasi sistem secara tidak sah.</p>
+    
+                <p>Sementara itu, Linux menggunakan kombinasi Discretionary Access Control (DAC) dan Mandatory Access Control (MAC). DAC memungkinkan pengguna untuk menentukan siapa yang bisa mengakses file mereka, sementara MAC (yang diwujudkan dalam sistem seperti SELinux dan AppArmor) memberikan kontrol ketat berdasarkan kebijakan sistem yang telah ditentukan administrator, bukan pengguna biasa.</p>
+    
+                <p>Dalam hal firewall, Windows menggunakan Windows Defender Firewall yang terintegrasi dalam sistem dan mudah diatur melalui GUI. Di sisi lain, Linux memanfaatkan iptables dan antarmuka sederhananya, ufw (Uncomplicated Firewall), untuk mengatur akses jaringan. Meski tampak lebih kompleks di awal, Linux memberi keleluasaan penuh bagi pengguna yang ingin mengonfigurasi sistem pertahanan yang presisi.</p>
+    
+                <p>Untuk pembaruan keamanan, Windows menawarkan pendekatan otomatis dan terpusat melalui Windows Update, yang secara rutin mengunduh dan menginstal patch sistem tanpa memerlukan banyak intervensi pengguna. Sementara pada Linux, proses pembaruan bergantung pada distribusi (distro) yang digunakan—misalnya, Ubuntu menggunakan apt, Fedora dengan dnf, dan Arch dengan pacman. Pengguna Linux lebih terlibat aktif dalam proses pembaruan ini.</p>
+    
+                <p>Dalam hal enkripsi, Windows menyertakan BitLocker (tersedia pada edisi Pro dan Enterprise) untuk enkripsi disk penuh. Di sisi Linux, tersedia LUKS (Linux Unified Key Setup) atau dm-crypt yang berfungsi serupa untuk mengenkripsi partisi secara menyeluruh.</p>
+    
+                <p>Mengenai audit dan log sistem, Windows mengandalkan Event Viewer untuk merekam aktivitas sistem dan keamanan. Linux, di sisi lain, menyediakan alat yang sangat fleksibel seperti logwatch, auditd, dan rsyslog yang bisa dikustomisasi sesuai kebutuhan administrator.</p>
+    
+                <p>Untuk sistem pendeteksi ancaman, Windows memiliki Windows Defender Antivirus, yang memberikan perlindungan real-time dari malware. Linux biasanya memanfaatkan tool eksternal seperti fail2ban untuk mencegah brute-force login dan portsentry untuk mendeteksi pemindaian port dari luar.</p>
+    
+                <p>Secara keseluruhan, Windows dirancang agar mudah digunakan dan memberikan pengalaman keamanan secara otomatis kepada pengguna awam. Linux, sebaliknya, memberikan fleksibilitas dan kontrol total—cocok bagi mereka yang memiliki pengetahuan teknis dan ingin membangun sistem keamanan yang terstruktur sesuai kebutuhan.</p>
     
                 <h3>Ancaman dan Studi Kasus Malware</h3>
-                <p>Windows sering menjadi target utama malware (WannaCry, NotPetya), sementara Linux lebih tahan namun tetap rentan terhadap SSH brute force dan backdoor jika tidak dikonfigurasi dengan baik.</p>
+                <p>Sistem operasi Windows dikenal sebagai target utama malware karena popularitasnya yang tinggi. Malware seperti WannaCry, NotPetya, dan berbagai varian ransomware banyak menyerang sistem Windows.</p>
+                <p>Sebaliknya, Linux relatif lebih tahan terhadap serangan jenis ini, namun bukan berarti kebal. Serangan brute force pada SSH, backdoor dalam aplikasi open-source, dan serangan terhadap server berbasis Linux tetap terjadi, khususnya jika sistem tidak dikonfigurasi dengan benar.</p>
+    
+                <h3>Referensi Populer:</h3>
+                <ul>
+                    <li>Wired: Why Hackers Love Windows</li>
+                    <li>LinuxSecurity.com: How Secure is Linux?</li>
+                </ul>
     
                 <h3>Cara Mengamankan Sistem Operasi</h3>
-                <h4>Tips Mengamankan Windows</h4>
+                <h4>Tips Mengamankan Windows:</h4>
                 <ul>
-                    <li>Gunakan akun non-admin untuk aktivitas harian.</li>
-                    <li>Aktifkan dan update Windows Defender.</li>
-                    <li>Instal pembaruan otomatis secara rutin.</li>
-                    <li>Aktifkan BitLocker dan firewall.</li>
-                </ul>
-                <h4>Tips Mengamankan Linux</h4>
-                <ul>
-                    <li>Gunakan <strong>ufw</strong> atau <strong>iptables</strong>.</li>
-                    <li>Nonaktifkan login root, gunakan SSH key.</li>
-                    <li>Aktifkan SELinux/AppArmor.</li>
-                    <li>Instal <strong>fail2ban</strong> dan audit rutin dengan <strong>Lynis</strong>.</li>
+                    <li>Gunakan akun non-administrator untuk aktivitas harian.</li>
+                    <li>Aktifkan dan perbarui Windows Defender secara berkala.</li>
+                    <li>Selalu instal pembaruan otomatis dari Windows Update.</li>
+                    <li>Gunakan enkripsi disk dengan BitLocker.</li>
+                    <li>Aktifkan Windows Firewall dan nonaktifkan port tidak perlu.</li>
                 </ul>
     
-                <h3>Evaluasi Kinerja dan Relevansi</h3>
-                <p>Studi Rizqullah (2024) menunjukkan bahwa Linux dengan OpenVAS dan Lynis efektif mendeteksi kerentanan. Windows unggul dari sisi kenyamanan dan integrasi otomatis, tetapi lebih rentan terhadap teknik rekayasa sosial.</p>
+                <h4>Tips Mengamankan Linux:</h4>
+                <ul>
+                    <li>Konfigurasikan iptables atau gunakan antarmuka ufw.</li>
+                    <li>Nonaktifkan login root, gunakan SSH key-based login.</li>
+                    <li>Aktifkan dan sesuaikan kebijakan SELinux atau AppArmor.</li>
+                    <li>Instal fail2ban untuk mendeteksi brute force login.</li>
+                    <li>Jalankan audit sistem rutin menggunakan Lynis atau chkrootkit.</li>
+                </ul>
+    
+                <h3>Referensi Teknis & Panduan Populer:</h3>
+                <ul>
+                    <li>DigitalOcean: Setting up Firewall with UFW</li>
+                    <li>Microsoft Docs: Secure Windows Devices</li>
+                </ul>
+    
+                <h3>Evaluasi Kinerja dan Relevansi di Dunia Nyata</h3>
+                <p>Menurut penelitian Rizqullah (2024), penggunaan alat seperti OpenVAS dan Lynis dalam sistem Linux efektif mendeteksi kerentanan tingkat lanjut. Di sisi lain, Windows memberikan kenyamanan melalui pembaruan otomatis, tetapi sering kali membutuhkan perangkat keras lebih tinggi dan lebih rentan terhadap eksploitasi sosial engineering.</p>
+    
+                <h3>Referensi Ilmiah Tambahan:</h3>
+                <ul>
+                    <li>Rizqullah, M. H. (2024). PDF</li>
+                </ul>
             </div>
         </div>
         <div class="outro">
-            <p>Baik Windows maupun Linux memiliki kelebihan dan kekurangan dalam hal keamanan. Linux cocok untuk pengguna teknikal dan server, sementara Windows lebih user-friendly dan cocok untuk penggunaan kasual serta enterprise. Yang terpenting adalah bagaimana sistem dikonfigurasi dan dikelola secara proaktif.</p>
+            <p>Baik Windows maupun Linux memiliki kelebihan dan kekurangan dalam hal keamanan. Linux memberikan kontrol penuh kepada pengguna yang berpengalaman, cocok untuk sistem server dan pengguna teknikal. Sementara itu, Windows menawarkan ekosistem tertutup yang lebih cocok untuk penggunaan kasual dan enterprise dengan integrasi Microsoft yang kuat.</p>
+            <p>Yang paling penting bukan hanya apa sistem operasinya, tetapi bagaimana sistem itu dikonfigurasi dan dijaga. Dalam dunia yang semakin terhubung, keamanan bukan pilihan—tetapi keharusan.</p>
     
-            <h3>DAFTAR REFERENSI</h3>
+            <h3>DAFTAR REFERENSI POPULER & ILMIAH</h3>
             <p><a href="https://www.microsoft.com/en-us/windows/comprehensive-security">Microsoft. (2023). Windows Security Features.</a></p>
             <p><a href="https://www.redhat.com/en/topics/linux/what-is-selinux">Red Hat. (2023). What is SELinux?</a></p>
             <p><a href="https://www.researchgate.net">Abdul et al. (2019). Analisis Sistem Keamanan OS Windows, Linux, MacOS.</a></p>
@@ -103,6 +138,7 @@
         </div>
         <script src="./script.js"></script>
     </div>
+    
     
     
     
