@@ -28,94 +28,110 @@
     <div class="konten">
 
         <button class="sidebar-toggle">☰</button>
-    
+      
         <div class="intro">
-            <h1>Jaringan Komputer dan Keamanan Jaringan: Memahami Protokol dan Teknologi Perlindungannya</h1>
-            <img src="images/blog8-1.png" alt="Computer Network" class="gambartikel fotoutama">
-            <p>Jaringan komputer merupakan tulang punggung dunia digital. Dari komunikasi pribadi hingga sistem perbankan dan militer, semua bergantung pada keandalan dan keamanan jaringan. Namun, seiring berkembangnya teknologi dan konektivitas, ancaman seperti peretasan, pencurian data, dan sabotase sistem pun ikut meningkat. Oleh karena itu, pemahaman menyeluruh mengenai protokol komunikasi, ancaman keamanan, dan teknologi perlindungan jaringan menjadi sangat penting.</p>
+          <h1>Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</h1>
+          <img src="images/blog10-1.png" alt="Computer Network" class="gambartikel fotoutama">
+          <p>Aplikasi web rentan terhadap berbagai jenis serangan injeksi kode yang dapat mengakibatkan pencurian data atau pengambilalihan sistem. Di antara yang paling umum adalah SQL Injection, Cross-Site Scripting (XSS), dan Cross-Site Request Forgery (CSRF). SQL Injection melibatkan penyisipan kode SQL berbahaya melalui input pengguna untuk mengubah query database. XSS adalah injeksi skrip sisi-klien (biasanya JavaScript) ke dalam halaman web terpercaya. CSRF memanfaatkan sesi terautentikasi pengguna dengan memaksa aplikasi melakukan aksi tanpa sepengetahuan pengguna. Artikel ini mengulas cara mendeteksi dan memperbaiki ketiga kerentanan ini, disertai studi kasus nyata dan strategi pencegahan yang direkomendasikan.</p>
         </div>
+      
         <div class="sidebar-container">
-            <div class="sidebar-wrapper">
-                <div class="sidebar">
-                    <div class="reading-progress-container">
-                        <div class="reading-progress-bar"></div>
-                    </div>
-                </div>
-                <div class="author-box">
-                    <img src="images/testi1.jpg" alt="Author's Gravatar" class="author-gravatar">
-                    <div class="author-info">
-                        <span class="author-title">Author</span>
-                        <span class="author-name">Run</span>
-                    </div>
-                    <span id="dark-mode-toggle" class="material-symbols-outlined light-icon"></span>
-                </div>
+          <div class="sidebar-wrapper">
+            <div class="sidebar">
+              <div class="reading-progress-container">
+                <div class="reading-progress-bar"></div>
+              </div>
             </div>
-            <div class="post-content">
-                <h3>2. Apa Itu Jaringan Komputer?</h3>
-                <p>Jaringan komputer adalah sistem yang menghubungkan dua atau lebih perangkat untuk berbagi data, aplikasi, dan sumber daya. Berdasarkan skala, jaringan diklasifikasikan menjadi:</p>
-                <ul>
-                    <li><strong>PAN:</strong> Koneksi Bluetooth antar perangkat pribadi.</li>
-                    <li><strong>LAN:</strong> Digunakan di rumah atau kantor.</li>
-                    <li><strong>MAN:</strong> Jaringan dalam lingkup kota atau industri.</li>
-                    <li><strong>WAN:</strong> Jaringan global seperti internet.</li>
-                </ul>
-    
-                <h3>3. Protokol Jaringan: Bahasa Komunikasi Digital</h3>
-                <ul>
-                    <li><strong>TCP/IP:</strong> TCP memastikan data dikirim utuh, IP menangani pengalamatan.</li>
-                    <li><strong>DNS:</strong> Menerjemahkan nama domain menjadi alamat IP.</li>
-                    <li><strong>HTTP & HTTPS:</strong> Protokol dasar akses web dan versi aman dengan SSL/TLS.</li>
-                    <li><strong>DHCP:</strong> Pengatur otomatis alamat IP.</li>
-                    <li><strong>FTP & SFTP:</strong> Protokol pertukaran file dengan dan tanpa enkripsi.</li>
-                </ul>
-    
-                <h3>4. Ancaman Umum dalam Keamanan Jaringan</h3>
-                <ul>
-                    <li><strong>Malware & Virus:</strong> Merusak atau mencuri data.</li>
-                    <li><strong>Phishing:</strong> Menipu pengguna agar memberikan data sensitif.</li>
-                    <li><strong>DDoS:</strong> Membanjiri server hingga lumpuh.</li>
-                    <li><strong>MITM:</strong> Penyadapan komunikasi antar pihak.</li>
-                    <li><strong>Sniffing:</strong> Memantau lalu lintas data secara ilegal.</li>
-                </ul>
-    
-                <h3>5. Teknologi Perlindungan Jaringan</h3>
-                <ul>
-                    <li><strong>Firewall:</strong> Menyaring lalu lintas berdasarkan aturan keamanan.</li>
-                    <li><strong>IDS/IPS:</strong> Mendeteksi dan memblokir serangan secara otomatis.</li>
-                    <li><strong>VPN:</strong> Enkripsi koneksi untuk perlindungan privasi.</li>
-                    <li><strong>Enkripsi & Kriptografi:</strong> Menjaga kerahasiaan data.</li>
-                    <li><strong>Otentikasi & Kontrol Akses:</strong> 2FA, biometrik, dan mekanisme validasi lainnya.</li>
-                </ul>
-    
-                <h3>6. Strategi Tambahan Keamanan</h3>
-                <ul>
-                    <li><strong>Segmentasi Jaringan:</strong> Membatasi cakupan serangan.</li>
-                    <li><strong>Patch Management:</strong> Menutup celah keamanan dengan pembaruan.</li>
-                    <li><strong>Monitoring & Audit:</strong> Deteksi dini aktivitas mencurigakan.</li>
-                    <li><strong>Zero Trust Architecture:</strong> Semua pengguna dan perangkat harus diverifikasi.</li>
-                </ul>
+            <div class="author-box">
+              <img src="images/testi1.jpg" alt="Author's Gravatar" class="author-gravatar">
+              <div class="author-info">
+                <span class="author-title">Author</span>
+                <span class="author-name">Run</span>
+              </div>
+              <span id="dark-mode-toggle" class="material-symbols-outlined light-icon"></span>
             </div>
+          </div>
+      
+          <div class="post-content">
+            <h3>SQL Injection</h3>
+            <h4>Deskripsi</h4>
+            <p>SQL Injection (SQLi) terjadi saat aplikasi memasukkan data masukan pengguna secara langsung ke dalam query SQL, sehingga penyerang dapat menyisipkan perintah SQL berbahaya. Misalnya, memasukkan string seperti <code>'; DROP TABLE users; --</code> dapat menghancurkan tabel jika tidak diantisipasi. Serangan ini serius karena bisa memungkinkan penyerang mengubah atau mencuri data sensitif serta menjalankan perintah administratif di database. Studi Brightsec menjelaskan dampak SQLi: penyerang dapat memodifikasi informasi, mengakses data sensitif, hingga mengeksekusi perintah pada sistem operasi di bawah database.</p>
+            <h4>Kasus Nyata</h4>
+            <p>SQLi telah menjadi penyebab banyak kebocoran data besar. Misalnya, serangan 7-Eleven (2007) mencuri 130 juta nomor kartu kredit. Serangan Team GhostShell (2012) menarget 53 universitas dan membocorkan 36.000 data personal melalui SQLi. Pada 2019, kerentanan SQLi di Fortnite (350 juta pengguna) memungkinkan akses data akun sebelum akhirnya ditutup. Kasus terkini melibatkan aplikasi MOVEit Transfer (2023), di mana peretas memanfaatkan SQLi untuk menanam web shell dan mengekstrak data dalam skala global. Contoh ini menegaskan bahwa SQLi masih menjadi ancaman nyata hingga saat ini.</p>
+            <h4>Deteksi</h4>
+            <ul>
+              <li>Pentest dan Vulnerability Scanning: Gunakan alat pemindai seperti Acunetix atau Burp Suite untuk menguji form input dan parameter URL dengan payload injeksi. Scanner modern dapat menemukan SQLi di fungsi login, pencarian, atau parameter tersembunyi secara otomatis.</li>
+              <li>Pengujian Manual (WSTG): Panduan OWASP Web Security Testing (WSTG) merekomendasikan mengirimkan input berbahaya (misalnya OR 1=1, tanda kutip ganda, komentar SQL) dan memantau tanggapan aplikasi. Ciri adanya SQLi meliputi perbedaan pesan kesalahan database atau perubahan hasil query.</li>
+              <li>Analisis Log Database: Monitor log query database untuk aktivitas aneh, seperti query yang selalu benar (WHERE '1'='1'), atau frequent error koneksi. Adanya query tak lazim atau error yang terpicu dapat mengindikasikan percobaan SQLi.</li>
+              <li>Code Review & SAST: Tinjau kode aplikasi secara statis untuk mencari pola <code>query = "..."+ input + "..."</code> atau penggunaan fungsi query tanpa parameterisasi. Alat analisis kode (SAST) dapat membantu menemukan konstruksi yang rentan.</li>
+            </ul>
+            <h4>Pencegahan dan Perbaikan</h4>
+            <ul>
+              <li>Parameterized Queries (Prepared Statements): Gunakan query parameterized di semua bahasa pemrograman. Ini menjamin database membedakan kode dan data, sehingga input pengguna tidak dapat mengubah struktur query.</li>
+              <li>Stored Procedures Aman: Jika menggunakan stored procedures, pastikan parameter input terikat dan statis. Stored procedure yang ditulis dengan benar efektif mencegah SQLi sama seperti prepared statements.</li>
+              <li>Least Privilege: Terapkan prinsip hak akses minimal pada akun database. Akun aplikasi cukup diberi hak baca/tulis yang diperlukan (bukan admin atau root), sehingga dampak injeksi dapat dikurangi.</li>
+              <li>Validasi Input: Gunakan whitelist untuk input yang tidak dapat diparameterkan, misalnya nama tabel atau kolom.</li>
+              <li>ORM dan Abstraksi: Manfaatkan Object-Relational Mapping (ORM) atau framework yang telah teruji keamanan query-nya.</li>
+              <li>Pembaruan & Patch: Segera perbarui perangkat lunak (DBMS, library) jika ditemukan kerentanan SQLi.</li>
+            </ul>
+      
+            <h3>Cross-Site Scripting (XSS)</h3>
+            <h4>Deskripsi</h4>
+            <p>XSS adalah injeksi skrip jahat ke halaman web yang tampak sah. Skrip berbahaya ini biasanya berupa JavaScript yang dijalankan oleh browser korban, karena dianggap berasal dari situs terpercayanya. Akibat XSS bisa berupa pencurian cookie atau token sesi, hingga pemalsuan tampilan halaman untuk menipu pengguna. Penyerang dapat berpura-pura menjadi pengguna yang sah, memuat konten eksternal jahat, atau mencuri data sensitif pengguna. XSS terbagi menjadi reflected, stored, dan DOM-based, tergantung bagaimana skrip disuntikkan dan dijalankan.</p>
+            <h4>Kasus Nyata</h4>
+            <p>Beberapa insiden XSS terkenal: serangan Magecart di situs British Airways (2018) menyisipkan XSS ke pustaka pihak ketiga untuk melakukan skimming kartu kredit pada sekitar 380.000 transaksi. Di Fortnite (2019) ditemukan XSS pada halaman tua yang jika dieksploitasi bisa membajak akun jutaan pemain. Situs eBay pada 2016 sempat memiliki XSS pada parameter URL yang memungkinkan penyerang mengambil alih akun penjual dan memodifikasi daftar barang berharga. Kasus-kasus ini menunjukkan XSS tak hanya teori: kelemahan validasi input dan pustaka pihak ketiga dapat merugikan jutaan pengguna.</p>
+            <h4>Deteksi</h4>
+            <ul>
+              <li>Scanning Otomatis menggunakan pemindai keamanan untuk menyuntikkan payload XSS umum ke berbagai titik input.</li>
+              <li>Testing Manual dengan injeksi payload seperti <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> dan memantau eksekusi di browser tester.</li>
+              <li>Implementasi Content Security Policy (CSP) dengan mode report untuk menangkap pelanggaran XSS.</li>
+              <li>Code Review mencari output data ke HTML tanpa encoding dan penggunaan fungsi berisiko seperti <code>innerHTML</code>.</li>
+              <li>Pengujian pada platform lab keamanan untuk memastikan semua tipe XSS terdeteksi.</li>
+            </ul>
+            <h4>Pencegahan dan Perbaikan</h4>
+            <ul>
+              <li>Validasi dan Encoding Konteksual sebelum menampilkan input pengguna di HTML.</li>
+              <li>Framework modern dengan mekanisme templating auto-escaping.</li>
+              <li>HttpOnly dan Secure Cookies untuk melindungi token sesi.</li>
+              <li>Header CSP ketat untuk membatasi sumber skrip.</li>
+              <li>Manajemen script pihak ketiga dengan Subresource Integrity (SRI).</li>
+              <li>Audit dan pemindaian rutin untuk mendeteksi kerentanan baru.</li>
+            </ul>
+      
+            <h3>Cross-Site Request Forgery (CSRF)</h3>
+            <h4>Deskripsi</h4>
+            <p>CSRF adalah serangan yang memaksa pengguna terautentikasi melakukan tindakan yang tidak diinginkan di aplikasi web. Karena browser menyertakan kredensial pada setiap permintaan, aksi berbahaya dapat diproses sebagai permintaan sah. CSRF dapat memindahkan dana, mengubah data, atau melakukan pembelian atas nama korban. Jika korban memiliki hak admin, seluruh aplikasi bisa terkompromi.</p>
+            <h4>Kasus Nyata</h4>
+            <p>Contoh kasus: kerentanan CSRF di Facebook (2019) memungkinkan pengambilalihan akun melalui link jahat; skrip pihak ketiga pada e-commerce global (2025) mengakses token CSRF internal; serangan CSRF pada uTorrent (2008) menyebarkan malware melalui GET request.</p>
+            <h4>Deteksi</h4>
+            <ul>
+              <li>Vulnerability Scanning memeriksa formulir tanpa token CSRF.</li>
+              <li>Pengujian Manual dengan permintaan tanpa atau token salah.</li>
+              <li>Analisis Kode memastikan token CSRF diperiksa pada endpoint.</li>
+              <li>Monitoring header Referer dan Origin.</li>
+            </ul>
+            <h4>Pencegahan dan Perbaikan</h4>
+            <ul>
+              <li>Synchronizer Token Pattern dengan token unik per form yang diverifikasi backend.</li>
+              <li>Double-Submit Cookie untuk API.</li>
+              <li>SameSite Cookie pada sesi.</li>
+              <li>Header kustom pada permintaan API.</li>
+              <li>Validasi header Referer/Origin domain yang sama.</li>
+              <li>Hindari GET untuk aksi sensitif.</li>
+              <li>Gunakan proteksi CSRF bawaan framework.</li>
+              <li>Defense-in-Depth: 2FA, batas waktu token, CAPTCHA.</li>
+            </ul>
+      
+            <h3>Kesimpulan</h3>
+            <p>Keamanan aplikasi web membutuhkan pendekatan berlapis: penggunaan parameterized query untuk SQL Injection, output encoding untuk XSS, serta token CSRF untuk CSRF. Kolaborasi antara tim pengembang dan keamanan, serta audit dan pemindaian rutin, adalah kunci menjaga aplikasi tetap tangguh terhadap serangan injeksi.</p>
+          </div>
         </div>
-        <div class="outro">
-            <p>Keamanan jaringan bukan hanya urusan teknis, tetapi juga strategis dan sosial. Dengan memahami protokol seperti TCP/IP, DNS, dan HTTPS serta menerapkan teknologi seperti VPN, firewall, IDS/IPS, dan enkripsi, kita dapat menciptakan sistem yang lebih tangguh. Pendekatan Zero Trust dan edukasi pengguna menjadi lapisan perlindungan tambahan yang sangat esensial.</p>
-    
-            <h3>Referensi:</h3>
-            <p><a href="https://jsisfotek.org">Nurbahri, R., & Nurcahyo, G. W. (2023). JSisfotek.org</a></p>
-            <p><a href="https://doi.org/10.1109/ICETC.2009.134">Soni, N. (2009). ICETC</a></p>
-            <p><a href="https://doi.org/10.1109/ICCCNT.2012.6235533">Dhiman, G. (2012). ICCCNT</a></p>
-            <p><a href="https://doi.org/10.1109/CICN.2013.103">Kaur, R. (2013). CICN</a></p>
-            <p><a href="https://doi.org/10.1109/SNPD.2009.44">Kim, J. (2009). SNPD</a></p>
-            <p><a href="https://doi.org/10.1109/ICCIC.2010.5705777">Somasundaram, R. (2010). ICCIC</a></p>
-            <p><a href="https://doi.org/10.1109/ICCSIT.2008.20">Singh, A. (2008). ICCSIT</a></p>
-            <p><a href="https://doi.org/10.1109/ICACCI.2013.6637341">Roy, P. (2013). ICACCI</a></p>
-            <p><a href="https://doi.org/10.1109/ICoCS.2018.8663244">Bahri, M. (2018). ICoCS</a></p>
-            <p><a href="https://doi.org/10.1109/ICACCS.2017.8014561">Iftikhar, S. (2017). ICACCS</a></p>
-            <p><a href="https://doi.org/10.1109/ICT.2013.6632161">Li, S. (2013). ICT</a></p>
-            <p><a href="https://doi.org/10.1109/IACC.2013.80">Yadav, A. (2013). IACC</a></p>
-            <p><a href="https://doi.org/10.1109/MSEC.2017.3128440">Rose, S. (2017). IEEE Security & Privacy Magazine</a></p>
-        </div>
+      
         <script src="./script.js"></script>
-    </div>
+      </div>
+      
+    
+    
     
     
 
@@ -268,6 +284,21 @@
                 <!--Post10-->
                 <div class="swiper-slide">
                     <div class="post-box tech">
+                        <img src="images/blog9-1.png" alt="" class="post-img">
+                        <h2 class="category">tech</h2>
+                        <a href="blogpost9.html" class="post-title">Sistem Operasi dan Keamanannya: Antara Windows dan Linux</a>
+                        <span class="post-date">30 April 2025</span>
+                        <p class="post-description">Di balik layar setiap perangkat komputer, terdapat sistem operasi (OS) yang berperan sebagai otak pengendali.</p>
+                        <div class="profile">
+                            <img src="images/testi1.jpg" alt="" class="profile-img">
+                            <span class="profile-name">RUNNIMG</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Post10-->
+                <div class="swiper-slide">
+                    <div class="post-box tech">
                         <img src="images/blog10-1.png" alt="" class="post-img">
                         <h2 class="category">tech</h2>
                         <a href="blogpost10.html" class="post-title">Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</a>
@@ -279,6 +310,8 @@
                         </div>
                     </div>
                 </div>
+
+                
             
             </div>
 
