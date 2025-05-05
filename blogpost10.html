@@ -53,77 +53,92 @@
           </div>
       
           <div class="post-content">
-            <h3>SQL Injection</h3>
-            <h4>Deskripsi</h4>
-            <p>SQL Injection (SQLi) terjadi saat aplikasi memasukkan data masukan pengguna secara langsung ke dalam query SQL, sehingga penyerang dapat menyisipkan perintah SQL berbahaya. Misalnya, memasukkan string seperti <code>'; DROP TABLE users; --</code> dapat menghancurkan tabel jika tidak diantisipasi. Serangan ini serius karena bisa memungkinkan penyerang mengubah atau mencuri data sensitif serta menjalankan perintah administratif di database. Studi Brightsec menjelaskan dampak SQLi: penyerang dapat memodifikasi informasi, mengakses data sensitif, hingga mengeksekusi perintah pada sistem operasi di bawah database.</p>
-            <h4>Kasus Nyata</h4>
-            <p>SQLi telah menjadi penyebab banyak kebocoran data besar. Misalnya, serangan 7-Eleven (2007) mencuri 130 juta nomor kartu kredit. Serangan Team GhostShell (2012) menarget 53 universitas dan membocorkan 36.000 data personal melalui SQLi. Pada 2019, kerentanan SQLi di Fortnite (350 juta pengguna) memungkinkan akses data akun sebelum akhirnya ditutup. Kasus terkini melibatkan aplikasi MOVEit Transfer (2023), di mana peretas memanfaatkan SQLi untuk menanam web shell dan mengekstrak data dalam skala global. Contoh ini menegaskan bahwa SQLi masih menjadi ancaman nyata hingga saat ini.</p>
-            <h4>Deteksi</h4>
-            <ul>
-              <li>Pentest dan Vulnerability Scanning: Gunakan alat pemindai seperti Acunetix atau Burp Suite untuk menguji form input dan parameter URL dengan payload injeksi. Scanner modern dapat menemukan SQLi di fungsi login, pencarian, atau parameter tersembunyi secara otomatis.</li>
-              <li>Pengujian Manual (WSTG): Panduan OWASP Web Security Testing (WSTG) merekomendasikan mengirimkan input berbahaya (misalnya OR 1=1, tanda kutip ganda, komentar SQL) dan memantau tanggapan aplikasi. Ciri adanya SQLi meliputi perbedaan pesan kesalahan database atau perubahan hasil query.</li>
-              <li>Analisis Log Database: Monitor log query database untuk aktivitas aneh, seperti query yang selalu benar (WHERE '1'='1'), atau frequent error koneksi. Adanya query tak lazim atau error yang terpicu dapat mengindikasikan percobaan SQLi.</li>
-              <li>Code Review & SAST: Tinjau kode aplikasi secara statis untuk mencari pola <code>query = "..."+ input + "..."</code> atau penggunaan fungsi query tanpa parameterisasi. Alat analisis kode (SAST) dapat membantu menemukan konstruksi yang rentan.</li>
-            </ul>
-            <h4>Pencegahan dan Perbaikan</h4>
-            <ul>
-              <li>Parameterized Queries (Prepared Statements): Gunakan query parameterized di semua bahasa pemrograman. Ini menjamin database membedakan kode dan data, sehingga input pengguna tidak dapat mengubah struktur query.</li>
-              <li>Stored Procedures Aman: Jika menggunakan stored procedures, pastikan parameter input terikat dan statis. Stored procedure yang ditulis dengan benar efektif mencegah SQLi sama seperti prepared statements.</li>
-              <li>Least Privilege: Terapkan prinsip hak akses minimal pada akun database. Akun aplikasi cukup diberi hak baca/tulis yang diperlukan (bukan admin atau root), sehingga dampak injeksi dapat dikurangi.</li>
-              <li>Validasi Input: Gunakan whitelist untuk input yang tidak dapat diparameterkan, misalnya nama tabel atau kolom.</li>
-              <li>ORM dan Abstraksi: Manfaatkan Object-Relational Mapping (ORM) atau framework yang telah teruji keamanan query-nya.</li>
-              <li>Pembaruan & Patch: Segera perbarui perangkat lunak (DBMS, library) jika ditemukan kerentanan SQLi.</li>
-            </ul>
+                <h3>SQL Injection</h3>
+                <h4>Deskripsi</h4>
+                <p>SQL Injection (SQLi) terjadi saat aplikasi memasukkan data masukan pengguna secara langsung ke dalam query SQL, sehingga penyerang dapat menyisipkan perintah SQL berbahaya. Misalnya, memasukkan string seperti <code>'; DROP TABLE users; --</code> dapat menghancurkan tabel jika tidak diantisipasi. Serangan ini serius karena bisa memungkinkan penyerang mengubah atau mencuri data sensitif serta menjalankan perintah administratif di database. Studi Brightsec menjelaskan dampak SQLi: penyerang dapat memodifikasi informasi, mengakses data sensitif, hingga mengeksekusi perintah pada sistem operasi di bawah database.</p>
+                <h4>Kasus Nyata</h4>
+                <p>SQLi telah menjadi penyebab banyak kebocoran data besar. Misalnya, serangan 7-Eleven (2007) mencuri 130 juta nomor kartu kredit. Serangan Team GhostShell (2012) menarget 53 universitas dan membocorkan 36.000 data personal melalui SQLi. Pada 2019, kerentanan SQLi di Fortnite (350 juta pengguna) memungkinkan akses data akun sebelum akhirnya ditutup. Kasus terkini melibatkan aplikasi MOVEit Transfer (2023), di mana peretas memanfaatkan SQLi untuk menanam web shell dan mengekstrak data dalam skala global. Contoh ini menegaskan bahwa SQLi masih menjadi ancaman nyata hingga saat ini.</p>
+                <h4>Deteksi</h4>
+                <ul>
+                <li>Pentest dan Vulnerability Scanning: Gunakan alat pemindai seperti Acunetix atau Burp Suite untuk menguji form input dan parameter URL dengan payload injeksi. Scanner modern dapat menemukan SQLi di fungsi login, pencarian, atau parameter tersembunyi secara otomatis.</li>
+                <li>Pengujian Manual (WSTG): Panduan OWASP Web Security Testing (WSTG) merekomendasikan mengirimkan input berbahaya (misalnya OR 1=1, tanda kutip ganda, komentar SQL) dan memantau tanggapan aplikasi. Ciri adanya SQLi meliputi perbedaan pesan kesalahan database atau perubahan hasil query.</li>
+                <li>Analisis Log Database: Monitor log query database untuk aktivitas aneh, seperti query yang selalu benar (WHERE '1'='1'), atau frequent error koneksi. Adanya query tak lazim atau error yang terpicu dapat mengindikasikan percobaan SQLi.</li>
+                <li>Code Review & SAST: Tinjau kode aplikasi secara statis untuk mencari pola <code>query = "..."+ input + "..."</code> atau penggunaan fungsi query tanpa parameterisasi. Alat analisis kode (SAST) dapat membantu menemukan konstruksi yang rentan.</li>
+                </ul>
+                <h4>Pencegahan dan Perbaikan</h4>
+                <ul>
+                <li>Parameterized Queries (Prepared Statements): Gunakan query parameterized di semua bahasa pemrograman. Ini menjamin database membedakan kode dan data, sehingga input pengguna tidak dapat mengubah struktur query.</li>
+                <li>Stored Procedures Aman: Jika menggunakan stored procedures, pastikan parameter input terikat dan statis. Stored procedure yang ditulis dengan benar efektif mencegah SQLi sama seperti prepared statements.</li>
+                <li>Least Privilege: Terapkan prinsip hak akses minimal pada akun database. Akun aplikasi cukup diberi hak baca/tulis yang diperlukan (bukan admin atau root), sehingga dampak injeksi dapat dikurangi.</li>
+                <li>Validasi Input: Gunakan whitelist untuk input yang tidak dapat diparameterkan, misalnya nama tabel atau kolom.</li>
+                <li>ORM dan Abstraksi: Manfaatkan Object-Relational Mapping (ORM) atau framework yang telah teruji keamanan query-nya.</li>
+                <li>Pembaruan & Patch: Segera perbarui perangkat lunak (DBMS, library) jika ditemukan kerentanan SQLi.</li>
+                </ul>
+        
+                <h3>Cross-Site Scripting (XSS)</h3>
+                <h4>Deskripsi</h4>
+                <p>XSS adalah injeksi skrip jahat ke halaman web yang tampak sah. Skrip berbahaya ini biasanya berupa JavaScript yang dijalankan oleh browser korban, karena dianggap berasal dari situs terpercayanya. Akibat XSS bisa berupa pencurian cookie atau token sesi, hingga pemalsuan tampilan halaman untuk menipu pengguna. Penyerang dapat berpura-pura menjadi pengguna yang sah, memuat konten eksternal jahat, atau mencuri data sensitif pengguna. XSS terbagi menjadi reflected, stored, dan DOM-based, tergantung bagaimana skrip disuntikkan dan dijalankan.</p>
+                <h4>Kasus Nyata</h4>
+                <p>Beberapa insiden XSS terkenal: serangan Magecart di situs British Airways (2018) menyisipkan XSS ke pustaka pihak ketiga untuk melakukan skimming kartu kredit pada sekitar 380.000 transaksi. Di Fortnite (2019) ditemukan XSS pada halaman tua yang jika dieksploitasi bisa membajak akun jutaan pemain. Situs eBay pada 2016 sempat memiliki XSS pada parameter URL yang memungkinkan penyerang mengambil alih akun penjual dan memodifikasi daftar barang berharga. Kasus-kasus ini menunjukkan XSS tak hanya teori: kelemahan validasi input dan pustaka pihak ketiga dapat merugikan jutaan pengguna.</p>
+                <h4>Deteksi</h4>
+                <ul>
+                <li>Scanning Otomatis menggunakan pemindai keamanan untuk menyuntikkan payload XSS umum ke berbagai titik input.</li>
+                <li>Testing Manual dengan injeksi payload seperti <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> dan memantau eksekusi di browser tester.</li>
+                <li>Implementasi Content Security Policy (CSP) dengan mode report untuk menangkap pelanggaran XSS.</li>
+                <li>Code Review mencari output data ke HTML tanpa encoding dan penggunaan fungsi berisiko seperti <code>innerHTML</code>.</li>
+                <li>Pengujian pada platform lab keamanan untuk memastikan semua tipe XSS terdeteksi.</li>
+                </ul>
+                <h4>Pencegahan dan Perbaikan</h4>
+                <ul>
+                <li>Validasi dan Encoding Konteksual sebelum menampilkan input pengguna di HTML.</li>
+                <li>Framework modern dengan mekanisme templating auto-escaping.</li>
+                <li>HttpOnly dan Secure Cookies untuk melindungi token sesi.</li>
+                <li>Header CSP ketat untuk membatasi sumber skrip.</li>
+                <li>Manajemen script pihak ketiga dengan Subresource Integrity (SRI).</li>
+                <li>Audit dan pemindaian rutin untuk mendeteksi kerentanan baru.</li>
+                </ul>
+        
+                <h3>Cross-Site Request Forgery (CSRF)</h3>
+                <h4>Deskripsi</h4>
+                <p>CSRF adalah serangan yang memaksa pengguna terautentikasi melakukan tindakan yang tidak diinginkan di aplikasi web. Karena browser menyertakan kredensial pada setiap permintaan, aksi berbahaya dapat diproses sebagai permintaan sah. CSRF dapat memindahkan dana, mengubah data, atau melakukan pembelian atas nama korban. Jika korban memiliki hak admin, seluruh aplikasi bisa terkompromi.</p>
+                <h4>Kasus Nyata</h4>
+                <p>Contoh kasus: kerentanan CSRF di Facebook (2019) memungkinkan pengambilalihan akun melalui link jahat; skrip pihak ketiga pada e-commerce global (2025) mengakses token CSRF internal; serangan CSRF pada uTorrent (2008) menyebarkan malware melalui GET request.</p>
+                <h4>Deteksi</h4>
+                <ul>
+                <li>Vulnerability Scanning memeriksa formulir tanpa token CSRF.</li>
+                <li>Pengujian Manual dengan permintaan tanpa atau token salah.</li>
+                <li>Analisis Kode memastikan token CSRF diperiksa pada endpoint.</li>
+                <li>Monitoring header Referer dan Origin.</li>
+                </ul>
+                <h4>Pencegahan dan Perbaikan</h4>
+                <ul>
+                <li>Synchronizer Token Pattern dengan token unik per form yang diverifikasi backend.</li>
+                <li>Double-Submit Cookie untuk API.</li>
+                <li>SameSite Cookie pada sesi.</li>
+                <li>Header kustom pada permintaan API.</li>
+                <li>Validasi header Referer/Origin domain yang sama.</li>
+                <li>Hindari GET untuk aksi sensitif.</li>
+                <li>Gunakan proteksi CSRF bawaan framework.</li>
+                <li>Defense-in-Depth: 2FA, batas waktu token, CAPTCHA.</li>
+                </ul>
       
-            <h3>Cross-Site Scripting (XSS)</h3>
-            <h4>Deskripsi</h4>
-            <p>XSS adalah injeksi skrip jahat ke halaman web yang tampak sah. Skrip berbahaya ini biasanya berupa JavaScript yang dijalankan oleh browser korban, karena dianggap berasal dari situs terpercayanya. Akibat XSS bisa berupa pencurian cookie atau token sesi, hingga pemalsuan tampilan halaman untuk menipu pengguna. Penyerang dapat berpura-pura menjadi pengguna yang sah, memuat konten eksternal jahat, atau mencuri data sensitif pengguna. XSS terbagi menjadi reflected, stored, dan DOM-based, tergantung bagaimana skrip disuntikkan dan dijalankan.</p>
-            <h4>Kasus Nyata</h4>
-            <p>Beberapa insiden XSS terkenal: serangan Magecart di situs British Airways (2018) menyisipkan XSS ke pustaka pihak ketiga untuk melakukan skimming kartu kredit pada sekitar 380.000 transaksi. Di Fortnite (2019) ditemukan XSS pada halaman tua yang jika dieksploitasi bisa membajak akun jutaan pemain. Situs eBay pada 2016 sempat memiliki XSS pada parameter URL yang memungkinkan penyerang mengambil alih akun penjual dan memodifikasi daftar barang berharga. Kasus-kasus ini menunjukkan XSS tak hanya teori: kelemahan validasi input dan pustaka pihak ketiga dapat merugikan jutaan pengguna.</p>
-            <h4>Deteksi</h4>
-            <ul>
-              <li>Scanning Otomatis menggunakan pemindai keamanan untuk menyuntikkan payload XSS umum ke berbagai titik input.</li>
-              <li>Testing Manual dengan injeksi payload seperti <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> dan memantau eksekusi di browser tester.</li>
-              <li>Implementasi Content Security Policy (CSP) dengan mode report untuk menangkap pelanggaran XSS.</li>
-              <li>Code Review mencari output data ke HTML tanpa encoding dan penggunaan fungsi berisiko seperti <code>innerHTML</code>.</li>
-              <li>Pengujian pada platform lab keamanan untuk memastikan semua tipe XSS terdeteksi.</li>
-            </ul>
-            <h4>Pencegahan dan Perbaikan</h4>
-            <ul>
-              <li>Validasi dan Encoding Konteksual sebelum menampilkan input pengguna di HTML.</li>
-              <li>Framework modern dengan mekanisme templating auto-escaping.</li>
-              <li>HttpOnly dan Secure Cookies untuk melindungi token sesi.</li>
-              <li>Header CSP ketat untuk membatasi sumber skrip.</li>
-              <li>Manajemen script pihak ketiga dengan Subresource Integrity (SRI).</li>
-              <li>Audit dan pemindaian rutin untuk mendeteksi kerentanan baru.</li>
-            </ul>
-      
-            <h3>Cross-Site Request Forgery (CSRF)</h3>
-            <h4>Deskripsi</h4>
-            <p>CSRF adalah serangan yang memaksa pengguna terautentikasi melakukan tindakan yang tidak diinginkan di aplikasi web. Karena browser menyertakan kredensial pada setiap permintaan, aksi berbahaya dapat diproses sebagai permintaan sah. CSRF dapat memindahkan dana, mengubah data, atau melakukan pembelian atas nama korban. Jika korban memiliki hak admin, seluruh aplikasi bisa terkompromi.</p>
-            <h4>Kasus Nyata</h4>
-            <p>Contoh kasus: kerentanan CSRF di Facebook (2019) memungkinkan pengambilalihan akun melalui link jahat; skrip pihak ketiga pada e-commerce global (2025) mengakses token CSRF internal; serangan CSRF pada uTorrent (2008) menyebarkan malware melalui GET request.</p>
-            <h4>Deteksi</h4>
-            <ul>
-              <li>Vulnerability Scanning memeriksa formulir tanpa token CSRF.</li>
-              <li>Pengujian Manual dengan permintaan tanpa atau token salah.</li>
-              <li>Analisis Kode memastikan token CSRF diperiksa pada endpoint.</li>
-              <li>Monitoring header Referer dan Origin.</li>
-            </ul>
-            <h4>Pencegahan dan Perbaikan</h4>
-            <ul>
-              <li>Synchronizer Token Pattern dengan token unik per form yang diverifikasi backend.</li>
-              <li>Double-Submit Cookie untuk API.</li>
-              <li>SameSite Cookie pada sesi.</li>
-              <li>Header kustom pada permintaan API.</li>
-              <li>Validasi header Referer/Origin domain yang sama.</li>
-              <li>Hindari GET untuk aksi sensitif.</li>
-              <li>Gunakan proteksi CSRF bawaan framework.</li>
-              <li>Defense-in-Depth: 2FA, batas waktu token, CAPTCHA.</li>
-            </ul>
-      
-            <h3>Kesimpulan</h3>
-            <p>Keamanan aplikasi web membutuhkan pendekatan berlapis: penggunaan parameterized query untuk SQL Injection, output encoding untuk XSS, serta token CSRF untuk CSRF. Kolaborasi antara tim pengembang dan keamanan, serta audit dan pemindaian rutin, adalah kunci menjaga aplikasi tetap tangguh terhadap serangan injeksi.</p>
+                <div class="outro">
+                    <p>Keamanan aplikasi web membutuhkan pendekatan berlapis: penggunaan parameterized query untuk SQL Injection, output encoding untuk XSS, serta token CSRF untuk CSRF. Kolaborasi antara tim pengembang dan keamanan, serta audit dan pemindaian rutin, adalah kunci menjaga aplikasi tetap tangguh terhadap serangan injeksi.</p>
+
+                    <h2>Daftar Referensi</h2>
+                    <ul>
+                    <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html" target="_blank">OWASP SQL Injection Prevention Cheat Sheet</a></li>
+                    <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html" target="_blank">OWASP Cross-Site Scripting (XSS) Prevention Cheat Sheet</a></li>
+                    <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" target="_blank">OWASP Cross-Site Request Forgery (CSRF) Prevention Cheat Sheet</a></li>
+                    <li><a href="https://www.acunetix.com/websitesecurity/sql-injection/" target="_blank">Acunetix – What is SQL Injection?</a></li>
+                    <li><a href="https://www.acunetix.com/websitesecurity/cross-site-scripting/" target="_blank">Acunetix – What is Cross Site Scripting (XSS)?</a></li>
+                    <li><a href="https://portswigger.net/web-security/sql-injection" target="_blank">PortSwigger Web Security Academy – SQL Injection</a></li>
+                    <li><a href="https://portswigger.net/web-security/cross-site-scripting" target="_blank">PortSwigger Web Security Academy – Cross-Site Scripting</a></li>
+                    <li><a href="https://portswigger.net/web-security/csrf" target="_blank">PortSwigger Web Security Academy – Cross-Site Request Forgery (CSRF)</a></li>
+                    <li><a href="https://thehackernews.com/2018/09/british-airways-hack.html" target="_blank">The Hacker News – British Airways Magecart Attack Exposed Customer Card Data</a></li>
+                    <li><a href="https://thehackernews.com/2023/06/massive-moveit-transfer-hacking-campaign.html" target="_blank">The Hacker News – MOVEit Transfer Vulnerability Exploited in Widespread Data Theft</a></li>
+                    </ul>
+                </div>
           </div>
         </div>
       
