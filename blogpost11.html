@@ -26,125 +26,93 @@
     </section>
 
     <div class="konten">
-
         <button class="sidebar-toggle">☰</button>
       
         <div class="intro">
-          <h1>Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</h1>
-          <img src="images/blog10-1.png" alt="WebApp" class="gambartikel fotoutama">
-          <p>Aplikasi web rentan terhadap berbagai jenis serangan injeksi kode yang dapat mengakibatkan pencurian data atau pengambilalihan sistem. Di antara yang paling umum adalah SQL Injection, Cross-Site Scripting (XSS), dan Cross-Site Request Forgery (CSRF). SQL Injection melibatkan penyisipan kode SQL berbahaya melalui input pengguna untuk mengubah query database. XSS adalah injeksi skrip sisi-klien (biasanya JavaScript) ke dalam halaman web terpercaya. CSRF memanfaatkan sesi terautentikasi pengguna dengan memaksa aplikasi melakukan aksi tanpa sepengetahuan pengguna. Artikel ini mengulas cara mendeteksi dan memperbaiki ketiga kerentanan ini, disertai studi kasus nyata dan strategi pencegahan yang direkomendasikan.</p>
+          <h1>Penetration Testing: Hacking Secara Legal, Benarkah???</h1>
+          <img src="images/blog11-1.png" alt="Computer Network" class="gambartikel fotoutama">
+          <p>Penetration testing atau ethical hacking adalah proses menguji keamanan sistem TI—termasuk jaringan, aplikasi, dan perangkat—dengan mensimulasikan serangan nyata. Tujuannya adalah menemukan celah sebelum disalahgunakan peretas jahat, sehingga organisasi dapat memperkuat pertahanan dan menjaga data tetap aman. Artikel ini membahas pengertian, manfaat, tahapan, jenis-jenis, alat-alat umum, serta kelebihan dan kekurangan penetration testing secara lengkap namun tetap mudah dipahami oleh pembaca awam.</p>
         </div>
       
-        <div class="sidebar-container">
-          <div class="sidebar-wrapper">
-            <div class="sidebar">
-              <div class="reading-progress-container">
-                <div class="reading-progress-bar"></div>
-              </div>
-            </div>
-            <div class="author-box">
-              <img src="images/testi1.jpg" alt="Author's Gravatar" class="author-gravatar">
-              <div class="author-info">
-                <span class="author-title">Author</span>
-                <span class="author-name">Run</span>
-              </div>
-              <span id="dark-mode-toggle" class="material-symbols-outlined light-icon"></span>
-            </div>
-          </div>
+        <div class="post-content">
+          <h3>1. Apa Itu Penetration Testing?</h3>
+          <p>Penetration testing adalah tes keamanan terkontrol di mana seorang pentester (ethical hacker) berusaha menembus sistem dengan izin pemiliknya. Berbeda dari sekadar memindai kerentanan, pentest melibatkan eksploitasi langsung untuk melihat seberapa jauh seorang penyerang bisa masuk dan seberapa besar dampaknya terhadap data dan layanan.</p>
       
-          <div class="post-content">
-                <h3>SQL Injection</h3>
-                <h4>Deskripsi</h4>
-                <p>SQL Injection (SQLi) terjadi saat aplikasi memasukkan data masukan pengguna secara langsung ke dalam query SQL, sehingga penyerang dapat menyisipkan perintah SQL berbahaya. Misalnya, memasukkan string seperti <code>'; DROP TABLE users; --</code> dapat menghancurkan tabel jika tidak diantisipasi. Serangan ini serius karena bisa memungkinkan penyerang mengubah atau mencuri data sensitif serta menjalankan perintah administratif di database. Studi Brightsec menjelaskan dampak SQLi: penyerang dapat memodifikasi informasi, mengakses data sensitif, hingga mengeksekusi perintah pada sistem operasi di bawah database.</p>
-                <h4>Kasus Nyata</h4>
-                <p>SQLi telah menjadi penyebab banyak kebocoran data besar. Misalnya, serangan 7-Eleven (2007) mencuri 130 juta nomor kartu kredit. Serangan Team GhostShell (2012) menarget 53 universitas dan membocorkan 36.000 data personal melalui SQLi. Pada 2019, kerentanan SQLi di Fortnite (350 juta pengguna) memungkinkan akses data akun sebelum akhirnya ditutup. Kasus terkini melibatkan aplikasi MOVEit Transfer (2023), di mana peretas memanfaatkan SQLi untuk menanam web shell dan mengekstrak data dalam skala global. Contoh ini menegaskan bahwa SQLi masih menjadi ancaman nyata hingga saat ini.</p>
-                <h4>Deteksi</h4>
-                <ul>
-                <li>Pentest dan Vulnerability Scanning: Gunakan alat pemindai seperti Acunetix atau Burp Suite untuk menguji form input dan parameter URL dengan payload injeksi. Scanner modern dapat menemukan SQLi di fungsi login, pencarian, atau parameter tersembunyi secara otomatis.</li>
-                <li>Pengujian Manual (WSTG): Panduan OWASP Web Security Testing (WSTG) merekomendasikan mengirimkan input berbahaya (misalnya OR 1=1, tanda kutip ganda, komentar SQL) dan memantau tanggapan aplikasi. Ciri adanya SQLi meliputi perbedaan pesan kesalahan database atau perubahan hasil query.</li>
-                <li>Analisis Log Database: Monitor log query database untuk aktivitas aneh, seperti query yang selalu benar (WHERE '1'='1'), atau frequent error koneksi. Adanya query tak lazim atau error yang terpicu dapat mengindikasikan percobaan SQLi.</li>
-                <li>Code Review & SAST: Tinjau kode aplikasi secara statis untuk mencari pola <code>query = "..."+ input + "..."</code> atau penggunaan fungsi query tanpa parameterisasi. Alat analisis kode (SAST) dapat membantu menemukan konstruksi yang rentan.</li>
-                </ul>
-                <h4>Pencegahan dan Perbaikan</h4>
-                <ul>
-                <li>Parameterized Queries (Prepared Statements): Gunakan query parameterized di semua bahasa pemrograman. Ini menjamin database membedakan kode dan data, sehingga input pengguna tidak dapat mengubah struktur query.</li>
-                <li>Stored Procedures Aman: Jika menggunakan stored procedures, pastikan parameter input terikat dan statis. Stored procedure yang ditulis dengan benar efektif mencegah SQLi sama seperti prepared statements.</li>
-                <li>Least Privilege: Terapkan prinsip hak akses minimal pada akun database. Akun aplikasi cukup diberi hak baca/tulis yang diperlukan (bukan admin atau root), sehingga dampak injeksi dapat dikurangi.</li>
-                <li>Validasi Input: Gunakan whitelist untuk input yang tidak dapat diparameterkan, misalnya nama tabel atau kolom.</li>
-                <li>ORM dan Abstraksi: Manfaatkan Object-Relational Mapping (ORM) atau framework yang telah teruji keamanan query-nya.</li>
-                <li>Pembaruan & Patch: Segera perbarui perangkat lunak (DBMS, library) jika ditemukan kerentanan SQLi.</li>
-                </ul>
-        
-                <h3>Cross-Site Scripting (XSS)</h3>
-                <h4>Deskripsi</h4>
-                <p>XSS adalah injeksi skrip jahat ke halaman web yang tampak sah. Skrip berbahaya ini biasanya berupa JavaScript yang dijalankan oleh browser korban, karena dianggap berasal dari situs terpercayanya. Akibat XSS bisa berupa pencurian cookie atau token sesi, hingga pemalsuan tampilan halaman untuk menipu pengguna. Penyerang dapat berpura-pura menjadi pengguna yang sah, memuat konten eksternal jahat, atau mencuri data sensitif pengguna. XSS terbagi menjadi reflected, stored, dan DOM-based, tergantung bagaimana skrip disuntikkan dan dijalankan.</p>
-                <h4>Kasus Nyata</h4>
-                <p>Beberapa insiden XSS terkenal: serangan Magecart di situs British Airways (2018) menyisipkan XSS ke pustaka pihak ketiga untuk melakukan skimming kartu kredit pada sekitar 380.000 transaksi. Di Fortnite (2019) ditemukan XSS pada halaman tua yang jika dieksploitasi bisa membajak akun jutaan pemain. Situs eBay pada 2016 sempat memiliki XSS pada parameter URL yang memungkinkan penyerang mengambil alih akun penjual dan memodifikasi daftar barang berharga. Kasus-kasus ini menunjukkan XSS tak hanya teori: kelemahan validasi input dan pustaka pihak ketiga dapat merugikan jutaan pengguna.</p>
-                <h4>Deteksi</h4>
-                <ul>
-                <li>Scanning Otomatis menggunakan pemindai keamanan untuk menyuntikkan payload XSS umum ke berbagai titik input.</li>
-                <li>Testing Manual dengan injeksi payload seperti <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> dan memantau eksekusi di browser tester.</li>
-                <li>Implementasi Content Security Policy (CSP) dengan mode report untuk menangkap pelanggaran XSS.</li>
-                <li>Code Review mencari output data ke HTML tanpa encoding dan penggunaan fungsi berisiko seperti <code>innerHTML</code>.</li>
-                <li>Pengujian pada platform lab keamanan untuk memastikan semua tipe XSS terdeteksi.</li>
-                </ul>
-                <h4>Pencegahan dan Perbaikan</h4>
-                <ul>
-                <li>Validasi dan Encoding Konteksual sebelum menampilkan input pengguna di HTML.</li>
-                <li>Framework modern dengan mekanisme templating auto-escaping.</li>
-                <li>HttpOnly dan Secure Cookies untuk melindungi token sesi.</li>
-                <li>Header CSP ketat untuk membatasi sumber skrip.</li>
-                <li>Manajemen script pihak ketiga dengan Subresource Integrity (SRI).</li>
-                <li>Audit dan pemindaian rutin untuk mendeteksi kerentanan baru.</li>
-                </ul>
-        
-                <h3>Cross-Site Request Forgery (CSRF)</h3>
-                <h4>Deskripsi</h4>
-                <p>CSRF adalah serangan yang memaksa pengguna terautentikasi melakukan tindakan yang tidak diinginkan di aplikasi web. Karena browser menyertakan kredensial pada setiap permintaan, aksi berbahaya dapat diproses sebagai permintaan sah. CSRF dapat memindahkan dana, mengubah data, atau melakukan pembelian atas nama korban. Jika korban memiliki hak admin, seluruh aplikasi bisa terkompromi.</p>
-                <h4>Kasus Nyata</h4>
-                <p>Contoh kasus: kerentanan CSRF di Facebook (2019) memungkinkan pengambilalihan akun melalui link jahat; skrip pihak ketiga pada e-commerce global (2025) mengakses token CSRF internal; serangan CSRF pada uTorrent (2008) menyebarkan malware melalui GET request.</p>
-                <h4>Deteksi</h4>
-                <ul>
-                <li>Vulnerability Scanning memeriksa formulir tanpa token CSRF.</li>
-                <li>Pengujian Manual dengan permintaan tanpa atau token salah.</li>
-                <li>Analisis Kode memastikan token CSRF diperiksa pada endpoint.</li>
-                <li>Monitoring header Referer dan Origin.</li>
-                </ul>
-                <h4>Pencegahan dan Perbaikan</h4>
-                <ul>
-                <li>Synchronizer Token Pattern dengan token unik per form yang diverifikasi backend.</li>
-                <li>Double-Submit Cookie untuk API.</li>
-                <li>SameSite Cookie pada sesi.</li>
-                <li>Header kustom pada permintaan API.</li>
-                <li>Validasi header Referer/Origin domain yang sama.</li>
-                <li>Hindari GET untuk aksi sensitif.</li>
-                <li>Gunakan proteksi CSRF bawaan framework.</li>
-                <li>Defense-in-Depth: 2FA, batas waktu token, CAPTCHA.</li>
-                </ul>
-            </div>
-          
-        </div>
-
-        <div class="outro">
-            <p>Keamanan aplikasi web membutuhkan pendekatan berlapis: penggunaan parameterized query untuk SQL Injection, output encoding untuk XSS, serta token CSRF untuk CSRF. Kolaborasi antara tim pengembang dan keamanan, serta audit dan pemindaian rutin, adalah kunci menjaga aplikasi tetap tangguh terhadap serangan injeksi.</p>
-
-            <h2>Daftar Referensi</h2>
-            <ul>
-                <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html" target="_blank">OWASP SQL Injection Prevention Cheat Sheet</a></li>
-                <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html" target="_blank">OWASP Cross-Site Scripting (XSS) Prevention Cheat Sheet</a></li>
-                <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" target="_blank">OWASP Cross-Site Request Forgery (CSRF) Prevention Cheat Sheet</a></li>
-                <li><a href="https://www.acunetix.com/websitesecurity/sql-injection/" target="_blank">Acunetix – What is SQL Injection?</a></li>
-                <li><a href="https://www.acunetix.com/websitesecurity/cross-site-scripting/" target="_blank">Acunetix – What is Cross Site Scripting (XSS)?</a></li>
-                <li><a href="https://portswigger.net/web-security/sql-injection" target="_blank">PortSwigger Web Security Academy – SQL Injection</a></li>
-                <li><a href="https://portswigger.net/web-security/cross-site-scripting" target="_blank">PortSwigger Web Security Academy – Cross-Site Scripting</a></li>
-                <li><a href="https://portswigger.net/web-security/csrf" target="_blank">PortSwigger Web Security Academy – Cross-Site Request Forgery (CSRF)</a></li>
-                <li><a href="https://thehackernews.com/2018/09/british-airways-hack.html" target="_blank">The Hacker News – British Airways Magecart Attack Exposed Customer Card Data</a></li>
-                <li><a href="https://thehackernews.com/2023/06/massive-moveit-transfer-hacking-campaign.html" target="_blank">The Hacker News – MOVEit Transfer Vulnerability Exploited in Widespread Data Theft</a></li>
-            </ul>
-        </div>
+          <h3>2. Mengapa Organisasi Perlu Melakukannya?</h3>
+          <ul>
+            <li><strong>Deteksi Dini Kerentanan:</strong> Menemukan celah sebelum disalahgunakan membantu mencegah kebocoran data dan gangguan layanan.</li>
+            <li><strong>Validasi Kontrol Keamanan:</strong> Mengukur efektivitas kebijakan, konfigurasi, dan perangkat proteksi yang sudah diterapkan.</li>
+            <li><strong>Kepatuhan dan Kepercayaan:</strong> Banyak standar industri dan regulasi (misalnya PCI DSS, ISO 27001) mewajibkan pentest berkala, sekaligus membangun kepercayaan mitra dan pelanggan.</li>
+          </ul>
       
-        <script src="./script.js"></script>
+          <h3>3. Tahapan Penetration Testing</h3>
+          <ul>
+            <li><strong>Perencanaan & Pra-Engagement:</strong> Menetapkan ruang lingkup: target apa saja yang diuji dan teknik yang diperbolehkan. Mendapatkan persetujuan legal dan menandatangani NDA.</li>
+            <li><strong>Reconnaissance:</strong> Passive (mengumpulkan informasi publik seperti WHOIS, media sosial), Active (memindai port dan layanan menggunakan alat pemindai dasar).</li>
+            <li><strong>Scanning & Enumerasi:</strong> Mengidentifikasi versi perangkat lunak, port terbuka, dan sumber daya lain yang dapat diuji lebih jauh.</li>
+            <li><strong>Eksploitasi:</strong> Mencoba memanfaatkan kerentanan (contoh: SQL injection, XSS, buffer overflow) untuk mendapatkan akses.</li>
+            <li><strong>Post-Eksploitasi:</strong> Menilai dampak: mengakses data sensitif, pivoting ke sistem lain, atau memasang pintu belakang (backdoor).</li>
+            <li><strong>Pelaporan:</strong> Menyusun laporan komprehensif berisi temuan, bukti (screenshot/log), tingkat keparahan, dan rekomendasi perbaikan.</li>
+          </ul>
+      
+          <h3>4. Jenis-Jenis Penetration Testing</h3>
+          <p><strong>Berdasarkan informasi awal:</strong></p>
+          <ul>
+            <li><strong>Black Box:</strong> Pentester tidak memiliki informasi awal tentang sistem.</li>
+            <li><strong>White Box:</strong> Pentester memiliki akses penuh ke informasi sistem (kode sumber, arsitektur).</li>
+            <li><strong>Gray Box:</strong> Kombinasi keduanya; pentester mendapat sebagian informasi.</li>
+          </ul>
+          <p><strong>Berdasarkan sasaran:</strong></p>
+          <ul>
+            <li>Network Pentest (infrastruktur jaringan)</li>
+            <li>Web Application Pentest (aplikasi web dan API)</li>
+            <li>Wireless Pentest (jaringan nirkabel)</li>
+            <li>Social Engineering (menguji kesadaran pengguna)</li>
+          </ul>
+      
+          <h3>5. Alat-Alat Umum</h3>
+          <ul>
+            <li><strong>Nmap:</strong> Pemindaian port dan layanan.</li>
+            <li><strong>Metasploit Framework:</strong> Platform eksploitasi modular.</li>
+            <li><strong>Burp Suite / OWASP ZAP:</strong> Interceptor dan alat analisis lalu lintas web.</li>
+            <li><strong>Nessus / OpenVAS:</strong> Pemindai kerentanan otomatis.</li>
+            <li><strong>Wireshark:</strong> Analisis paket jaringan.</li>
+          </ul>
+      
+          <h3>6. Kelebihan dan Kekurangan</h3>
+          <h4>Kelebihan</h4>
+          <ul>
+            <li>Proaktif dalam mendeteksi dan memperbaiki celah sebelum dieksploitasi.</li>
+            <li>Memberikan gambaran nyata tentang risiko dan potensi dampak.</li>
+            <li>Membantu memastikan kepatuhan terhadap regulasi keamanan.</li>
+          </ul>
+          <h4>Kekurangan</h4>
+          <ul>
+            <li>Membutuhkan waktu dan biaya cukup besar untuk tes menyeluruh.</li>
+            <li>Hasil hanya mencakup ruang lingkup yang ditetapkan; area lain bisa terlewat.</li>
+            <li>Potensi false positives (temuan palsu) dan false negatives (kerentanan terlewat).</li>
+          </ul>
+      
+          <h3>7. Kesimpulan</h3>
+          <p>Penetration testing adalah langkah penting dalam strategi keamanan siber. Dengan mengikuti metodologi yang terstruktur dan menggunakan alat yang tepat, organisasi dapat secara efektif menemukan, memahami, dan menutup kerentanan sebelum disalahgunakan. Meskipun memerlukan investasi waktu dan sumber daya, manfaat jangka panjangnya—melindungi data dan reputasi—sangat berharga.</p>
+      
+          <h3>Referensi</h3>
+          <ul>
+            <li><a href="https://www.breachlock.com/resources/blog/the-basics-of-penetration-testing/">The Basics of Penetration Testing – BreachLock</a></li>
+            <li><a href="https://cybercx.com.au/resource/penetration-testing-guide/">The Complete Guide To Penetration Testing – CyberCX</a></li>
+            <li><a href="https://www.imperva.com/learn/application-security/penetration-testing/">What is Penetration Testing | Imperva</a></li>
+            <li><a href="https://medium.com/@infosecnubes/basic-guide-penetration-testing-for-beginners-d89f6cc61c9">Basic Guide Penetration Testing For Beginners – Medium</a></li>
+            <li><a href="https://www.bluevoyant.com/knowledge-center/penetration-testing-complete-guide-to-process-types-and-tools">Penetration Testing: Complete Guide to Process, Types, and Tools – BlueVoyant</a></li>
+            <li><a href="https://hackernoon.com/the-basics-of-penetration-testing-lnm35u1">The Basics of Penetration Testing | HackerNoon</a></li>
+            <li><a href="https://www.freecodecamp.org/news/beginners-guide-to-penetration-testing-cybersecurity/">Beginners Guide to Penetration Testing | freeCodeCamp</a></li>
+            <li><a href="https://www.blackduck.com/glossary/what-is-penetration-testing.html">What Is Penetration Testing? | Black Duck</a></li>
+            <li><a href="https://www.coresecurity.com/resources/guides/a-simple-guide-to-successful-penetration-testing">A Simple Guide to Successful Penetration Testing – Core Security</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Penetration_test">Penetration Test | Wikipedia</a></li>
+            <li><a href="https://www.linuxjournal.com/content/hacking-made-easy-beginners-guide-penetration-testing-kali-linux">A Beginner's Guide to Penetration Testing with Kali Linux – Linux Journal</a></li>
+          </ul>
+        </div>
       </div>
+      
       
     
     
@@ -341,6 +309,9 @@
                         </div>
                     </div>
                 </div>
+
+                
+            
             </div>
 
 
