@@ -25,105 +25,83 @@
         </div>
     </section>
 
-    <div class="konten">
-        <button class="sidebar-toggle">☰</button>
-      
-        <div class="intro">
-          <h1>Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan</h1>
-          <img src="images/blog12-1.png" alt="Malware Analysis" class="gambartikel fotoutama">
-          <p>Artikel ini mengupas tuntas evolusi malware dari cara pembuatannya, trik-trik obfuscation (proses mengubah kode program atau data menjadi bentuk yang sulit dibaca dan dipahami, tetapi tetap mempertahankan fungsinya atau semantik aslinya) dan evasi (menghindari deteksi oleh antivirus atau sistem keamanan) yang dipakai penyerang, hingga siklus hidup (lifecycle) malware—mulai eksekusi awal hingga pencurian data. Kita juga membahas tiga pendekatan analisis (statis, dinamis, hybrid), lalu melompat ke reverse engineering: persiapan lab, tools andalan (Ghidra, IDA Pro, Radare2), serta trik disassembly, decompilation, dan debugging. Tak ketinggalan, section tentang anti-analisis (anti-VM/anti-debug), forensik memori dengan Volatility, sampai serangan di level firmware/UEFI. Studi kasus Stuxnet dan WannaCry memperlihatkan bagaimana teori dipraktikkan dalam serangan nyata, dan di akhir kita ulas cara mitigasi, deteksi berbasis IOC & MITRE ATT&CK, serta peran YARA dan machine learning untuk otomatisasi analisis.</p>
-        </div>
-      
-        <div class="sidebar-container">
-          <div class="sidebar-wrapper">
-            <div class="sidebar">
-              <div class="reading-progress-container">
-                <div class="reading-progress-bar"></div>
-              </div>
-            </div>
-            <div class="author-box">
-              <img src="images/testi1.jpg" alt="Author's Gravatar" class="author-gravatar">
-              <div class="author-info">
-                <span class="author-title">Author</span>
-                <span class="author-name">Run</span>
-              </div>
-              <span id="dark-mode-toggle" class="material-symbols-outlined light-icon"></span>
-            </div>
-          </div>
-      
-          <div class="post-content">
-            <h3>1. Evolusi Malware: Dari Kode hingga Evasi</h3>
-            <p>Malware modern dibuat dengan bahasa low-level—Assembly atau C/C++—agar performa tinggi dan kontrol memori presisi. Penyerang sering “membungkus” binary menggunakan packer seperti UPX untuk menyamarkan payload dan menghindari signature AV. Lebih canggih lagi, obfuscation polymorfik/metamorfik menghasilkan varian unik setiap eksekusi, mempersulit deteksi berbasis signature.</p>
-            <p>Dalam fase initial compromise, vektor infeksi umum meliputi phishing email dengan lampiran macro jahat, exploit kit (misalnya RIG), atau drive-by download di situs kompromi. Setelah dijalankan, teknik process hollowing menciptakan proses sah yang di-“kosongkan” dan diisi kode jahat, sehingga malware bersembunyi dalam proses Windows asli.</p>
-      
-            <h3>2. Lifecycle Malware: Fase Kritis</h3>
-            <ul>
-              <li><strong>Inisialisasi:</strong> Malware dieksekusi dan menginjeksikan kode ke proses target via process hollowing.</li>
-              <li><strong>Persistence:</strong> Dengan memodifikasi registry atau Task Scheduler, malware menjamin dirinya aktif setelah reboot.</li>
-              <li><strong>Komunikasi C2:</strong> Koneksi ke server Command-and-Control lewat HTTP(S), DNS tunneling, atau protokol custom untuk menerima instruksi lanjutan.</li>
-              <li><strong>Eksfiltrasi:</strong> Data sensitif korban dikompresi dan dikirim ke penyerang, melengkapi tujuan akhir malware.</li>
-            </ul>
-      
-            <h3>3. Tri-Analisis: Statis, Dinamis, Hybrid</h3>
-            <p><strong>Analisis Statis:</strong> Memeriksa binary tanpa menjalankannya: tinjau header PE & import table dengan PE-bear atau CFF Explorer, ekstrak string tersemat (URLs, perintah) pakai <code>strings</code>, dan gunakan YARA rules untuk klasifikasi massal.</p>
-            <p><strong>Analisis Dinamis:</strong> Dijalankan di sandbox (ANY.RUN, Cuckoo Sandbox) untuk memantau perilaku runtime, perubahan file/registry, dan traffic jaringan.</p>
-            <p><strong>Analisis Hybrid & Otomasi:</strong> Menggabungkan keduanya sekaligus memanfaatkan machine learning (misalnya VirusTotal Intelligence, Cortex XDR) untuk percepatan klasifikasi varian baru.</p>
-      
-            <h3>4. Reverse Engineering: Lab & Tools Andalan</h3>
-            <h4>4.1 Membangun Lab Analisis</h4>
-            <p>Siapkan VM snapshot (VMWare/VirtualBox) terisolasi, captive C2 server untuk memantau komunikasi malware, dan alat rollback cepat jika analisis “lepas kendali”.</p>
-      
-            <h4>4.2 Tools Utama</h4>
-            <ul>
-              <li><strong>Ghidra:</strong> Decompiler open-source dari NSA, lengkap dengan scripting dan kolaborasi tim.</li>
-              <li><strong>IDA Pro + Hex-Rays:</strong> Disassembler/decompiler komersial dengan plugin kuat untuk menghasilkan pseudocode yang mudah dibaca.</li>
-              <li><strong>Radare2:</strong> Framework gratis untuk disassembly, debugging, patching, dan scripting.</li>
-            </ul>
-      
-            <h4>4.3 Trik Disassembly & Debugging</h4>
-            <ul>
-              <li><strong>Breakpoint & Stepping:</strong> Dengan x64dbg atau WinDbg untuk mengamati register dan memori real-time.</li>
-              <li><strong>Code Patching:</strong> Sunting instruksi di runtime untuk melewati cek keamanan atau memaksa logika cabang tertentu.</li>
-            </ul>
-      
-            <h3>5. Anti-Analisis & Forensik Memori</h3>
-            <p>Malware bisa mendeteksi VM lewat cek registry/CPUID atau API <code>IsDebuggerPresent</code> untuk menghindar dari sandbox. Beberapa memasang “time bomb” agar payload hanya aktif pada tanggal tertentu.</p>
-            <p>Di sisi defender, forensik memori menggunakan Volatility untuk menangkap RAM dump dan mengungkap proses terinjeksi, koneksi tersembunyi, serta artefak runtime lain sebelum malware membersihkan jejaknya.</p>
-      
-            <h3>6. Malware di Level Firmware & Rootkit</h3>
-            <p>UEFI/BIOS bootkits memuat malware sebelum OS, membuat pembersihan via reinstall jadi sia-sia. Kasus LoJax—rootkit UEFI pertama dari group Fancy Bear—membuktikan ancaman nyata di firmware. Analisis memerlukan dumping chip SPI dan tools seperti UEFITool atau CHIPSEC.</p>
-      
-            <h3>7. Studi Kasus: Stuxnet & WannaCry</h3>
-            <ul>
-              <li><strong>Stuxnet:</strong> Worm canggih yang menyerang PLC Siemens Iran pada 2010, memanfaatkan empat zero-day Windows dan rootkit kernel untuk menyembunyikan aktivitas sabotase fisik.</li>
-              <li><strong>WannaCry:</strong> Ransomware global Mei 2017 yang memanfaatkan exploit EternalBlue (MS17-010) dan berhenti berkat “kill switch” yang ditemukan Marcus Hutchins, memperlambat penyebaran sebelum patch dirilis.</li>
-            </ul>
-      
-            <h3>8. Mitigasi & Kecerdasan Ancaman</h3>
-            <p>Patch management menyeluruh—termasuk OS, aplikasi, dan firmware—menutup celah exploit sebelum diserang. Implementasi Secure Boot & measured boot (TPM) mencegah bootkit non-signed berjalan.</p>
-          </div>
-        </div>
-      
-        <div class="outro">
-            <p>Deteksi berbasis IOC dengan YARA rules, IOC feeds, dan peta taktik MITRE ATT&CK membantu monitoring berkelanjutan dan threat hunting proaktif. Kolaborasi lewat platform open source seperti MISP dan OpenCTI mempercepat sharing indikator dan mengurangi blind spot komunitas keamanan.</p>
-
-          <h3>Sumber Referensi</h3>
-          <ul>
-            <li><a href="https://hshrzd.wordpress.com/pe-bear/">PE-bear – Static Analysis Tool</a></li>
-            <li><a href="https://www.bitdefender.com/en-us/blog/businessinsights/what-is-dynamic-malware-analysis">What Is Dynamic Malware Analysis? – Bitdefender</a></li>
-            <li><a href="https://www.cynet.com/attack-techniques-hands-on/malware-anti-vm-techniques/">Malware Anti-VM Techniques – Cynet</a></li>
-            <li><a href="https://www.veeam.com/blog/yara-rules-malware-detection-analysis.html">YARA Rules Guide – Veeam</a></li>
-            <li><a href="https://attack.mitre.org/">MITRE ATT&CK®</a></li>
-            <li><a href="https://www.sciencedirect.com/science/article/pii/S2666827024000227">A survey of malware detection using deep learning – ScienceDirect</a></li>
-            <li><a href="https://intezer.com/blog/memory-analysis-forensic-tools/">Memory Analysis 101 – Intezer</a></li>
-            <li><a href="https://www.crowdstrike.com/en-us/cybersecurity-101/malware/malware-analysis/">Malware Analysis: Steps & Examples – CrowdStrike</a></li>
-            <li><a href="https://www.sans.org/media/score/checklists/rootkits-investigation-procedures.pdf">SANS Rootkits Investigation Procedures</a></li>
-          </ul>
-        </div>
-      
-        <script src="./script.js"></script>
-      </div>    
     
+    <div class="konten">
+  <button class="sidebar-toggle">☰</button>
+
+  <div class="intro">
+    <h1>Pentingnya Keamanan Perangkat IoT: Menuju Rumah & Kota Pintar</h1>
+    <img src="images/blog17-1.png" alt="IoT Security" class="gambartikel fotoutama">
+    <p>Perangkat Internet of Things (IoT) adalah milyaran objek fisik di seluruh dunia—mulai dari sensor, kamera, hingga peralatan rumah tangga—yang kini terhubung ke internet dan saling berbagi data untuk menciptakan sistem yang cerdas dan responsif. Fungsi utama perangkat IoT mencakup pengumpulan data melalui sensor, pemrosesan informasi secara lokal atau di cloud, serta transmisi hasil pengolahan tersebut ke aplikasi atau perangkat lain secara real-time.</p>
+    <p>Tujuan utama implementasi IoT adalah meningkatkan efisiensi operasional, mengoptimalkan penggunaan sumber daya, serta mempercepat pengambilan keputusan berbasis data—sehingga organisasi dan individu dapat merespon perubahan dengan lebih cepat dan akurat. Selain itu, IoT juga membuka peluang inovasi bisnis dan model layanan baru—misalnya service-as-a-service (SaaS) berbasis perangkat pintar—serta mendukung keberlanjutan melalui pemantauan dan pengelolaan sumber daya secara cerdas.</p>
+  </div>
+
+  <div class="sidebar-container">
+    <div class="sidebar-wrapper">
+      <div class="sidebar">
+        <div class="reading-progress-container">
+          <div class="reading-progress-bar"></div>
+        </div>
+      </div>
+      <div class="author-box">
+        <img src="images/testi1.jpg" alt="Author's Gravatar" class="author-gravatar">
+        <div class="author-info">
+          <span class="author-title">Author</span>
+          <span class="author-name">Run</span>
+        </div>
+        <span id="dark-mode-toggle" class="material-symbols-outlined light-icon"></span>
+      </div>
+    </div>
+
+    <div class="post-content">
+      <h3>Pengantar Keamanan IoT</h3>
+      <p>Perangkat IoT menghubungkan objek fisik ke internet, menciptakan ekosistem yang mendukung automasi dan pemantauan real-time. Namun sifat konektivitas inilah yang membuka celah bagi penyerang untuk mencuri data, mengambil alih perangkat, atau melancarkan serangan Distributed Denial of Service (DDoS).</p>
+
+      <h3>Ancaman Umum pada Perangkat IoT</h3>
+      <ul>
+        <li><strong>Kerentanan Otentikasi dan Otorisasi:</strong> Banyak perangkat IoT dikirim dengan kredensial default yang kerap tidak diganti oleh pengguna.</li>
+        <li><strong>Kurangnya Enkripsi dan Mekanisme Update Aman:</strong> Data sering dikirim tanpa enkripsi, dan update firmware tidak terverifikasi secara digital.</li>
+        <li><strong>Antarmuka Ekosistem Tidak Aman:</strong> Web API dan aplikasi mobile rentan jika tidak dikonfigurasi dengan benar.</li>
+        <li><strong>Serangan Jaringan:</strong> Kurangnya segmentasi jaringan membuka peluang serangan lateral antar perangkat IoT.</li>
+      </ul>
+
+      <h3>Strategi Proteksi Perangkat Pintar</h3>
+      <ul>
+        <li><strong>Pemilihan dan Pengelolaan Perangkat:</strong> Gunakan perangkat dari vendor dengan dukungan keamanan jangka panjang.</li>
+        <li><strong>Segmentasi Jaringan:</strong> Tempatkan perangkat IoT pada VLAN atau jaringan terpisah dari jaringan utama.</li>
+        <li><strong>Enkripsi dan Sertifikat:</strong> Terapkan komunikasi terenkripsi TLS dan gunakan sertifikat valid.</li>
+        <li><strong>Otentikasi Multifaktor dan Password:</strong> Gunakan sandi kompleks dan aktifkan 2FA.</li>
+        <li><strong>Pembaruan Firmware:</strong> Aktifkan update otomatis dan verifikasi tanda tangan digital firmware.</li>
+        <li><strong>Monitoring dan Log:</strong> Gunakan logging dan solusi IDS/IPS atau SIEM untuk deteksi dini.</li>
+      </ul>
+
+      <h3>Praktik Spesifik untuk CCTV dan Smart Home</h3>
+      <ul>
+        <li><strong>CCTV:</strong> Gunakan NAS untuk penyimpanan lokal dan enkripsi end-to-end untuk streaming.</li>
+        <li><strong>Smart Home:</strong> Gunakan protokol aman seperti Zigbee/Z-Wave dan integrasi dengan layanan keamanan profesional.</li>
+      </ul>
+
+      <h3>Kesimpulan dan Rekomendasi</h3>
+      <p>Dengan pendekatan keamanan yang menyeluruh—mulai dari pemilihan perangkat hingga monitoring—organisasi dan individu dapat memaksimalkan manfaat IoT tanpa mengorbankan keamanan dan privasi.</p>
+    </div>
+  </div>
+
+  <div class="outro">
+    <h3>Referensi</h3>
+    <ul>
+      <li><a href="https://owasp.org/www-project-internet-of-things/">OWASP IoT Security Testing Guide</a></li>
+      <li><a href="https://www.cisa.gov/resources-tools/resources/internet-things-iot-acquisition-guidance-document">CISA IoT Acquisition Guidance</a></li>
+      <li><a href="https://www.nist.gov/itl/applied-cybersecurity/nist-cybersecurity-iot-program/nistir-8259-series">NISTIR 8259 Series</a></li>
+      <li><a href="https://pbigaem.fs.ml.com/articles/internet-of-things-iot-device-security-your-home.html">Merrill Lynch IoT Security Practices</a></li>
+      <li><a href="https://mypage.axa.co.id/news/id/sistem-smart-home-dalam-melindungi-rumah-saat-kamu-bepergian-simak-di-sini">AXA Smart Home Protection</a></li>
+      <li><a href="https://www.wired.com/story/security-camera-tips-and-risks">WIRED Camera Security</a></li>
+      <li><a href="https://www.techradar.com/news/best-home-security-camera">TechRadar Smart Camera Reviews</a></li>
+    </ul>
+  </div>
+
+  <script src="./script.js"></script>
+</div>
+
 
     <div class="post-filter container">
         <span class="filter-item active-filter" data-filter="all">All Recomended Posts</span>
@@ -263,7 +241,7 @@
                         <h2 class="category">tech</h2>
                         <a href="blogpost8.html" class="post-title">Jaringan Komputer dan Keamanan Jaringan: Memahami Protokol dan Teknologi Perlindungannya</a>
                         <span class="post-date">30 April 2025</span>
-                        <p class="post-description">Jaringan komputer merupakan tulang punggung dunia digital. Dari komunikasi pribadi hingga sistem perbankan dan militer, semua bergantung pada keandalan dan keamanan jaringan</p>
+                        <p class="post-description">Jaringan komputer merupakan tulang punggung dunia digital. Dari komunikasi pribadi hingga sistem perbankan dan militer,</p>
                         <div class="profile">
                             <img src="images/testi1.jpg" alt="" class="profile-img">
                             <span class="profile-name">RUNNIMG</span>
@@ -316,7 +294,7 @@
                     </div>
                 </div>
 
-                <!--Post11-->
+                <!--Post12-->
                 <div class="swiper-slide">
                     <div class="post-box tech">
                         <img src="images/blog12-1.png" alt="" class="post-img">
@@ -330,7 +308,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!--Post13-->
                 <div class="swiper-slide">
                     <div class="post-box tech">
@@ -360,7 +338,7 @@
                         </div>
                     </div>
                 </div>
-
+            
                 <!--Post15-->
                 <div class="swiper-slide">
                     <div class="post-box tech">
@@ -405,7 +383,7 @@
                         </div>
                     </div>
                 </div>
-            
+
             </div>
 
 
