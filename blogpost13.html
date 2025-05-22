@@ -1,450 +1,408 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBERTHERAPY</title>
-    <!-- Box-icon -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/favicon.png" type="image/png">
-</head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital</title>
+<!-- Box-icon -->
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="images/favicon.png" rel="icon" type="image/png"/>
+<meta content="Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital" name="description"/><meta content="Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital" property="og:title"/><link href="https://iqbalmln.my.id/blogpost13.html" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="https://iqbalmln.my.id/blogpost13.html" property="og:url"/></head>
 <body>
-    <header>
-        <div class="nav container">
-            <a href="index.html" class="logo">Cyber<span>Therapy</span></a>
-            <a href="/PortCyPhy" class="login">Get in Touch</a>
-        </div>
-    </header>
-
-    <section class="home" id="home">
-        <div class="home-text container">
-            <h2 class="home-title">CyberTherapy</h2>
-            <span class="home-subtitle">CyberSecurity X Physiotherapy Content</span>
-        </div>
-    </section>
-
-    <div class="konten">
-        <button class="sidebar-toggle">☰</button>
-      
-        <div class="intro">
-          <h1>Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital</h1>
-          <img src="images/blog13-1.png" alt="Digital Forensics" class="gambartikel fotoutama">
-          <p>Digital forensics adalah disiplin ilmu yang memfokuskan pada identifikasi, akuisisi, analisis, dan pelaporan bukti digital dari insiden keamanan siber atau kejahatan dunia maya. Proses ini mengikuti metodologi terstruktur—termasuk identifikasi, preservasi, akuisisi, analisis, dan pelaporan—agar bukti dapat dipertanggungjawabkan secara hukum. Teknik yang digunakan meliputi forensic imaging, analisis sistem berkas, memory forensics, network forensics, log analysis, dan mobile device forensics. Berbagai alat komersial dan open source—seperti EnCase, FTK, Autopsy, Volatility, dan Wireshark—sering diaplikasikan untuk mengekstraksi dan memverifikasi jejak digital. Tantangan utama mencakup enkripsi data, volume bukti yang besar, serta kecepatan dan keandalan proses forensik untuk kebutuhan respons insiden dan litigasi.</p>
-        </div>
-      
-        <div class="sidebar-container">
-          <div class="sidebar-wrapper">
-            <div class="sidebar">
-              <div class="reading-progress-container">
-                <div class="reading-progress-bar"></div>
-              </div>
-            </div>
-            <div class="author-box">
-              <img src="images/testi1.jpg" alt="Author's Gravatar" class="author-gravatar">
-              <div class="author-info">
-                <span class="author-title">Author</span>
-                <span class="author-name">Run</span>
-              </div>
-              <span id="dark-mode-toggle" class="material-symbols-outlined light-icon"></span>
-            </div>
-          </div>
-      
-          <div class="post-content">
-            <h3>Definisi Digital Forensics</h3>
-            <p>Digital forensics (atau forensik digital) merupakan cabang forensik yang fokus pada bukti elektronik dan digital—termasuk komputer, perangkat mobile, jaringan, dan medium penyimpanan lainnya. Bukti digital dapat berupa file, log, metadata, aktivitas jaringan, bahkan jejak memori volatile yang terekam di RAM. Tujuan utamanya adalah mengidentifikasi bagaimana, kapan, dan oleh siapa suatu insiden siber terjadi serta apa dampaknya terhadap sistem atau data korban.</p>
-      
-            <h3>Tahapan Metodologi Forensik Digital</h3>
-            <ul>
-              <li><strong>1. Identifikasi:</strong> Menetapkan sumber bukti potensial (perangkat, server, log jaringan) yang relevan dengan insiden.</li>
-              <li><strong>2. Preservasi:</strong> Melindungi data dari modifikasi atau kerusakan dengan membuat salinan bitwise (forensic image) dan menjaga rantai kawat (chain of custody).</li>
-              <li><strong>3. Akuisisi:</strong> Melakukan penggambaran (imaging) perangkat penyimpanan dan/atau ekstraksi data memori menggunakan metode dan alat yang tervalidasi.</li>
-              <li><strong>4. Analisis:</strong> Mengevaluasi bukti dengan teknik seperti analisis sistem berkas, memory forensics, dan parsing log untuk menemukan artefak digital kunci.</li>
-              <li><strong>5. Pelaporan:</strong> Menyusun laporan formal yang mendokumentasikan temuan, metodologi, serta rekomendasi remediasi atau proses hukum.</li>
-            </ul>
-      
-            <h3>Teknik dan Alat Forensik Digital</h3>
-            <ul>
-              <li><strong>Forensic Imaging:</strong> Membuat salinan bitwise akurat dari media penyimpanan untuk memastikan integritas bukti tanpa mengubah data asli.</li>
-              <li><strong>Analisis Sistem Berkas:</strong> Memeriksa struktur file system (NTFS, FAT, EXT) hingga level metadata untuk mendeteksi file tersembunyi, slack space, atau jejak penghapusan.</li>
-              <li><strong>Memory Forensics:</strong> Menangkap RAM untuk menganalisis proses aktif, cache, koneksi jaringan, dan malware yang berjalan tanpa meninggalkan jejak di disk.</li>
-              <li><strong>Network Forensics:</strong> Mengumpulkan dan memeriksa paket lalu lintas jaringan, session reassembly, serta metadata komunikasi untuk melacak serangan atau data exfiltration.</li>
-              <li><strong>Log Analysis:</strong> Menganalisis log dari sistem operasi, aplikasi, firewall, dan perangkat keamanan lainnya untuk merekonstruksi timeline insiden.</li>
-              <li><strong>Mobile Device Forensics:</strong> Ekstraksi data perpindahan (seizure), akuisisi, serta analisis aplikasi, SMS, call log, dan artefak lokasi pada perangkat iOS dan Android.</li>
-            </ul>
-      
-            <h3>Tantangan dan Praktik Terbaik</h3>
-            <ul>
-              <li><strong>Enkripsi & Anti-Forensik:</strong> Banyak malware dan perangkat menggunakan enkripsi penuh disk atau teknik anti-forensik untuk menghambat investigasi.</li>
-              <li><strong>Volume Data:</strong> Skalabilitas analisis diperlukan untuk menangani terabytes bukti digital secara efisien.</li>
-              <li><strong>Keandalan Alat:</strong> Validasi dan pengujian alat forensik lewat metodologi standar untuk memastikan hasil dapat dipertanggungjawabkan.</li>
-            </ul>
-      
-            <h3>Kesimpulan</h3>
-            <p>Digital forensics memainkan peran krusial dalam mengungkap jalannya serangan siber dan mendukung proses penegakan hukum serta respons insiden organisasi. Melalui metodologi terstruktur dan penggunaan teknik serta alat yang tepat, para penyidik dapat merekonstruksi kejadian digital secara akurat dan andal.</p>
-          </div>
-        </div>
-      
-        <div class="outro">
-          <h3>Sumber Referensi</h3>
-          <ul>
-            <li><a href="https://nvlpubs.nist.gov/nistpubs/ir/2022/NIST.IR.8387.pdf">Digital Evidence Preservation: Considerations for Evidence Handlers</a></li>
-            <li><a href="https://www.xploreforensics.com/blog/ntfs-file-system-forensic-analysis.html">NTFS File System Forensic Analysis</a></li>
-            <li><a href="https://www.varonis.com/blog/how-to-use-volatility">How to Use Volatility for Memory Forensics and Analysis</a></li>
-            <li><a href="https://jacob-e-stickney.medium.com/wireshark-for-network-forensics-ecd2baa136cd">Wireshark for Network Forensics</a></li>
-            <li><a href="https://medium.com/fmisec/log-analysis-for-digital-forensic-investigation-e4a00f5a5c09">Log Analysis for Digital Forensic Investigation</a></li>
-            <li><a href="https://www.amazon.com/Practical-Mobile-Forensics-hands-mastering/dp/1788839196">A Hands-On Guide to Mastering Mobile Forensics for iOS, Android …</a></li>
-            <li><a href="https://www.itgovernance.eu/blog/en/anti-forensics-what-it-is-examples-and-how-to-defend-against-it">Anti-Forensics: What it is, Examples and How to Defend Against it</a></li>
-            <li><a href="https://www.nist.gov/itl/ssd/software-quality-group/computer-forensics-tool-testing-program-cftt">Computer Forensics Tool Testing Program (CFTT)</a></li>
-            <li><a href="https://online.champlain.edu/blog/chain-custody-digital-forensics">What is the Chain of Custody in Digital Forensics?</a></li>
-            <li><a href="https://www.autopsy.com/">Autopsy – Digital Forensics</a></li>
-            <li><a href="https://cloudyforensics.medium.com/encase-vs-ftk-vs-x-ways-review-2b7b075333ef">EnCase vs FTK vs X-Ways Review</a></li>
-            <li><a href="https://solutions.avalonlegal.com/blog/forensic-imaging-why-its-crucial-for-ediscovery">Forensic Imaging: Why It’s Crucial for eDiscovery</a></li>
-          </ul>
-        </div>
-      
-        <script src="./script.js"></script>
-      </div>
-      
-      
-         
-    
-
-    <div class="post-filter container">
-        <span class="filter-item active-filter" data-filter="all">All Recomended Posts</span>
-    </div>
-
-    <div class="carousel-container">
-        <div class="mySwiper" id="1234">
-            <div class="swiper-wrapper">
-                
-                <!-- Post 1 -->
-                <div class="swiper-slide">
-                    <div class="post-box news">
-                        <img src="images/img1.jpg" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="page1.html" class="post-title">The Delightful World of Crayfish.</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
+<header>
+<div class="nav container">
+<a class="logo" href="index.html">Cyber<span>Therapy</span></a>
+<a class="login" href="/PortCyPhy">Get in Touch</a>
+</div>
+</header>
+<section class="home" id="home">
+<div class="home-text container">
+<h2 class="home-title">CyberTherapy</h2>
+<span class="home-subtitle">CyberSecurity X Physiotherapy Content</span>
+</div>
+</section>
+<div class="konten">
+<button class="sidebar-toggle">☰</button>
+<div class="intro">
+<h1>Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital</h1>
+<img alt="Digital Forensics" class="gambartikel fotoutama" src="images/blog13-1.png"/>
+<p>Digital forensics adalah disiplin ilmu yang memfokuskan pada identifikasi, akuisisi, analisis, dan pelaporan bukti digital dari insiden keamanan siber atau kejahatan dunia maya. Proses ini mengikuti metodologi terstruktur—termasuk identifikasi, preservasi, akuisisi, analisis, dan pelaporan—agar bukti dapat dipertanggungjawabkan secara hukum. Teknik yang digunakan meliputi forensic imaging, analisis sistem berkas, memory forensics, network forensics, log analysis, dan mobile device forensics. Berbagai alat komersial dan open source—seperti EnCase, FTK, Autopsy, Volatility, dan Wireshark—sering diaplikasikan untuk mengekstraksi dan memverifikasi jejak digital. Tantangan utama mencakup enkripsi data, volume bukti yang besar, serta kecepatan dan keandalan proses forensik untuk kebutuhan respons insiden dan litigasi.</p>
+</div>
+<div class="sidebar-container">
+<div class="sidebar-wrapper">
+<div class="sidebar">
+<div class="reading-progress-container">
+<div class="reading-progress-bar"></div>
+</div>
+</div>
+<div class="author-box">
+<img alt="Author's Gravatar" class="author-gravatar" src="images/testi1.jpg"/>
+<div class="author-info">
+<span class="author-title">Author</span>
+<span class="author-name">Run</span>
+</div>
+<span class="material-symbols-outlined light-icon" id="dark-mode-toggle"></span>
+</div>
+</div>
+<div class="post-content">
+<h3>Definisi Digital Forensics</h3>
+<p>Digital forensics (atau forensik digital) merupakan cabang forensik yang fokus pada bukti elektronik dan digital—termasuk komputer, perangkat mobile, jaringan, dan medium penyimpanan lainnya. Bukti digital dapat berupa file, log, metadata, aktivitas jaringan, bahkan jejak memori volatile yang terekam di RAM. Tujuan utamanya adalah mengidentifikasi bagaimana, kapan, dan oleh siapa suatu insiden siber terjadi serta apa dampaknya terhadap sistem atau data korban.</p>
+<h3>Tahapan Metodologi Forensik Digital</h3>
+<ul>
+<li><strong>1. Identifikasi:</strong> Menetapkan sumber bukti potensial (perangkat, server, log jaringan) yang relevan dengan insiden.</li>
+<li><strong>2. Preservasi:</strong> Melindungi data dari modifikasi atau kerusakan dengan membuat salinan bitwise (forensic image) dan menjaga rantai kawat (chain of custody).</li>
+<li><strong>3. Akuisisi:</strong> Melakukan penggambaran (imaging) perangkat penyimpanan dan/atau ekstraksi data memori menggunakan metode dan alat yang tervalidasi.</li>
+<li><strong>4. Analisis:</strong> Mengevaluasi bukti dengan teknik seperti analisis sistem berkas, memory forensics, dan parsing log untuk menemukan artefak digital kunci.</li>
+<li><strong>5. Pelaporan:</strong> Menyusun laporan formal yang mendokumentasikan temuan, metodologi, serta rekomendasi remediasi atau proses hukum.</li>
+</ul>
+<h3>Teknik dan Alat Forensik Digital</h3>
+<ul>
+<li><strong>Forensic Imaging:</strong> Membuat salinan bitwise akurat dari media penyimpanan untuk memastikan integritas bukti tanpa mengubah data asli.</li>
+<li><strong>Analisis Sistem Berkas:</strong> Memeriksa struktur file system (NTFS, FAT, EXT) hingga level metadata untuk mendeteksi file tersembunyi, slack space, atau jejak penghapusan.</li>
+<li><strong>Memory Forensics:</strong> Menangkap RAM untuk menganalisis proses aktif, cache, koneksi jaringan, dan malware yang berjalan tanpa meninggalkan jejak di disk.</li>
+<li><strong>Network Forensics:</strong> Mengumpulkan dan memeriksa paket lalu lintas jaringan, session reassembly, serta metadata komunikasi untuk melacak serangan atau data exfiltration.</li>
+<li><strong>Log Analysis:</strong> Menganalisis log dari sistem operasi, aplikasi, firewall, dan perangkat keamanan lainnya untuk merekonstruksi timeline insiden.</li>
+<li><strong>Mobile Device Forensics:</strong> Ekstraksi data perpindahan (seizure), akuisisi, serta analisis aplikasi, SMS, call log, dan artefak lokasi pada perangkat iOS dan Android.</li>
+</ul>
+<h3>Tantangan dan Praktik Terbaik</h3>
+<ul>
+<li><strong>Enkripsi &amp; Anti-Forensik:</strong> Banyak malware dan perangkat menggunakan enkripsi penuh disk atau teknik anti-forensik untuk menghambat investigasi.</li>
+<li><strong>Volume Data:</strong> Skalabilitas analisis diperlukan untuk menangani terabytes bukti digital secara efisien.</li>
+<li><strong>Keandalan Alat:</strong> Validasi dan pengujian alat forensik lewat metodologi standar untuk memastikan hasil dapat dipertanggungjawabkan.</li>
+</ul>
+<h3>Kesimpulan</h3>
+<p>Digital forensics memainkan peran krusial dalam mengungkap jalannya serangan siber dan mendukung proses penegakan hukum serta respons insiden organisasi. Melalui metodologi terstruktur dan penggunaan teknik serta alat yang tepat, para penyidik dapat merekonstruksi kejadian digital secara akurat dan andal.</p>
+</div>
+</div>
+<div class="outro">
+<h3>Sumber Referensi</h3>
+<ul>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/ir/2022/NIST.IR.8387.pdf">Digital Evidence Preservation: Considerations for Evidence Handlers</a></li>
+<li><a href="https://www.xploreforensics.com/blog/ntfs-file-system-forensic-analysis.html">NTFS File System Forensic Analysis</a></li>
+<li><a href="https://www.varonis.com/blog/how-to-use-volatility">How to Use Volatility for Memory Forensics and Analysis</a></li>
+<li><a href="https://jacob-e-stickney.medium.com/wireshark-for-network-forensics-ecd2baa136cd">Wireshark for Network Forensics</a></li>
+<li><a href="https://medium.com/fmisec/log-analysis-for-digital-forensic-investigation-e4a00f5a5c09">Log Analysis for Digital Forensic Investigation</a></li>
+<li><a href="https://www.amazon.com/Practical-Mobile-Forensics-hands-mastering/dp/1788839196">A Hands-On Guide to Mastering Mobile Forensics for iOS, Android …</a></li>
+<li><a href="https://www.itgovernance.eu/blog/en/anti-forensics-what-it-is-examples-and-how-to-defend-against-it">Anti-Forensics: What it is, Examples and How to Defend Against it</a></li>
+<li><a href="https://www.nist.gov/itl/ssd/software-quality-group/computer-forensics-tool-testing-program-cftt">Computer Forensics Tool Testing Program (CFTT)</a></li>
+<li><a href="https://online.champlain.edu/blog/chain-custody-digital-forensics">What is the Chain of Custody in Digital Forensics?</a></li>
+<li><a href="https://www.autopsy.com/">Autopsy – Digital Forensics</a></li>
+<li><a href="https://cloudyforensics.medium.com/encase-vs-ftk-vs-x-ways-review-2b7b075333ef">EnCase vs FTK vs X-Ways Review</a></li>
+<li><a href="https://solutions.avalonlegal.com/blog/forensic-imaging-why-its-crucial-for-ediscovery">Forensic Imaging: Why It’s Crucial for eDiscovery</a></li>
+</ul>
+</div>
+<script src="./script.js"></script>
+</div>
+<div class="post-filter container">
+<span class="filter-item active-filter" data-filter="all">All Recomended Posts</span>
+</div>
+<div class="carousel-container">
+<div class="mySwiper" id="1234">
+<div class="swiper-wrapper">
+<!-- Post 1 -->
+<div class="swiper-slide">
+<div class="post-box news">
+<img alt="" class="post-img" src="images/img1.jpg"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="page1.html">The Delightful World of Crayfish.</a>
+<span class="post-date">10 Des 2024</span>
+<p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
                             freshwater ecosystems...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Post 2 -->
-                <div class="swiper-slide">
-                    
-                    <div class="post-box health">
-                        <img src="images/img2.png" alt="" class="post-img">
-                        <h2 class="category">Health</h2>
-                        <a href="blogpost1.html" class="post-title">Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Fisioterapi adalah profesi di bidang kesehatan yang berfokus pada rehabilitasi, pencegahan, dan 
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!-- Post 2 -->
+<div class="swiper-slide">
+<div class="post-box health">
+<img alt="" class="post-img" src="images/img2.png"/>
+<h2 class="category">Health</h2>
+<a class="post-title" href="blogpost1.html">Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</a>
+<span class="post-date">10 Des 2024</span>
+<p class="post-description">Fisioterapi adalah profesi di bidang kesehatan yang berfokus pada rehabilitasi, pencegahan, dan 
                             pengelolaan gangguan gerak tubuh.</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-                <!--Post3-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/img13.jpg" alt="" class="post-img">
-                        <h2 class="category">Tech</h2>
-                        <a href="blogpost2.html" class="post-title">Simple WebApp Penetration Testing</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post3-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/img13.jpg"/>
+<h2 class="category">Tech</h2>
+<a class="post-title" href="blogpost2.html">Simple WebApp Penetration Testing</a>
+<span class="post-date">10 Des 2024</span>
+<p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
                             freshwater ecosystems...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-        
-                <!--Post4-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog3-1.png" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="blogpost3.html" class="post-title">Work Interview Series 101: Sebelum Interview</a>
-                        <span class="post-date">24 April 2025</span>
-                        <p class="post-description">Persiapan sebelum wawancara kerja meliputi riset mendalam tentang perusahaan dan posisi, penguasaan diri dengan personal branding, ...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post5-->
-                <div class="swiper-slide">
-                    <div class="post-box news">
-                        <img src="images/blog4-1.png" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="blogpost4.html" class="post-title">Work Interview Series 101: Saat Interview</a>
-                        <span class="post-date">24 April 2025</span>
-                        <p class="post-description">Wawancara kerja kerap menimbulkan perasaan tegang, apalagi keputusan pewawancara sering terbentuk lewat kesan pertama dalam hitungan detik...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post6-->
-                <div class="swiper-slide">
-                    <div class="post-box news">
-                        <img src="images/blog5-1.png" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="blogpost5.html" class="post-title">Work Interview Series 101: Pasca Interview</a>
-                        <span class="post-date">24 April 2025</span>
-                        <p class="post-description">Kelihatannya tahap wawancara sudah berakhir, tapi sebenarnya perjalanan baru dimulai. Tindakan-tindakan setelah sesi interview berperan besar dalam memperkuat kesan profesionalismemu ...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post7-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog6-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost6.html" class="post-title">Basic CyberSecurity</a>
-                        <span class="post-date">26 April 2025</span>
-                        <p class="post-description">Cybersecurity adalah bidang yang kompleks namun sangat penting. Pemahaman dasar tentang ancaman digital, serta kebijakan</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post8-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog7-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost7.html" class="post-title">Cryptography: Seni Menulis Pesan Rahasia di Era Digital</a>
-                        <span class="post-date">28 April 2025</span>
-                        <p class="post-description">Di zaman serba digital seperti sekarang, keamanan informasi menjadi prioritas utama. Setiap aktivitas seperti mengirim pesan, ...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post9-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog8-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost8.html" class="post-title">Jaringan Komputer dan Keamanan Jaringan: Memahami Protokol dan Teknologi Perlindungannya</a>
-                        <span class="post-date">30 April 2025</span>
-                        <p class="post-description">Jaringan komputer merupakan tulang punggung dunia digital. Dari komunikasi pribadi hingga sistem perbankan dan militer, semua bergantung pada keandalan dan keamanan jaringan</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post10-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog9-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost9.html" class="post-title">Sistem Operasi dan Keamanannya: Antara Windows dan Linux</a>
-                        <span class="post-date">30 April 2025</span>
-                        <p class="post-description">Di balik layar setiap perangkat komputer, terdapat sistem operasi (OS) yang berperan sebagai otak pengendali.</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post10-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog10-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost10.html" class="post-title">Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</a>
-                        <span class="post-date">5 Mei 2025</span>
-                        <p class="post-description">Aplikasi web rentan terhadap berbagai jenis serangan injeksi kode yang dapat mengakibatkan pencurian data atau pengambilalihan sistem</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post11-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog11-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost11.html" class="post-title">Penetration Testing: Hacking Secara Legal, Benarkah???</a>
-                        <span class="post-date">7 Mei 2025</span>
-                        <p class="post-description">Penetration testing atau ethical hacking adalah proses menguji keamanan sistem TI—termasuk jaringan, aplikasi, dan perangkat—dengan</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post12-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog12-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost12.html" class="post-title">Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan</a>
-                        <span class="post-date">8 Mei 2025</span>
-                        <p class="post-description">Artikel ini mengupas tuntas evolusi malware dari cara pembuatannya, trik-trik obfuscation (proses mengubah kode program atau</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--Post13-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog13-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost13.html" class="post-title">Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital</a>
-                        <span class="post-date">8 Mei 2025</span>
-                        <p class="post-description">Digital forensics adalah disiplin ilmu yang memfokuskan pada identifikasi, akuisisi, analisis, dan pelaporan bukti digital dari insiden keamanan siber</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--Post14-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog14-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost14.html" class="post-title">Manajemen Keamanan Informasi (ISMS & Kebijakan Keamanan)</a>
-                        <span class="post-date">9 Mei 2025</span>
-                        <p class="post-description">Manajemen Keamanan Informasi (Information Security Management System atau ISMS) adalah kerangka kerja</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post15-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog15-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost15.html" class="post-title">Social Engineering & Psikologi Serangan : Mempelajari Cara Hacker Memanipulasi Manusia</a>
-                        <span class="post-date">9 Mei 2025</span>
-                        <p class="post-description">Social engineering adalah rangkaian teknik manipulasi psikologis yang digunakan penyerang untuk mengeksploitasi kepercayaan, emosi, </p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post16-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog16-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost16.html" class="post-title">Cloud Security: Melindungi Data dan Aplikasi yang Berjalan di Cloud</a>
-                        <span class="post-date">10 Mei 2025</span>
-                        <p class="post-description">Cloud Security melibatkan serangkaian tanggung jawab bersama antara penyedia layanan (CSP) dan pelanggan </p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post17-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog17-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost17.html" class="post-title">Pentingnya Keamanan Perangkat IoT: Menuju Rumah & Kota Pintar</a>
-                        <span class="post-date">11 Mei 2025</span>
-                        <p class="post-description">Perangkat Internet of Things (IoT) adalah milyaran objek fisik di seluruh dunia—mulai dari sensor, kamera, hingga peralatan </p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-            
-            </div>
-
-
-            <div class="slider-button-wrap">
-                <div class="slider-button-prev swiperSignpostingPrev"> <span class="icon"></span></div>
-                <div class="slider-button-next swiperSignpostingNext"><span class="icon"></span></div>
-            </div>
-            
-            <div class="swiper-pagination"></div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-container">
-            <div class="sec aboutus">
-                <h2>About Us</h2>
-                <p>CyberSecurity and Physiotherapy Student at Universitas Indonesia. Care to learn and increasing knowledge from zero to hero.</p>
-                <ul class="sci">
-                    <li><a href="https://www.facebook.com/profile.php?id=100072590963891"><i class="bx bxl-facebook"></i></a></li>
-                    <li><a href="https://www.instagram.com/iqb.mln/"><i class="bx bxl-instagram"></i></a></li>
-                    <li><a href="https://github.com/iqbalkopling01" ><i class="bx bxl-github"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/nur-iqbal-maulana-7375371ba"><i class="bx bxl-linkedin"></i></a></li>
-                </ul>
-            </div>
-            <div class="sec quicklinks">
-                <h2>Quick Links</h2>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="/PortCyPhy">About</a></li>
-                </ul>
-            </div>
-            <div class="sec contactBx">
-                <h2>Contact Info</h2>
-                <ul class="info">
-                    <li>
-                        <span><i class='bx bxs-map'></i></span>
-                        <span>Universitas Indonesia, Depok <br> West Java <br> Id</span>
-                    </li>
-                    <li>
-                        <span><i class='bx bx-envelope' ></i></span>
-                        <p><a href="mailto:Iqbalmaulana5011@gmail.com">Iqbalmaulana5011@gmail.com</a></p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post4-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog3-1.png"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="blogpost3.html">Work Interview Series 101: Sebelum Interview</a>
+<span class="post-date">24 April 2025</span>
+<p class="post-description">Persiapan sebelum wawancara kerja meliputi riset mendalam tentang perusahaan dan posisi, penguasaan diri dengan personal branding, ...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post5-->
+<div class="swiper-slide">
+<div class="post-box news">
+<img alt="" class="post-img" src="images/blog4-1.png"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="blogpost4.html">Work Interview Series 101: Saat Interview</a>
+<span class="post-date">24 April 2025</span>
+<p class="post-description">Wawancara kerja kerap menimbulkan perasaan tegang, apalagi keputusan pewawancara sering terbentuk lewat kesan pertama dalam hitungan detik...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post6-->
+<div class="swiper-slide">
+<div class="post-box news">
+<img alt="" class="post-img" src="images/blog5-1.png"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="blogpost5.html">Work Interview Series 101: Pasca Interview</a>
+<span class="post-date">24 April 2025</span>
+<p class="post-description">Kelihatannya tahap wawancara sudah berakhir, tapi sebenarnya perjalanan baru dimulai. Tindakan-tindakan setelah sesi interview berperan besar dalam memperkuat kesan profesionalismemu ...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post7-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog6-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost6.html">Basic CyberSecurity</a>
+<span class="post-date">26 April 2025</span>
+<p class="post-description">Cybersecurity adalah bidang yang kompleks namun sangat penting. Pemahaman dasar tentang ancaman digital, serta kebijakan</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post8-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog7-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost7.html">Cryptography: Seni Menulis Pesan Rahasia di Era Digital</a>
+<span class="post-date">28 April 2025</span>
+<p class="post-description">Di zaman serba digital seperti sekarang, keamanan informasi menjadi prioritas utama. Setiap aktivitas seperti mengirim pesan, ...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post9-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog8-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost8.html">Jaringan Komputer dan Keamanan Jaringan: Memahami Protokol dan Teknologi Perlindungannya</a>
+<span class="post-date">30 April 2025</span>
+<p class="post-description">Jaringan komputer merupakan tulang punggung dunia digital. Dari komunikasi pribadi hingga sistem perbankan dan militer, semua bergantung pada keandalan dan keamanan jaringan</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post10-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog9-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost9.html">Sistem Operasi dan Keamanannya: Antara Windows dan Linux</a>
+<span class="post-date">30 April 2025</span>
+<p class="post-description">Di balik layar setiap perangkat komputer, terdapat sistem operasi (OS) yang berperan sebagai otak pengendali.</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post10-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog10-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost10.html">Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</a>
+<span class="post-date">5 Mei 2025</span>
+<p class="post-description">Aplikasi web rentan terhadap berbagai jenis serangan injeksi kode yang dapat mengakibatkan pencurian data atau pengambilalihan sistem</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post11-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog11-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost11.html">Penetration Testing: Hacking Secara Legal, Benarkah???</a>
+<span class="post-date">7 Mei 2025</span>
+<p class="post-description">Penetration testing atau ethical hacking adalah proses menguji keamanan sistem TI—termasuk jaringan, aplikasi, dan perangkat—dengan</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post12-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog12-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost12.html">Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan</a>
+<span class="post-date">8 Mei 2025</span>
+<p class="post-description">Artikel ini mengupas tuntas evolusi malware dari cara pembuatannya, trik-trik obfuscation (proses mengubah kode program atau</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post13-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog13-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost13.html">Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital</a>
+<span class="post-date">8 Mei 2025</span>
+<p class="post-description">Digital forensics adalah disiplin ilmu yang memfokuskan pada identifikasi, akuisisi, analisis, dan pelaporan bukti digital dari insiden keamanan siber</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post14-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog14-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost14.html">Manajemen Keamanan Informasi (ISMS &amp; Kebijakan Keamanan)</a>
+<span class="post-date">9 Mei 2025</span>
+<p class="post-description">Manajemen Keamanan Informasi (Information Security Management System atau ISMS) adalah kerangka kerja</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post15-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog15-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost15.html">Social Engineering &amp; Psikologi Serangan : Mempelajari Cara Hacker Memanipulasi Manusia</a>
+<span class="post-date">9 Mei 2025</span>
+<p class="post-description">Social engineering adalah rangkaian teknik manipulasi psikologis yang digunakan penyerang untuk mengeksploitasi kepercayaan, emosi, </p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post16-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog16-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost16.html">Cloud Security: Melindungi Data dan Aplikasi yang Berjalan di Cloud</a>
+<span class="post-date">10 Mei 2025</span>
+<p class="post-description">Cloud Security melibatkan serangkaian tanggung jawab bersama antara penyedia layanan (CSP) dan pelanggan </p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post17-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog17-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost17.html">Pentingnya Keamanan Perangkat IoT: Menuju Rumah &amp; Kota Pintar</a>
+<span class="post-date">11 Mei 2025</span>
+<p class="post-description">Perangkat Internet of Things (IoT) adalah milyaran objek fisik di seluruh dunia—mulai dari sensor, kamera, hingga peralatan </p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="slider-button-wrap">
+<div class="slider-button-prev swiperSignpostingPrev"> <span class="icon"></span></div>
+<div class="slider-button-next swiperSignpostingNext"><span class="icon"></span></div>
+</div>
+<div class="swiper-pagination"></div>
+</div>
+</div>
+<footer>
+<div class="footer-container">
+<div class="sec aboutus">
+<h2>About Us</h2>
+<p>CyberSecurity and Physiotherapy Student at Universitas Indonesia. Care to learn and increasing knowledge from zero to hero.</p>
+<ul class="sci">
+<li><a href="https://www.facebook.com/profile.php?id=100072590963891"><i class="bx bxl-facebook"></i></a></li>
+<li><a href="https://www.instagram.com/iqb.mln/"><i class="bx bxl-instagram"></i></a></li>
+<li><a href="https://github.com/iqbalkopling01"><i class="bx bxl-github"></i></a></li>
+<li><a href="https://www.linkedin.com/in/nur-iqbal-maulana-7375371ba"><i class="bx bxl-linkedin"></i></a></li>
+</ul>
+</div>
+<div class="sec quicklinks">
+<h2>Quick Links</h2>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="/PortCyPhy">About</a></li>
+</ul>
+</div>
+<div class="sec contactBx">
+<h2>Contact Info</h2>
+<ul class="info">
+<li>
+<span><i class="bx bxs-map"></i></span>
+<span>Universitas Indonesia, Depok <br/> West Java <br/> Id</span>
+</li>
+<li>
+<span><i class="bx bx-envelope"></i></span>
+<p><a href="mailto:Iqbalmaulana5011@gmail.com">Iqbalmaulana5011@gmail.com</a></p>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+<script crossorigin="anonymous" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
         document.querySelectorAll('.mySwiper').forEach(function (thisSlider) {
             const id = thisSlider.id; // make sure your slider element has a unique ID
             const slider = document.getElementById(id);
@@ -480,9 +438,5 @@
             });
         });
     </script>
-
-
-
 </body>
-
 </html>

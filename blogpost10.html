@@ -1,489 +1,446 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBERTHERAPY</title>
-    <!-- Box-icon -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/favicon.png" type="image/png">
-</head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</title>
+<!-- Box-icon -->
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="images/favicon.png" rel="icon" type="image/png"/>
+<meta content="Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)" name="description"/><meta content="Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)" property="og:title"/><link href="https://iqbalmln.my.id/blogpost10.html" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="https://iqbalmln.my.id/blogpost10.html" property="og:url"/></head>
 <body>
-    <header>
-        <div class="nav container">
-            <a href="index.html" class="logo">Cyber<span>Therapy</span></a>
-            <a href="/PortCyPhy" class="login">Get in Touch</a>
-        </div>
-    </header>
-
-    <section class="home" id="home">
-        <div class="home-text container">
-            <h2 class="home-title">CyberTherapy</h2>
-            <span class="home-subtitle">CyberSecurity X Physiotherapy Content</span>
-        </div>
-    </section>
-
-    <div class="konten">
-
-        <button class="sidebar-toggle">☰</button>
-      
-        <div class="intro">
-          <h1>Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</h1>
-          <img src="images/blog10-1.png" alt="WebApp" class="gambartikel fotoutama">
-          <p>Aplikasi web rentan terhadap berbagai jenis serangan injeksi kode yang dapat mengakibatkan pencurian data atau pengambilalihan sistem. Di antara yang paling umum adalah SQL Injection, Cross-Site Scripting (XSS), dan Cross-Site Request Forgery (CSRF). SQL Injection melibatkan penyisipan kode SQL berbahaya melalui input pengguna untuk mengubah query database. XSS adalah injeksi skrip sisi-klien (biasanya JavaScript) ke dalam halaman web terpercaya. CSRF memanfaatkan sesi terautentikasi pengguna dengan memaksa aplikasi melakukan aksi tanpa sepengetahuan pengguna. Artikel ini mengulas cara mendeteksi dan memperbaiki ketiga kerentanan ini, disertai studi kasus nyata dan strategi pencegahan yang direkomendasikan.</p>
-        </div>
-      
-        <div class="sidebar-container">
-          <div class="sidebar-wrapper">
-            <div class="sidebar">
-              <div class="reading-progress-container">
-                <div class="reading-progress-bar"></div>
-              </div>
-            </div>
-            <div class="author-box">
-              <img src="images/testi1.jpg" alt="Author's Gravatar" class="author-gravatar">
-              <div class="author-info">
-                <span class="author-title">Author</span>
-                <span class="author-name">Run</span>
-              </div>
-              <span id="dark-mode-toggle" class="material-symbols-outlined light-icon"></span>
-            </div>
-          </div>
-      
-          <div class="post-content">
-                <h3>SQL Injection</h3>
-                <h4>Deskripsi</h4>
-                <p>SQL Injection (SQLi) terjadi saat aplikasi memasukkan data masukan pengguna secara langsung ke dalam query SQL, sehingga penyerang dapat menyisipkan perintah SQL berbahaya. Misalnya, memasukkan string seperti <code>'; DROP TABLE users; --</code> dapat menghancurkan tabel jika tidak diantisipasi. Serangan ini serius karena bisa memungkinkan penyerang mengubah atau mencuri data sensitif serta menjalankan perintah administratif di database. Studi Brightsec menjelaskan dampak SQLi: penyerang dapat memodifikasi informasi, mengakses data sensitif, hingga mengeksekusi perintah pada sistem operasi di bawah database.</p>
-                <h4>Kasus Nyata</h4>
-                <p>SQLi telah menjadi penyebab banyak kebocoran data besar. Misalnya, serangan 7-Eleven (2007) mencuri 130 juta nomor kartu kredit. Serangan Team GhostShell (2012) menarget 53 universitas dan membocorkan 36.000 data personal melalui SQLi. Pada 2019, kerentanan SQLi di Fortnite (350 juta pengguna) memungkinkan akses data akun sebelum akhirnya ditutup. Kasus terkini melibatkan aplikasi MOVEit Transfer (2023), di mana peretas memanfaatkan SQLi untuk menanam web shell dan mengekstrak data dalam skala global. Contoh ini menegaskan bahwa SQLi masih menjadi ancaman nyata hingga saat ini.</p>
-                <h4>Deteksi</h4>
-                <ul>
-                <li>Pentest dan Vulnerability Scanning: Gunakan alat pemindai seperti Acunetix atau Burp Suite untuk menguji form input dan parameter URL dengan payload injeksi. Scanner modern dapat menemukan SQLi di fungsi login, pencarian, atau parameter tersembunyi secara otomatis.</li>
-                <li>Pengujian Manual (WSTG): Panduan OWASP Web Security Testing (WSTG) merekomendasikan mengirimkan input berbahaya (misalnya OR 1=1, tanda kutip ganda, komentar SQL) dan memantau tanggapan aplikasi. Ciri adanya SQLi meliputi perbedaan pesan kesalahan database atau perubahan hasil query.</li>
-                <li>Analisis Log Database: Monitor log query database untuk aktivitas aneh, seperti query yang selalu benar (WHERE '1'='1'), atau frequent error koneksi. Adanya query tak lazim atau error yang terpicu dapat mengindikasikan percobaan SQLi.</li>
-                <li>Code Review & SAST: Tinjau kode aplikasi secara statis untuk mencari pola <code>query = "..."+ input + "..."</code> atau penggunaan fungsi query tanpa parameterisasi. Alat analisis kode (SAST) dapat membantu menemukan konstruksi yang rentan.</li>
-                </ul>
-                <h4>Pencegahan dan Perbaikan</h4>
-                <ul>
-                <li>Parameterized Queries (Prepared Statements): Gunakan query parameterized di semua bahasa pemrograman. Ini menjamin database membedakan kode dan data, sehingga input pengguna tidak dapat mengubah struktur query.</li>
-                <li>Stored Procedures Aman: Jika menggunakan stored procedures, pastikan parameter input terikat dan statis. Stored procedure yang ditulis dengan benar efektif mencegah SQLi sama seperti prepared statements.</li>
-                <li>Least Privilege: Terapkan prinsip hak akses minimal pada akun database. Akun aplikasi cukup diberi hak baca/tulis yang diperlukan (bukan admin atau root), sehingga dampak injeksi dapat dikurangi.</li>
-                <li>Validasi Input: Gunakan whitelist untuk input yang tidak dapat diparameterkan, misalnya nama tabel atau kolom.</li>
-                <li>ORM dan Abstraksi: Manfaatkan Object-Relational Mapping (ORM) atau framework yang telah teruji keamanan query-nya.</li>
-                <li>Pembaruan & Patch: Segera perbarui perangkat lunak (DBMS, library) jika ditemukan kerentanan SQLi.</li>
-                </ul>
-        
-                <h3>Cross-Site Scripting (XSS)</h3>
-                <h4>Deskripsi</h4>
-                <p>XSS adalah injeksi skrip jahat ke halaman web yang tampak sah. Skrip berbahaya ini biasanya berupa JavaScript yang dijalankan oleh browser korban, karena dianggap berasal dari situs terpercayanya. Akibat XSS bisa berupa pencurian cookie atau token sesi, hingga pemalsuan tampilan halaman untuk menipu pengguna. Penyerang dapat berpura-pura menjadi pengguna yang sah, memuat konten eksternal jahat, atau mencuri data sensitif pengguna. XSS terbagi menjadi reflected, stored, dan DOM-based, tergantung bagaimana skrip disuntikkan dan dijalankan.</p>
-                <h4>Kasus Nyata</h4>
-                <p>Beberapa insiden XSS terkenal: serangan Magecart di situs British Airways (2018) menyisipkan XSS ke pustaka pihak ketiga untuk melakukan skimming kartu kredit pada sekitar 380.000 transaksi. Di Fortnite (2019) ditemukan XSS pada halaman tua yang jika dieksploitasi bisa membajak akun jutaan pemain. Situs eBay pada 2016 sempat memiliki XSS pada parameter URL yang memungkinkan penyerang mengambil alih akun penjual dan memodifikasi daftar barang berharga. Kasus-kasus ini menunjukkan XSS tak hanya teori: kelemahan validasi input dan pustaka pihak ketiga dapat merugikan jutaan pengguna.</p>
-                <h4>Deteksi</h4>
-                <ul>
-                <li>Scanning Otomatis menggunakan pemindai keamanan untuk menyuntikkan payload XSS umum ke berbagai titik input.</li>
-                <li>Testing Manual dengan injeksi payload seperti <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> dan memantau eksekusi di browser tester.</li>
-                <li>Implementasi Content Security Policy (CSP) dengan mode report untuk menangkap pelanggaran XSS.</li>
-                <li>Code Review mencari output data ke HTML tanpa encoding dan penggunaan fungsi berisiko seperti <code>innerHTML</code>.</li>
-                <li>Pengujian pada platform lab keamanan untuk memastikan semua tipe XSS terdeteksi.</li>
-                </ul>
-                <h4>Pencegahan dan Perbaikan</h4>
-                <ul>
-                <li>Validasi dan Encoding Konteksual sebelum menampilkan input pengguna di HTML.</li>
-                <li>Framework modern dengan mekanisme templating auto-escaping.</li>
-                <li>HttpOnly dan Secure Cookies untuk melindungi token sesi.</li>
-                <li>Header CSP ketat untuk membatasi sumber skrip.</li>
-                <li>Manajemen script pihak ketiga dengan Subresource Integrity (SRI).</li>
-                <li>Audit dan pemindaian rutin untuk mendeteksi kerentanan baru.</li>
-                </ul>
-        
-                <h3>Cross-Site Request Forgery (CSRF)</h3>
-                <h4>Deskripsi</h4>
-                <p>CSRF adalah serangan yang memaksa pengguna terautentikasi melakukan tindakan yang tidak diinginkan di aplikasi web. Karena browser menyertakan kredensial pada setiap permintaan, aksi berbahaya dapat diproses sebagai permintaan sah. CSRF dapat memindahkan dana, mengubah data, atau melakukan pembelian atas nama korban. Jika korban memiliki hak admin, seluruh aplikasi bisa terkompromi.</p>
-                <h4>Kasus Nyata</h4>
-                <p>Contoh kasus: kerentanan CSRF di Facebook (2019) memungkinkan pengambilalihan akun melalui link jahat; skrip pihak ketiga pada e-commerce global (2025) mengakses token CSRF internal; serangan CSRF pada uTorrent (2008) menyebarkan malware melalui GET request.</p>
-                <h4>Deteksi</h4>
-                <ul>
-                <li>Vulnerability Scanning memeriksa formulir tanpa token CSRF.</li>
-                <li>Pengujian Manual dengan permintaan tanpa atau token salah.</li>
-                <li>Analisis Kode memastikan token CSRF diperiksa pada endpoint.</li>
-                <li>Monitoring header Referer dan Origin.</li>
-                </ul>
-                <h4>Pencegahan dan Perbaikan</h4>
-                <ul>
-                <li>Synchronizer Token Pattern dengan token unik per form yang diverifikasi backend.</li>
-                <li>Double-Submit Cookie untuk API.</li>
-                <li>SameSite Cookie pada sesi.</li>
-                <li>Header kustom pada permintaan API.</li>
-                <li>Validasi header Referer/Origin domain yang sama.</li>
-                <li>Hindari GET untuk aksi sensitif.</li>
-                <li>Gunakan proteksi CSRF bawaan framework.</li>
-                <li>Defense-in-Depth: 2FA, batas waktu token, CAPTCHA.</li>
-                </ul>
-            </div>
-          
-        </div>
-
-        <div class="outro">
-            <p>Keamanan aplikasi web membutuhkan pendekatan berlapis: penggunaan parameterized query untuk SQL Injection, output encoding untuk XSS, serta token CSRF untuk CSRF. Kolaborasi antara tim pengembang dan keamanan, serta audit dan pemindaian rutin, adalah kunci menjaga aplikasi tetap tangguh terhadap serangan injeksi.</p>
-
-            <h2>Daftar Referensi</h2>
-            <ul>
-                <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html" target="_blank">OWASP SQL Injection Prevention Cheat Sheet</a></li>
-                <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html" target="_blank">OWASP Cross-Site Scripting (XSS) Prevention Cheat Sheet</a></li>
-                <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" target="_blank">OWASP Cross-Site Request Forgery (CSRF) Prevention Cheat Sheet</a></li>
-                <li><a href="https://www.acunetix.com/websitesecurity/sql-injection/" target="_blank">Acunetix – What is SQL Injection?</a></li>
-                <li><a href="https://www.acunetix.com/websitesecurity/cross-site-scripting/" target="_blank">Acunetix – What is Cross Site Scripting (XSS)?</a></li>
-                <li><a href="https://portswigger.net/web-security/sql-injection" target="_blank">PortSwigger Web Security Academy – SQL Injection</a></li>
-                <li><a href="https://portswigger.net/web-security/cross-site-scripting" target="_blank">PortSwigger Web Security Academy – Cross-Site Scripting</a></li>
-                <li><a href="https://portswigger.net/web-security/csrf" target="_blank">PortSwigger Web Security Academy – Cross-Site Request Forgery (CSRF)</a></li>
-                <li><a href="https://thehackernews.com/2018/09/british-airways-hack.html" target="_blank">The Hacker News – British Airways Magecart Attack Exposed Customer Card Data</a></li>
-                <li><a href="https://thehackernews.com/2023/06/massive-moveit-transfer-hacking-campaign.html" target="_blank">The Hacker News – MOVEit Transfer Vulnerability Exploited in Widespread Data Theft</a></li>
-            </ul>
-        </div>
-      
-        <script src="./script.js"></script>
-      </div>
-      
-    
-    
-    
-    
-
-    <div class="post-filter container">
-        <span class="filter-item active-filter" data-filter="all">All Recomended Posts</span>
-    </div>
-
-    <div class="carousel-container">
-        <div class="mySwiper" id="1234">
-            <div class="swiper-wrapper">
-                
-                <!-- Post 1 -->
-                <div class="swiper-slide">
-                    <div class="post-box news">
-                        <img src="images/img1.jpg" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="page1.html" class="post-title">The Delightful World of Crayfish.</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
+<header>
+<div class="nav container">
+<a class="logo" href="index.html">Cyber<span>Therapy</span></a>
+<a class="login" href="/PortCyPhy">Get in Touch</a>
+</div>
+</header>
+<section class="home" id="home">
+<div class="home-text container">
+<h2 class="home-title">CyberTherapy</h2>
+<span class="home-subtitle">CyberSecurity X Physiotherapy Content</span>
+</div>
+</section>
+<div class="konten">
+<button class="sidebar-toggle">☰</button>
+<div class="intro">
+<h1>Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</h1>
+<img alt="WebApp" class="gambartikel fotoutama" src="images/blog10-1.png"/>
+<p>Aplikasi web rentan terhadap berbagai jenis serangan injeksi kode yang dapat mengakibatkan pencurian data atau pengambilalihan sistem. Di antara yang paling umum adalah SQL Injection, Cross-Site Scripting (XSS), dan Cross-Site Request Forgery (CSRF). SQL Injection melibatkan penyisipan kode SQL berbahaya melalui input pengguna untuk mengubah query database. XSS adalah injeksi skrip sisi-klien (biasanya JavaScript) ke dalam halaman web terpercaya. CSRF memanfaatkan sesi terautentikasi pengguna dengan memaksa aplikasi melakukan aksi tanpa sepengetahuan pengguna. Artikel ini mengulas cara mendeteksi dan memperbaiki ketiga kerentanan ini, disertai studi kasus nyata dan strategi pencegahan yang direkomendasikan.</p>
+</div>
+<div class="sidebar-container">
+<div class="sidebar-wrapper">
+<div class="sidebar">
+<div class="reading-progress-container">
+<div class="reading-progress-bar"></div>
+</div>
+</div>
+<div class="author-box">
+<img alt="Author's Gravatar" class="author-gravatar" src="images/testi1.jpg"/>
+<div class="author-info">
+<span class="author-title">Author</span>
+<span class="author-name">Run</span>
+</div>
+<span class="material-symbols-outlined light-icon" id="dark-mode-toggle"></span>
+</div>
+</div>
+<div class="post-content">
+<h3>SQL Injection</h3>
+<h4>Deskripsi</h4>
+<p>SQL Injection (SQLi) terjadi saat aplikasi memasukkan data masukan pengguna secara langsung ke dalam query SQL, sehingga penyerang dapat menyisipkan perintah SQL berbahaya. Misalnya, memasukkan string seperti <code>'; DROP TABLE users; --</code> dapat menghancurkan tabel jika tidak diantisipasi. Serangan ini serius karena bisa memungkinkan penyerang mengubah atau mencuri data sensitif serta menjalankan perintah administratif di database. Studi Brightsec menjelaskan dampak SQLi: penyerang dapat memodifikasi informasi, mengakses data sensitif, hingga mengeksekusi perintah pada sistem operasi di bawah database.</p>
+<h4>Kasus Nyata</h4>
+<p>SQLi telah menjadi penyebab banyak kebocoran data besar. Misalnya, serangan 7-Eleven (2007) mencuri 130 juta nomor kartu kredit. Serangan Team GhostShell (2012) menarget 53 universitas dan membocorkan 36.000 data personal melalui SQLi. Pada 2019, kerentanan SQLi di Fortnite (350 juta pengguna) memungkinkan akses data akun sebelum akhirnya ditutup. Kasus terkini melibatkan aplikasi MOVEit Transfer (2023), di mana peretas memanfaatkan SQLi untuk menanam web shell dan mengekstrak data dalam skala global. Contoh ini menegaskan bahwa SQLi masih menjadi ancaman nyata hingga saat ini.</p>
+<h4>Deteksi</h4>
+<ul>
+<li>Pentest dan Vulnerability Scanning: Gunakan alat pemindai seperti Acunetix atau Burp Suite untuk menguji form input dan parameter URL dengan payload injeksi. Scanner modern dapat menemukan SQLi di fungsi login, pencarian, atau parameter tersembunyi secara otomatis.</li>
+<li>Pengujian Manual (WSTG): Panduan OWASP Web Security Testing (WSTG) merekomendasikan mengirimkan input berbahaya (misalnya OR 1=1, tanda kutip ganda, komentar SQL) dan memantau tanggapan aplikasi. Ciri adanya SQLi meliputi perbedaan pesan kesalahan database atau perubahan hasil query.</li>
+<li>Analisis Log Database: Monitor log query database untuk aktivitas aneh, seperti query yang selalu benar (WHERE '1'='1'), atau frequent error koneksi. Adanya query tak lazim atau error yang terpicu dapat mengindikasikan percobaan SQLi.</li>
+<li>Code Review &amp; SAST: Tinjau kode aplikasi secara statis untuk mencari pola <code>query = "..."+ input + "..."</code> atau penggunaan fungsi query tanpa parameterisasi. Alat analisis kode (SAST) dapat membantu menemukan konstruksi yang rentan.</li>
+</ul>
+<h4>Pencegahan dan Perbaikan</h4>
+<ul>
+<li>Parameterized Queries (Prepared Statements): Gunakan query parameterized di semua bahasa pemrograman. Ini menjamin database membedakan kode dan data, sehingga input pengguna tidak dapat mengubah struktur query.</li>
+<li>Stored Procedures Aman: Jika menggunakan stored procedures, pastikan parameter input terikat dan statis. Stored procedure yang ditulis dengan benar efektif mencegah SQLi sama seperti prepared statements.</li>
+<li>Least Privilege: Terapkan prinsip hak akses minimal pada akun database. Akun aplikasi cukup diberi hak baca/tulis yang diperlukan (bukan admin atau root), sehingga dampak injeksi dapat dikurangi.</li>
+<li>Validasi Input: Gunakan whitelist untuk input yang tidak dapat diparameterkan, misalnya nama tabel atau kolom.</li>
+<li>ORM dan Abstraksi: Manfaatkan Object-Relational Mapping (ORM) atau framework yang telah teruji keamanan query-nya.</li>
+<li>Pembaruan &amp; Patch: Segera perbarui perangkat lunak (DBMS, library) jika ditemukan kerentanan SQLi.</li>
+</ul>
+<h3>Cross-Site Scripting (XSS)</h3>
+<h4>Deskripsi</h4>
+<p>XSS adalah injeksi skrip jahat ke halaman web yang tampak sah. Skrip berbahaya ini biasanya berupa JavaScript yang dijalankan oleh browser korban, karena dianggap berasal dari situs terpercayanya. Akibat XSS bisa berupa pencurian cookie atau token sesi, hingga pemalsuan tampilan halaman untuk menipu pengguna. Penyerang dapat berpura-pura menjadi pengguna yang sah, memuat konten eksternal jahat, atau mencuri data sensitif pengguna. XSS terbagi menjadi reflected, stored, dan DOM-based, tergantung bagaimana skrip disuntikkan dan dijalankan.</p>
+<h4>Kasus Nyata</h4>
+<p>Beberapa insiden XSS terkenal: serangan Magecart di situs British Airways (2018) menyisipkan XSS ke pustaka pihak ketiga untuk melakukan skimming kartu kredit pada sekitar 380.000 transaksi. Di Fortnite (2019) ditemukan XSS pada halaman tua yang jika dieksploitasi bisa membajak akun jutaan pemain. Situs eBay pada 2016 sempat memiliki XSS pada parameter URL yang memungkinkan penyerang mengambil alih akun penjual dan memodifikasi daftar barang berharga. Kasus-kasus ini menunjukkan XSS tak hanya teori: kelemahan validasi input dan pustaka pihak ketiga dapat merugikan jutaan pengguna.</p>
+<h4>Deteksi</h4>
+<ul>
+<li>Scanning Otomatis menggunakan pemindai keamanan untuk menyuntikkan payload XSS umum ke berbagai titik input.</li>
+<li>Testing Manual dengan injeksi payload seperti <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> dan memantau eksekusi di browser tester.</li>
+<li>Implementasi Content Security Policy (CSP) dengan mode report untuk menangkap pelanggaran XSS.</li>
+<li>Code Review mencari output data ke HTML tanpa encoding dan penggunaan fungsi berisiko seperti <code>innerHTML</code>.</li>
+<li>Pengujian pada platform lab keamanan untuk memastikan semua tipe XSS terdeteksi.</li>
+</ul>
+<h4>Pencegahan dan Perbaikan</h4>
+<ul>
+<li>Validasi dan Encoding Konteksual sebelum menampilkan input pengguna di HTML.</li>
+<li>Framework modern dengan mekanisme templating auto-escaping.</li>
+<li>HttpOnly dan Secure Cookies untuk melindungi token sesi.</li>
+<li>Header CSP ketat untuk membatasi sumber skrip.</li>
+<li>Manajemen script pihak ketiga dengan Subresource Integrity (SRI).</li>
+<li>Audit dan pemindaian rutin untuk mendeteksi kerentanan baru.</li>
+</ul>
+<h3>Cross-Site Request Forgery (CSRF)</h3>
+<h4>Deskripsi</h4>
+<p>CSRF adalah serangan yang memaksa pengguna terautentikasi melakukan tindakan yang tidak diinginkan di aplikasi web. Karena browser menyertakan kredensial pada setiap permintaan, aksi berbahaya dapat diproses sebagai permintaan sah. CSRF dapat memindahkan dana, mengubah data, atau melakukan pembelian atas nama korban. Jika korban memiliki hak admin, seluruh aplikasi bisa terkompromi.</p>
+<h4>Kasus Nyata</h4>
+<p>Contoh kasus: kerentanan CSRF di Facebook (2019) memungkinkan pengambilalihan akun melalui link jahat; skrip pihak ketiga pada e-commerce global (2025) mengakses token CSRF internal; serangan CSRF pada uTorrent (2008) menyebarkan malware melalui GET request.</p>
+<h4>Deteksi</h4>
+<ul>
+<li>Vulnerability Scanning memeriksa formulir tanpa token CSRF.</li>
+<li>Pengujian Manual dengan permintaan tanpa atau token salah.</li>
+<li>Analisis Kode memastikan token CSRF diperiksa pada endpoint.</li>
+<li>Monitoring header Referer dan Origin.</li>
+</ul>
+<h4>Pencegahan dan Perbaikan</h4>
+<ul>
+<li>Synchronizer Token Pattern dengan token unik per form yang diverifikasi backend.</li>
+<li>Double-Submit Cookie untuk API.</li>
+<li>SameSite Cookie pada sesi.</li>
+<li>Header kustom pada permintaan API.</li>
+<li>Validasi header Referer/Origin domain yang sama.</li>
+<li>Hindari GET untuk aksi sensitif.</li>
+<li>Gunakan proteksi CSRF bawaan framework.</li>
+<li>Defense-in-Depth: 2FA, batas waktu token, CAPTCHA.</li>
+</ul>
+</div>
+</div>
+<div class="outro">
+<p>Keamanan aplikasi web membutuhkan pendekatan berlapis: penggunaan parameterized query untuk SQL Injection, output encoding untuk XSS, serta token CSRF untuk CSRF. Kolaborasi antara tim pengembang dan keamanan, serta audit dan pemindaian rutin, adalah kunci menjaga aplikasi tetap tangguh terhadap serangan injeksi.</p>
+<h2>Daftar Referensi</h2>
+<ul>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html" target="_blank">OWASP SQL Injection Prevention Cheat Sheet</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html" target="_blank">OWASP Cross-Site Scripting (XSS) Prevention Cheat Sheet</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" target="_blank">OWASP Cross-Site Request Forgery (CSRF) Prevention Cheat Sheet</a></li>
+<li><a href="https://www.acunetix.com/websitesecurity/sql-injection/" target="_blank">Acunetix – What is SQL Injection?</a></li>
+<li><a href="https://www.acunetix.com/websitesecurity/cross-site-scripting/" target="_blank">Acunetix – What is Cross Site Scripting (XSS)?</a></li>
+<li><a href="https://portswigger.net/web-security/sql-injection" target="_blank">PortSwigger Web Security Academy – SQL Injection</a></li>
+<li><a href="https://portswigger.net/web-security/cross-site-scripting" target="_blank">PortSwigger Web Security Academy – Cross-Site Scripting</a></li>
+<li><a href="https://portswigger.net/web-security/csrf" target="_blank">PortSwigger Web Security Academy – Cross-Site Request Forgery (CSRF)</a></li>
+<li><a href="https://thehackernews.com/2018/09/british-airways-hack.html" target="_blank">The Hacker News – British Airways Magecart Attack Exposed Customer Card Data</a></li>
+<li><a href="https://thehackernews.com/2023/06/massive-moveit-transfer-hacking-campaign.html" target="_blank">The Hacker News – MOVEit Transfer Vulnerability Exploited in Widespread Data Theft</a></li>
+</ul>
+</div>
+<script src="./script.js"></script>
+</div>
+<div class="post-filter container">
+<span class="filter-item active-filter" data-filter="all">All Recomended Posts</span>
+</div>
+<div class="carousel-container">
+<div class="mySwiper" id="1234">
+<div class="swiper-wrapper">
+<!-- Post 1 -->
+<div class="swiper-slide">
+<div class="post-box news">
+<img alt="" class="post-img" src="images/img1.jpg"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="page1.html">The Delightful World of Crayfish.</a>
+<span class="post-date">10 Des 2024</span>
+<p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
                             freshwater ecosystems...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Post 2 -->
-                <div class="swiper-slide">
-                    
-                    <div class="post-box health">
-                        <img src="images/img2.png" alt="" class="post-img">
-                        <h2 class="category">Health</h2>
-                        <a href="blogpost1.html" class="post-title">Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Fisioterapi adalah profesi di bidang kesehatan yang berfokus pada rehabilitasi, pencegahan, dan 
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!-- Post 2 -->
+<div class="swiper-slide">
+<div class="post-box health">
+<img alt="" class="post-img" src="images/img2.png"/>
+<h2 class="category">Health</h2>
+<a class="post-title" href="blogpost1.html">Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</a>
+<span class="post-date">10 Des 2024</span>
+<p class="post-description">Fisioterapi adalah profesi di bidang kesehatan yang berfokus pada rehabilitasi, pencegahan, dan 
                             pengelolaan gangguan gerak tubuh.</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-                <!--Post3-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/img13.jpg" alt="" class="post-img">
-                        <h2 class="category">Tech</h2>
-                        <a href="blogpost2.html" class="post-title">Simple WebApp Penetration Testing</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post3-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/img13.jpg"/>
+<h2 class="category">Tech</h2>
+<a class="post-title" href="blogpost2.html">Simple WebApp Penetration Testing</a>
+<span class="post-date">10 Des 2024</span>
+<p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
                             freshwater ecosystems...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-        
-                <!--Post4-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog3-1.png" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="blogpost3.html" class="post-title">Work Interview Series 101: Sebelum Interview</a>
-                        <span class="post-date">24 April 2025</span>
-                        <p class="post-description">Persiapan sebelum wawancara kerja meliputi riset mendalam tentang perusahaan dan posisi, penguasaan diri dengan personal branding, ...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post5-->
-                <div class="swiper-slide">
-                    <div class="post-box news">
-                        <img src="images/blog4-1.png" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="blogpost4.html" class="post-title">Work Interview Series 101: Saat Interview</a>
-                        <span class="post-date">24 April 2025</span>
-                        <p class="post-description">Wawancara kerja kerap menimbulkan perasaan tegang, apalagi keputusan pewawancara sering terbentuk lewat kesan pertama dalam hitungan detik...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post6-->
-                <div class="swiper-slide">
-                    <div class="post-box news">
-                        <img src="images/blog5-1.png" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="blogpost5.html" class="post-title">Work Interview Series 101: Pasca Interview</a>
-                        <span class="post-date">24 April 2025</span>
-                        <p class="post-description">Kelihatannya tahap wawancara sudah berakhir, tapi sebenarnya perjalanan baru dimulai. Tindakan-tindakan setelah sesi interview berperan besar dalam memperkuat kesan profesionalismemu ...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post7-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog6-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost6.html" class="post-title">Basic CyberSecurity</a>
-                        <span class="post-date">26 April 2025</span>
-                        <p class="post-description">Cybersecurity adalah bidang yang kompleks namun sangat penting. Pemahaman dasar tentang ancaman digital, serta kebijakan</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post8-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog7-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost7.html" class="post-title">Cryptography: Seni Menulis Pesan Rahasia di Era Digital</a>
-                        <span class="post-date">28 April 2025</span>
-                        <p class="post-description">Di zaman serba digital seperti sekarang, keamanan informasi menjadi prioritas utama. Setiap aktivitas seperti mengirim pesan, ...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post9-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog8-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost8.html" class="post-title">Jaringan Komputer dan Keamanan Jaringan: Memahami Protokol dan Teknologi Perlindungannya</a>
-                        <span class="post-date">30 April 2025</span>
-                        <p class="post-description">Jaringan komputer merupakan tulang punggung dunia digital. Dari komunikasi pribadi hingga sistem perbankan dan militer, semua bergantung pada keandalan dan keamanan jaringan</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post10-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog9-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost9.html" class="post-title">Sistem Operasi dan Keamanannya: Antara Windows dan Linux</a>
-                        <span class="post-date">30 April 2025</span>
-                        <p class="post-description">Di balik layar setiap perangkat komputer, terdapat sistem operasi (OS) yang berperan sebagai otak pengendali.</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post10-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog10-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost10.html" class="post-title">Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</a>
-                        <span class="post-date">5 Mei 2025</span>
-                        <p class="post-description">Aplikasi web rentan terhadap berbagai jenis serangan injeksi kode yang dapat mengakibatkan pencurian data atau pengambilalihan sistem</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post11-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog11-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost11.html" class="post-title">Penetration Testing: Hacking Secara Legal, Benarkah???</a>
-                        <span class="post-date">7 Mei 2025</span>
-                        <p class="post-description">Penetration testing atau ethical hacking adalah proses menguji keamanan sistem TI—termasuk jaringan, aplikasi, dan perangkat—dengan</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post11-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog12-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost12.html" class="post-title">Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan</a>
-                        <span class="post-date">8 Mei 2025</span>
-                        <p class="post-description">Artikel ini mengupas tuntas evolusi malware dari cara pembuatannya, trik-trik obfuscation (proses mengubah kode program atau</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post13-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog13-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost13.html" class="post-title">Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital</a>
-                        <span class="post-date">8 Mei 2025</span>
-                        <p class="post-description">Digital forensics adalah disiplin ilmu yang memfokuskan pada identifikasi, akuisisi, analisis, dan pelaporan bukti digital dari insiden keamanan siber</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post14-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog14-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost14.html" class="post-title">Manajemen Keamanan Informasi (ISMS & Kebijakan Keamanan)</a>
-                        <span class="post-date">9 Mei 2025</span>
-                        <p class="post-description">Manajemen Keamanan Informasi (Information Security Management System atau ISMS) adalah kerangka kerja</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post15-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog15-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost15.html" class="post-title">Social Engineering & Psikologi Serangan : Mempelajari Cara Hacker Memanipulasi Manusia</a>
-                        <span class="post-date">9 Mei 2025</span>
-                        <p class="post-description">Social engineering adalah rangkaian teknik manipulasi psikologis yang digunakan penyerang untuk mengeksploitasi kepercayaan, emosi, </p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post16-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog16-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost16.html" class="post-title">Cloud Security: Melindungi Data dan Aplikasi yang Berjalan di Cloud</a>
-                        <span class="post-date">10 Mei 2025</span>
-                        <p class="post-description">Cloud Security melibatkan serangkaian tanggung jawab bersama antara penyedia layanan (CSP) dan pelanggan </p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post17-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog17-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost17.html" class="post-title">Pentingnya Keamanan Perangkat IoT: Menuju Rumah & Kota Pintar</a>
-                        <span class="post-date">11 Mei 2025</span>
-                        <p class="post-description">Perangkat Internet of Things (IoT) adalah milyaran objek fisik di seluruh dunia—mulai dari sensor, kamera, hingga peralatan </p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="slider-button-wrap">
-                <div class="slider-button-prev swiperSignpostingPrev"> <span class="icon"></span></div>
-                <div class="slider-button-next swiperSignpostingNext"><span class="icon"></span></div>
-            </div>
-            
-            <div class="swiper-pagination"></div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-container">
-            <div class="sec aboutus">
-                <h2>About Us</h2>
-                <p>CyberSecurity and Physiotherapy Student at Universitas Indonesia. Care to learn and increasing knowledge from zero to hero.</p>
-                <ul class="sci">
-                    <li><a href="https://www.facebook.com/profile.php?id=100072590963891"><i class="bx bxl-facebook"></i></a></li>
-                    <li><a href="https://www.instagram.com/iqb.mln/"><i class="bx bxl-instagram"></i></a></li>
-                    <li><a href="https://github.com/iqbalkopling01" ><i class="bx bxl-github"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/nur-iqbal-maulana-7375371ba"><i class="bx bxl-linkedin"></i></a></li>
-                </ul>
-            </div>
-            <div class="sec quicklinks">
-                <h2>Quick Links</h2>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="/PortCyPhy">About</a></li>
-                </ul>
-            </div>
-            <div class="sec contactBx">
-                <h2>Contact Info</h2>
-                <ul class="info">
-                    <li>
-                        <span><i class='bx bxs-map'></i></span>
-                        <span>Universitas Indonesia, Depok <br> West Java <br> Id</span>
-                    </li>
-                    <li>
-                        <span><i class='bx bx-envelope' ></i></span>
-                        <p><a href="mailto:Iqbalmaulana5011@gmail.com">Iqbalmaulana5011@gmail.com</a></p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post4-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog3-1.png"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="blogpost3.html">Work Interview Series 101: Sebelum Interview</a>
+<span class="post-date">24 April 2025</span>
+<p class="post-description">Persiapan sebelum wawancara kerja meliputi riset mendalam tentang perusahaan dan posisi, penguasaan diri dengan personal branding, ...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post5-->
+<div class="swiper-slide">
+<div class="post-box news">
+<img alt="" class="post-img" src="images/blog4-1.png"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="blogpost4.html">Work Interview Series 101: Saat Interview</a>
+<span class="post-date">24 April 2025</span>
+<p class="post-description">Wawancara kerja kerap menimbulkan perasaan tegang, apalagi keputusan pewawancara sering terbentuk lewat kesan pertama dalam hitungan detik...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post6-->
+<div class="swiper-slide">
+<div class="post-box news">
+<img alt="" class="post-img" src="images/blog5-1.png"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="blogpost5.html">Work Interview Series 101: Pasca Interview</a>
+<span class="post-date">24 April 2025</span>
+<p class="post-description">Kelihatannya tahap wawancara sudah berakhir, tapi sebenarnya perjalanan baru dimulai. Tindakan-tindakan setelah sesi interview berperan besar dalam memperkuat kesan profesionalismemu ...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post7-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog6-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost6.html">Basic CyberSecurity</a>
+<span class="post-date">26 April 2025</span>
+<p class="post-description">Cybersecurity adalah bidang yang kompleks namun sangat penting. Pemahaman dasar tentang ancaman digital, serta kebijakan</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post8-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog7-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost7.html">Cryptography: Seni Menulis Pesan Rahasia di Era Digital</a>
+<span class="post-date">28 April 2025</span>
+<p class="post-description">Di zaman serba digital seperti sekarang, keamanan informasi menjadi prioritas utama. Setiap aktivitas seperti mengirim pesan, ...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post9-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog8-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost8.html">Jaringan Komputer dan Keamanan Jaringan: Memahami Protokol dan Teknologi Perlindungannya</a>
+<span class="post-date">30 April 2025</span>
+<p class="post-description">Jaringan komputer merupakan tulang punggung dunia digital. Dari komunikasi pribadi hingga sistem perbankan dan militer, semua bergantung pada keandalan dan keamanan jaringan</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post10-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog9-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost9.html">Sistem Operasi dan Keamanannya: Antara Windows dan Linux</a>
+<span class="post-date">30 April 2025</span>
+<p class="post-description">Di balik layar setiap perangkat komputer, terdapat sistem operasi (OS) yang berperan sebagai otak pengendali.</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post10-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog10-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost10.html">Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</a>
+<span class="post-date">5 Mei 2025</span>
+<p class="post-description">Aplikasi web rentan terhadap berbagai jenis serangan injeksi kode yang dapat mengakibatkan pencurian data atau pengambilalihan sistem</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post11-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog11-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost11.html">Penetration Testing: Hacking Secara Legal, Benarkah???</a>
+<span class="post-date">7 Mei 2025</span>
+<p class="post-description">Penetration testing atau ethical hacking adalah proses menguji keamanan sistem TI—termasuk jaringan, aplikasi, dan perangkat—dengan</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post11-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog12-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost12.html">Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan</a>
+<span class="post-date">8 Mei 2025</span>
+<p class="post-description">Artikel ini mengupas tuntas evolusi malware dari cara pembuatannya, trik-trik obfuscation (proses mengubah kode program atau</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post13-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog13-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost13.html">Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital</a>
+<span class="post-date">8 Mei 2025</span>
+<p class="post-description">Digital forensics adalah disiplin ilmu yang memfokuskan pada identifikasi, akuisisi, analisis, dan pelaporan bukti digital dari insiden keamanan siber</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post14-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog14-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost14.html">Manajemen Keamanan Informasi (ISMS &amp; Kebijakan Keamanan)</a>
+<span class="post-date">9 Mei 2025</span>
+<p class="post-description">Manajemen Keamanan Informasi (Information Security Management System atau ISMS) adalah kerangka kerja</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post15-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog15-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost15.html">Social Engineering &amp; Psikologi Serangan : Mempelajari Cara Hacker Memanipulasi Manusia</a>
+<span class="post-date">9 Mei 2025</span>
+<p class="post-description">Social engineering adalah rangkaian teknik manipulasi psikologis yang digunakan penyerang untuk mengeksploitasi kepercayaan, emosi, </p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post16-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog16-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost16.html">Cloud Security: Melindungi Data dan Aplikasi yang Berjalan di Cloud</a>
+<span class="post-date">10 Mei 2025</span>
+<p class="post-description">Cloud Security melibatkan serangkaian tanggung jawab bersama antara penyedia layanan (CSP) dan pelanggan </p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post17-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog17-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost17.html">Pentingnya Keamanan Perangkat IoT: Menuju Rumah &amp; Kota Pintar</a>
+<span class="post-date">11 Mei 2025</span>
+<p class="post-description">Perangkat Internet of Things (IoT) adalah milyaran objek fisik di seluruh dunia—mulai dari sensor, kamera, hingga peralatan </p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="slider-button-wrap">
+<div class="slider-button-prev swiperSignpostingPrev"> <span class="icon"></span></div>
+<div class="slider-button-next swiperSignpostingNext"><span class="icon"></span></div>
+</div>
+<div class="swiper-pagination"></div>
+</div>
+</div>
+<footer>
+<div class="footer-container">
+<div class="sec aboutus">
+<h2>About Us</h2>
+<p>CyberSecurity and Physiotherapy Student at Universitas Indonesia. Care to learn and increasing knowledge from zero to hero.</p>
+<ul class="sci">
+<li><a href="https://www.facebook.com/profile.php?id=100072590963891"><i class="bx bxl-facebook"></i></a></li>
+<li><a href="https://www.instagram.com/iqb.mln/"><i class="bx bxl-instagram"></i></a></li>
+<li><a href="https://github.com/iqbalkopling01"><i class="bx bxl-github"></i></a></li>
+<li><a href="https://www.linkedin.com/in/nur-iqbal-maulana-7375371ba"><i class="bx bxl-linkedin"></i></a></li>
+</ul>
+</div>
+<div class="sec quicklinks">
+<h2>Quick Links</h2>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="/PortCyPhy">About</a></li>
+</ul>
+</div>
+<div class="sec contactBx">
+<h2>Contact Info</h2>
+<ul class="info">
+<li>
+<span><i class="bx bxs-map"></i></span>
+<span>Universitas Indonesia, Depok <br/> West Java <br/> Id</span>
+</li>
+<li>
+<span><i class="bx bx-envelope"></i></span>
+<p><a href="mailto:Iqbalmaulana5011@gmail.com">Iqbalmaulana5011@gmail.com</a></p>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+<script crossorigin="anonymous" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
         document.querySelectorAll('.mySwiper').forEach(function (thisSlider) {
             const id = thisSlider.id; // make sure your slider element has a unique ID
             const slider = document.getElementById(id);
@@ -519,9 +476,5 @@
             });
         });
     </script>
-
-
-
 </body>
-
 </html>

@@ -1,442 +1,402 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBERTHERAPY</title>
-    <!-- Box-icon -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/favicon.png" type="image/png">
-</head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pentingnya Keamanan Perangkat IoT: Menuju Rumah &amp; Kota Pintar</title>
+<!-- Box-icon -->
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="images/favicon.png" rel="icon" type="image/png"/>
+<meta content="Pentingnya Keamanan Perangkat IoT: Menuju Rumah &amp; Kota Pintar" name="description"/><meta content="Pentingnya Keamanan Perangkat IoT: Menuju Rumah &amp; Kota Pintar" property="og:title"/><link href="https://iqbalmln.my.id/blogpost17.html" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="https://iqbalmln.my.id/blogpost17.html" property="og:url"/></head>
 <body>
-    <header>
-        <div class="nav container">
-            <a href="index.html" class="logo">Cyber<span>Therapy</span></a>
-            <a href="/PortCyPhy" class="login">Get in Touch</a>
-        </div>
-    </header>
-
-    <section class="home" id="home">
-        <div class="home-text container">
-            <h2 class="home-title">CyberTherapy</h2>
-            <span class="home-subtitle">CyberSecurity X Physiotherapy Content</span>
-        </div>
-    </section>
-
-    
-    <div class="konten">
-  <button class="sidebar-toggle">☰</button>
-
-  <div class="intro">
-    <h1>Pentingnya Keamanan Perangkat IoT: Menuju Rumah & Kota Pintar</h1>
-    <img src="images/blog17-1.png" alt="IoT Security" class="gambartikel fotoutama">
-    <p>Perangkat Internet of Things (IoT) adalah milyaran objek fisik di seluruh dunia—mulai dari sensor, kamera, hingga peralatan rumah tangga—yang kini terhubung ke internet dan saling berbagi data untuk menciptakan sistem yang cerdas dan responsif. Fungsi utama perangkat IoT mencakup pengumpulan data melalui sensor, pemrosesan informasi secara lokal atau di cloud, serta transmisi hasil pengolahan tersebut ke aplikasi atau perangkat lain secara real-time.</p>
-    <p>Tujuan utama implementasi IoT adalah meningkatkan efisiensi operasional, mengoptimalkan penggunaan sumber daya, serta mempercepat pengambilan keputusan berbasis data—sehingga organisasi dan individu dapat merespon perubahan dengan lebih cepat dan akurat. Selain itu, IoT juga membuka peluang inovasi bisnis dan model layanan baru—misalnya service-as-a-service (SaaS) berbasis perangkat pintar—serta mendukung keberlanjutan melalui pemantauan dan pengelolaan sumber daya secara cerdas.</p>
-  </div>
-
-  <div class="sidebar-container">
-    <div class="sidebar-wrapper">
-      <div class="sidebar">
-        <div class="reading-progress-container">
-          <div class="reading-progress-bar"></div>
-        </div>
-      </div>
-      <div class="author-box">
-        <img src="images/testi1.jpg" alt="Author's Gravatar" class="author-gravatar">
-        <div class="author-info">
-          <span class="author-title">Author</span>
-          <span class="author-name">Run</span>
-        </div>
-        <span id="dark-mode-toggle" class="material-symbols-outlined light-icon"></span>
-      </div>
-    </div>
-
-    <div class="post-content">
-      <h3>Pengantar Keamanan IoT</h3>
-      <p>Perangkat IoT menghubungkan objek fisik ke internet, menciptakan ekosistem yang mendukung automasi dan pemantauan real-time. Namun sifat konektivitas inilah yang membuka celah bagi penyerang untuk mencuri data, mengambil alih perangkat, atau melancarkan serangan Distributed Denial of Service (DDoS).</p>
-
-      <h3>Ancaman Umum pada Perangkat IoT</h3>
-      <ul>
-        <li><strong>Kerentanan Otentikasi dan Otorisasi:</strong> Banyak perangkat IoT dikirim dengan kredensial default yang kerap tidak diganti oleh pengguna.</li>
-        <li><strong>Kurangnya Enkripsi dan Mekanisme Update Aman:</strong> Data sering dikirim tanpa enkripsi, dan update firmware tidak terverifikasi secara digital.</li>
-        <li><strong>Antarmuka Ekosistem Tidak Aman:</strong> Web API dan aplikasi mobile rentan jika tidak dikonfigurasi dengan benar.</li>
-        <li><strong>Serangan Jaringan:</strong> Kurangnya segmentasi jaringan membuka peluang serangan lateral antar perangkat IoT.</li>
-      </ul>
-
-      <h3>Strategi Proteksi Perangkat Pintar</h3>
-      <ul>
-        <li><strong>Pemilihan dan Pengelolaan Perangkat:</strong> Gunakan perangkat dari vendor dengan dukungan keamanan jangka panjang.</li>
-        <li><strong>Segmentasi Jaringan:</strong> Tempatkan perangkat IoT pada VLAN atau jaringan terpisah dari jaringan utama.</li>
-        <li><strong>Enkripsi dan Sertifikat:</strong> Terapkan komunikasi terenkripsi TLS dan gunakan sertifikat valid.</li>
-        <li><strong>Otentikasi Multifaktor dan Password:</strong> Gunakan sandi kompleks dan aktifkan 2FA.</li>
-        <li><strong>Pembaruan Firmware:</strong> Aktifkan update otomatis dan verifikasi tanda tangan digital firmware.</li>
-        <li><strong>Monitoring dan Log:</strong> Gunakan logging dan solusi IDS/IPS atau SIEM untuk deteksi dini.</li>
-      </ul>
-
-      <h3>Praktik Spesifik untuk CCTV dan Smart Home</h3>
-      <ul>
-        <li><strong>CCTV:</strong> Gunakan NAS untuk penyimpanan lokal dan enkripsi end-to-end untuk streaming.</li>
-        <li><strong>Smart Home:</strong> Gunakan protokol aman seperti Zigbee/Z-Wave dan integrasi dengan layanan keamanan profesional.</li>
-      </ul>
-
-      <h3>Kesimpulan dan Rekomendasi</h3>
-      <p>Dengan pendekatan keamanan yang menyeluruh—mulai dari pemilihan perangkat hingga monitoring—organisasi dan individu dapat memaksimalkan manfaat IoT tanpa mengorbankan keamanan dan privasi.</p>
-    </div>
-  </div>
-
-  <div class="outro">
-    <h3>Referensi</h3>
-    <ul>
-      <li><a href="https://owasp.org/www-project-internet-of-things/">OWASP IoT Security Testing Guide</a></li>
-      <li><a href="https://www.cisa.gov/resources-tools/resources/internet-things-iot-acquisition-guidance-document">CISA IoT Acquisition Guidance</a></li>
-      <li><a href="https://www.nist.gov/itl/applied-cybersecurity/nist-cybersecurity-iot-program/nistir-8259-series">NISTIR 8259 Series</a></li>
-      <li><a href="https://pbigaem.fs.ml.com/articles/internet-of-things-iot-device-security-your-home.html">Merrill Lynch IoT Security Practices</a></li>
-      <li><a href="https://mypage.axa.co.id/news/id/sistem-smart-home-dalam-melindungi-rumah-saat-kamu-bepergian-simak-di-sini">AXA Smart Home Protection</a></li>
-      <li><a href="https://www.wired.com/story/security-camera-tips-and-risks">WIRED Camera Security</a></li>
-      <li><a href="https://www.techradar.com/news/best-home-security-camera">TechRadar Smart Camera Reviews</a></li>
-    </ul>
-  </div>
-
-  <script src="./script.js"></script>
+<header>
+<div class="nav container">
+<a class="logo" href="index.html">Cyber<span>Therapy</span></a>
+<a class="login" href="/PortCyPhy">Get in Touch</a>
 </div>
-
-
-    <div class="post-filter container">
-        <span class="filter-item active-filter" data-filter="all">All Recomended Posts</span>
-    </div>
-
-    <div class="carousel-container">
-        <div class="mySwiper" id="1234">
-            <div class="swiper-wrapper">
-                
-                <!-- Post 1 -->
-                <div class="swiper-slide">
-                    <div class="post-box news">
-                        <img src="images/img1.jpg" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="page1.html" class="post-title">The Delightful World of Crayfish.</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
+</header>
+<section class="home" id="home">
+<div class="home-text container">
+<h2 class="home-title">CyberTherapy</h2>
+<span class="home-subtitle">CyberSecurity X Physiotherapy Content</span>
+</div>
+</section>
+<div class="konten">
+<button class="sidebar-toggle">☰</button>
+<div class="intro">
+<h1>Pentingnya Keamanan Perangkat IoT: Menuju Rumah &amp; Kota Pintar</h1>
+<img alt="IoT Security" class="gambartikel fotoutama" src="images/blog17-1.png"/>
+<p>Perangkat Internet of Things (IoT) adalah milyaran objek fisik di seluruh dunia—mulai dari sensor, kamera, hingga peralatan rumah tangga—yang kini terhubung ke internet dan saling berbagi data untuk menciptakan sistem yang cerdas dan responsif. Fungsi utama perangkat IoT mencakup pengumpulan data melalui sensor, pemrosesan informasi secara lokal atau di cloud, serta transmisi hasil pengolahan tersebut ke aplikasi atau perangkat lain secara real-time.</p>
+<p>Tujuan utama implementasi IoT adalah meningkatkan efisiensi operasional, mengoptimalkan penggunaan sumber daya, serta mempercepat pengambilan keputusan berbasis data—sehingga organisasi dan individu dapat merespon perubahan dengan lebih cepat dan akurat. Selain itu, IoT juga membuka peluang inovasi bisnis dan model layanan baru—misalnya service-as-a-service (SaaS) berbasis perangkat pintar—serta mendukung keberlanjutan melalui pemantauan dan pengelolaan sumber daya secara cerdas.</p>
+</div>
+<div class="sidebar-container">
+<div class="sidebar-wrapper">
+<div class="sidebar">
+<div class="reading-progress-container">
+<div class="reading-progress-bar"></div>
+</div>
+</div>
+<div class="author-box">
+<img alt="Author's Gravatar" class="author-gravatar" src="images/testi1.jpg"/>
+<div class="author-info">
+<span class="author-title">Author</span>
+<span class="author-name">Run</span>
+</div>
+<span class="material-symbols-outlined light-icon" id="dark-mode-toggle"></span>
+</div>
+</div>
+<div class="post-content">
+<h3>Pengantar Keamanan IoT</h3>
+<p>Perangkat IoT menghubungkan objek fisik ke internet, menciptakan ekosistem yang mendukung automasi dan pemantauan real-time. Namun sifat konektivitas inilah yang membuka celah bagi penyerang untuk mencuri data, mengambil alih perangkat, atau melancarkan serangan Distributed Denial of Service (DDoS).</p>
+<h3>Ancaman Umum pada Perangkat IoT</h3>
+<ul>
+<li><strong>Kerentanan Otentikasi dan Otorisasi:</strong> Banyak perangkat IoT dikirim dengan kredensial default yang kerap tidak diganti oleh pengguna.</li>
+<li><strong>Kurangnya Enkripsi dan Mekanisme Update Aman:</strong> Data sering dikirim tanpa enkripsi, dan update firmware tidak terverifikasi secara digital.</li>
+<li><strong>Antarmuka Ekosistem Tidak Aman:</strong> Web API dan aplikasi mobile rentan jika tidak dikonfigurasi dengan benar.</li>
+<li><strong>Serangan Jaringan:</strong> Kurangnya segmentasi jaringan membuka peluang serangan lateral antar perangkat IoT.</li>
+</ul>
+<h3>Strategi Proteksi Perangkat Pintar</h3>
+<ul>
+<li><strong>Pemilihan dan Pengelolaan Perangkat:</strong> Gunakan perangkat dari vendor dengan dukungan keamanan jangka panjang.</li>
+<li><strong>Segmentasi Jaringan:</strong> Tempatkan perangkat IoT pada VLAN atau jaringan terpisah dari jaringan utama.</li>
+<li><strong>Enkripsi dan Sertifikat:</strong> Terapkan komunikasi terenkripsi TLS dan gunakan sertifikat valid.</li>
+<li><strong>Otentikasi Multifaktor dan Password:</strong> Gunakan sandi kompleks dan aktifkan 2FA.</li>
+<li><strong>Pembaruan Firmware:</strong> Aktifkan update otomatis dan verifikasi tanda tangan digital firmware.</li>
+<li><strong>Monitoring dan Log:</strong> Gunakan logging dan solusi IDS/IPS atau SIEM untuk deteksi dini.</li>
+</ul>
+<h3>Praktik Spesifik untuk CCTV dan Smart Home</h3>
+<ul>
+<li><strong>CCTV:</strong> Gunakan NAS untuk penyimpanan lokal dan enkripsi end-to-end untuk streaming.</li>
+<li><strong>Smart Home:</strong> Gunakan protokol aman seperti Zigbee/Z-Wave dan integrasi dengan layanan keamanan profesional.</li>
+</ul>
+<h3>Kesimpulan dan Rekomendasi</h3>
+<p>Dengan pendekatan keamanan yang menyeluruh—mulai dari pemilihan perangkat hingga monitoring—organisasi dan individu dapat memaksimalkan manfaat IoT tanpa mengorbankan keamanan dan privasi.</p>
+</div>
+</div>
+<div class="outro">
+<h3>Referensi</h3>
+<ul>
+<li><a href="https://owasp.org/www-project-internet-of-things/">OWASP IoT Security Testing Guide</a></li>
+<li><a href="https://www.cisa.gov/resources-tools/resources/internet-things-iot-acquisition-guidance-document">CISA IoT Acquisition Guidance</a></li>
+<li><a href="https://www.nist.gov/itl/applied-cybersecurity/nist-cybersecurity-iot-program/nistir-8259-series">NISTIR 8259 Series</a></li>
+<li><a href="https://pbigaem.fs.ml.com/articles/internet-of-things-iot-device-security-your-home.html">Merrill Lynch IoT Security Practices</a></li>
+<li><a href="https://mypage.axa.co.id/news/id/sistem-smart-home-dalam-melindungi-rumah-saat-kamu-bepergian-simak-di-sini">AXA Smart Home Protection</a></li>
+<li><a href="https://www.wired.com/story/security-camera-tips-and-risks">WIRED Camera Security</a></li>
+<li><a href="https://www.techradar.com/news/best-home-security-camera">TechRadar Smart Camera Reviews</a></li>
+</ul>
+</div>
+<script src="./script.js"></script>
+</div>
+<div class="post-filter container">
+<span class="filter-item active-filter" data-filter="all">All Recomended Posts</span>
+</div>
+<div class="carousel-container">
+<div class="mySwiper" id="1234">
+<div class="swiper-wrapper">
+<!-- Post 1 -->
+<div class="swiper-slide">
+<div class="post-box news">
+<img alt="" class="post-img" src="images/img1.jpg"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="page1.html">The Delightful World of Crayfish.</a>
+<span class="post-date">10 Des 2024</span>
+<p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
                             freshwater ecosystems...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Post 2 -->
-                <div class="swiper-slide">
-                    
-                    <div class="post-box health">
-                        <img src="images/img2.png" alt="" class="post-img">
-                        <h2 class="category">Health</h2>
-                        <a href="blogpost1.html" class="post-title">Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Fisioterapi adalah profesi di bidang kesehatan yang berfokus pada rehabilitasi, pencegahan, dan 
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!-- Post 2 -->
+<div class="swiper-slide">
+<div class="post-box health">
+<img alt="" class="post-img" src="images/img2.png"/>
+<h2 class="category">Health</h2>
+<a class="post-title" href="blogpost1.html">Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</a>
+<span class="post-date">10 Des 2024</span>
+<p class="post-description">Fisioterapi adalah profesi di bidang kesehatan yang berfokus pada rehabilitasi, pencegahan, dan 
                             pengelolaan gangguan gerak tubuh.</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-                <!--Post3-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/img13.jpg" alt="" class="post-img">
-                        <h2 class="category">Tech</h2>
-                        <a href="blogpost2.html" class="post-title">Simple WebApp Penetration Testing</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post3-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/img13.jpg"/>
+<h2 class="category">Tech</h2>
+<a class="post-title" href="blogpost2.html">Simple WebApp Penetration Testing</a>
+<span class="post-date">10 Des 2024</span>
+<p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
                             freshwater ecosystems...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-        
-                <!--Post4-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog3-1.png" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="blogpost3.html" class="post-title">Work Interview Series 101: Sebelum Interview</a>
-                        <span class="post-date">24 April 2025</span>
-                        <p class="post-description">Persiapan sebelum wawancara kerja meliputi riset mendalam tentang perusahaan dan posisi, penguasaan diri dengan personal branding, ...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post5-->
-                <div class="swiper-slide">
-                    <div class="post-box news">
-                        <img src="images/blog4-1.png" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="blogpost4.html" class="post-title">Work Interview Series 101: Saat Interview</a>
-                        <span class="post-date">24 April 2025</span>
-                        <p class="post-description">Wawancara kerja kerap menimbulkan perasaan tegang, apalagi keputusan pewawancara sering terbentuk lewat kesan pertama dalam hitungan detik...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post6-->
-                <div class="swiper-slide">
-                    <div class="post-box news">
-                        <img src="images/blog5-1.png" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="blogpost5.html" class="post-title">Work Interview Series 101: Pasca Interview</a>
-                        <span class="post-date">24 April 2025</span>
-                        <p class="post-description">Kelihatannya tahap wawancara sudah berakhir, tapi sebenarnya perjalanan baru dimulai. Tindakan-tindakan setelah sesi interview berperan besar dalam memperkuat kesan profesionalismemu ...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post7-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog6-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost6.html" class="post-title">Basic CyberSecurity</a>
-                        <span class="post-date">26 April 2025</span>
-                        <p class="post-description">Cybersecurity adalah bidang yang kompleks namun sangat penting. Pemahaman dasar tentang ancaman digital, serta kebijakan</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post8-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog7-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost7.html" class="post-title">Cryptography: Seni Menulis Pesan Rahasia di Era Digital</a>
-                        <span class="post-date">28 April 2025</span>
-                        <p class="post-description">Di zaman serba digital seperti sekarang, keamanan informasi menjadi prioritas utama. Setiap aktivitas seperti mengirim pesan, ...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post9-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog8-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost8.html" class="post-title">Jaringan Komputer dan Keamanan Jaringan: Memahami Protokol dan Teknologi Perlindungannya</a>
-                        <span class="post-date">30 April 2025</span>
-                        <p class="post-description">Jaringan komputer merupakan tulang punggung dunia digital. Dari komunikasi pribadi hingga sistem perbankan dan militer,</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post10-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog9-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost9.html" class="post-title">Sistem Operasi dan Keamanannya: Antara Windows dan Linux</a>
-                        <span class="post-date">30 April 2025</span>
-                        <p class="post-description">Di balik layar setiap perangkat komputer, terdapat sistem operasi (OS) yang berperan sebagai otak pengendali.</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post10-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog10-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost10.html" class="post-title">Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</a>
-                        <span class="post-date">5 Mei 2025</span>
-                        <p class="post-description">Aplikasi web rentan terhadap berbagai jenis serangan injeksi kode yang dapat mengakibatkan pencurian data atau pengambilalihan sistem</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post11-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog11-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost11.html" class="post-title">Penetration Testing: Hacking Secara Legal, Benarkah???</a>
-                        <span class="post-date">7 Mei 2025</span>
-                        <p class="post-description">Penetration testing atau ethical hacking adalah proses menguji keamanan sistem TI—termasuk jaringan, aplikasi, dan perangkat—dengan</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post12-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog12-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost12.html" class="post-title">Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan</a>
-                        <span class="post-date">8 Mei 2025</span>
-                        <p class="post-description">Artikel ini mengupas tuntas evolusi malware dari cara pembuatannya, trik-trik obfuscation (proses mengubah kode program atau</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--Post13-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog13-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost13.html" class="post-title">Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital</a>
-                        <span class="post-date">8 Mei 2025</span>
-                        <p class="post-description">Digital forensics adalah disiplin ilmu yang memfokuskan pada identifikasi, akuisisi, analisis, dan pelaporan bukti digital dari insiden keamanan siber</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post14-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog14-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost14.html" class="post-title">Manajemen Keamanan Informasi (ISMS & Kebijakan Keamanan)</a>
-                        <span class="post-date">9 Mei 2025</span>
-                        <p class="post-description">Manajemen Keamanan Informasi (Information Security Management System atau ISMS) adalah kerangka kerja</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-            
-                <!--Post15-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog15-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost15.html" class="post-title">Social Engineering & Psikologi Serangan : Mempelajari Cara Hacker Memanipulasi Manusia</a>
-                        <span class="post-date">9 Mei 2025</span>
-                        <p class="post-description">Social engineering adalah rangkaian teknik manipulasi psikologis yang digunakan penyerang untuk mengeksploitasi kepercayaan, emosi, </p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post16-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog16-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost16.html" class="post-title">Cloud Security: Melindungi Data dan Aplikasi yang Berjalan di Cloud</a>
-                        <span class="post-date">10 Mei 2025</span>
-                        <p class="post-description">Cloud Security melibatkan serangkaian tanggung jawab bersama antara penyedia layanan (CSP) dan pelanggan </p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post17-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog17-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost17.html" class="post-title">Pentingnya Keamanan Perangkat IoT: Menuju Rumah & Kota Pintar</a>
-                        <span class="post-date">11 Mei 2025</span>
-                        <p class="post-description">Perangkat Internet of Things (IoT) adalah milyaran objek fisik di seluruh dunia—mulai dari sensor, kamera, hingga peralatan </p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="slider-button-wrap">
-                <div class="slider-button-prev swiperSignpostingPrev"> <span class="icon"></span></div>
-                <div class="slider-button-next swiperSignpostingNext"><span class="icon"></span></div>
-            </div>
-            
-            <div class="swiper-pagination"></div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-container">
-            <div class="sec aboutus">
-                <h2>About Us</h2>
-                <p>CyberSecurity and Physiotherapy Student at Universitas Indonesia. Care to learn and increasing knowledge from zero to hero.</p>
-                <ul class="sci">
-                    <li><a href="https://www.facebook.com/profile.php?id=100072590963891"><i class="bx bxl-facebook"></i></a></li>
-                    <li><a href="https://www.instagram.com/iqb.mln/"><i class="bx bxl-instagram"></i></a></li>
-                    <li><a href="https://github.com/iqbalkopling01" ><i class="bx bxl-github"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/nur-iqbal-maulana-7375371ba"><i class="bx bxl-linkedin"></i></a></li>
-                </ul>
-            </div>
-            <div class="sec quicklinks">
-                <h2>Quick Links</h2>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="/PortCyPhy">About</a></li>
-                </ul>
-            </div>
-            <div class="sec contactBx">
-                <h2>Contact Info</h2>
-                <ul class="info">
-                    <li>
-                        <span><i class='bx bxs-map'></i></span>
-                        <span>Universitas Indonesia, Depok <br> West Java <br> Id</span>
-                    </li>
-                    <li>
-                        <span><i class='bx bx-envelope' ></i></span>
-                        <p><a href="mailto:Iqbalmaulana5011@gmail.com">Iqbalmaulana5011@gmail.com</a></p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post4-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog3-1.png"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="blogpost3.html">Work Interview Series 101: Sebelum Interview</a>
+<span class="post-date">24 April 2025</span>
+<p class="post-description">Persiapan sebelum wawancara kerja meliputi riset mendalam tentang perusahaan dan posisi, penguasaan diri dengan personal branding, ...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post5-->
+<div class="swiper-slide">
+<div class="post-box news">
+<img alt="" class="post-img" src="images/blog4-1.png"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="blogpost4.html">Work Interview Series 101: Saat Interview</a>
+<span class="post-date">24 April 2025</span>
+<p class="post-description">Wawancara kerja kerap menimbulkan perasaan tegang, apalagi keputusan pewawancara sering terbentuk lewat kesan pertama dalam hitungan detik...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post6-->
+<div class="swiper-slide">
+<div class="post-box news">
+<img alt="" class="post-img" src="images/blog5-1.png"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="blogpost5.html">Work Interview Series 101: Pasca Interview</a>
+<span class="post-date">24 April 2025</span>
+<p class="post-description">Kelihatannya tahap wawancara sudah berakhir, tapi sebenarnya perjalanan baru dimulai. Tindakan-tindakan setelah sesi interview berperan besar dalam memperkuat kesan profesionalismemu ...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post7-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog6-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost6.html">Basic CyberSecurity</a>
+<span class="post-date">26 April 2025</span>
+<p class="post-description">Cybersecurity adalah bidang yang kompleks namun sangat penting. Pemahaman dasar tentang ancaman digital, serta kebijakan</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post8-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog7-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost7.html">Cryptography: Seni Menulis Pesan Rahasia di Era Digital</a>
+<span class="post-date">28 April 2025</span>
+<p class="post-description">Di zaman serba digital seperti sekarang, keamanan informasi menjadi prioritas utama. Setiap aktivitas seperti mengirim pesan, ...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post9-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog8-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost8.html">Jaringan Komputer dan Keamanan Jaringan: Memahami Protokol dan Teknologi Perlindungannya</a>
+<span class="post-date">30 April 2025</span>
+<p class="post-description">Jaringan komputer merupakan tulang punggung dunia digital. Dari komunikasi pribadi hingga sistem perbankan dan militer,</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post10-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog9-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost9.html">Sistem Operasi dan Keamanannya: Antara Windows dan Linux</a>
+<span class="post-date">30 April 2025</span>
+<p class="post-description">Di balik layar setiap perangkat komputer, terdapat sistem operasi (OS) yang berperan sebagai otak pengendali.</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post10-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog10-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost10.html">Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</a>
+<span class="post-date">5 Mei 2025</span>
+<p class="post-description">Aplikasi web rentan terhadap berbagai jenis serangan injeksi kode yang dapat mengakibatkan pencurian data atau pengambilalihan sistem</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post11-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog11-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost11.html">Penetration Testing: Hacking Secara Legal, Benarkah???</a>
+<span class="post-date">7 Mei 2025</span>
+<p class="post-description">Penetration testing atau ethical hacking adalah proses menguji keamanan sistem TI—termasuk jaringan, aplikasi, dan perangkat—dengan</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post12-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog12-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost12.html">Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan</a>
+<span class="post-date">8 Mei 2025</span>
+<p class="post-description">Artikel ini mengupas tuntas evolusi malware dari cara pembuatannya, trik-trik obfuscation (proses mengubah kode program atau</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post13-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog13-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost13.html">Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital</a>
+<span class="post-date">8 Mei 2025</span>
+<p class="post-description">Digital forensics adalah disiplin ilmu yang memfokuskan pada identifikasi, akuisisi, analisis, dan pelaporan bukti digital dari insiden keamanan siber</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post14-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog14-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost14.html">Manajemen Keamanan Informasi (ISMS &amp; Kebijakan Keamanan)</a>
+<span class="post-date">9 Mei 2025</span>
+<p class="post-description">Manajemen Keamanan Informasi (Information Security Management System atau ISMS) adalah kerangka kerja</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post15-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog15-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost15.html">Social Engineering &amp; Psikologi Serangan : Mempelajari Cara Hacker Memanipulasi Manusia</a>
+<span class="post-date">9 Mei 2025</span>
+<p class="post-description">Social engineering adalah rangkaian teknik manipulasi psikologis yang digunakan penyerang untuk mengeksploitasi kepercayaan, emosi, </p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post16-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog16-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost16.html">Cloud Security: Melindungi Data dan Aplikasi yang Berjalan di Cloud</a>
+<span class="post-date">10 Mei 2025</span>
+<p class="post-description">Cloud Security melibatkan serangkaian tanggung jawab bersama antara penyedia layanan (CSP) dan pelanggan </p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post17-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog17-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost17.html">Pentingnya Keamanan Perangkat IoT: Menuju Rumah &amp; Kota Pintar</a>
+<span class="post-date">11 Mei 2025</span>
+<p class="post-description">Perangkat Internet of Things (IoT) adalah milyaran objek fisik di seluruh dunia—mulai dari sensor, kamera, hingga peralatan </p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="slider-button-wrap">
+<div class="slider-button-prev swiperSignpostingPrev"> <span class="icon"></span></div>
+<div class="slider-button-next swiperSignpostingNext"><span class="icon"></span></div>
+</div>
+<div class="swiper-pagination"></div>
+</div>
+</div>
+<footer>
+<div class="footer-container">
+<div class="sec aboutus">
+<h2>About Us</h2>
+<p>CyberSecurity and Physiotherapy Student at Universitas Indonesia. Care to learn and increasing knowledge from zero to hero.</p>
+<ul class="sci">
+<li><a href="https://www.facebook.com/profile.php?id=100072590963891"><i class="bx bxl-facebook"></i></a></li>
+<li><a href="https://www.instagram.com/iqb.mln/"><i class="bx bxl-instagram"></i></a></li>
+<li><a href="https://github.com/iqbalkopling01"><i class="bx bxl-github"></i></a></li>
+<li><a href="https://www.linkedin.com/in/nur-iqbal-maulana-7375371ba"><i class="bx bxl-linkedin"></i></a></li>
+</ul>
+</div>
+<div class="sec quicklinks">
+<h2>Quick Links</h2>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="/PortCyPhy">About</a></li>
+</ul>
+</div>
+<div class="sec contactBx">
+<h2>Contact Info</h2>
+<ul class="info">
+<li>
+<span><i class="bx bxs-map"></i></span>
+<span>Universitas Indonesia, Depok <br/> West Java <br/> Id</span>
+</li>
+<li>
+<span><i class="bx bx-envelope"></i></span>
+<p><a href="mailto:Iqbalmaulana5011@gmail.com">Iqbalmaulana5011@gmail.com</a></p>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+<script crossorigin="anonymous" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
         document.querySelectorAll('.mySwiper').forEach(function (thisSlider) {
             const id = thisSlider.id; // make sure your slider element has a unique ID
             const slider = document.getElementById(id);
@@ -472,9 +432,5 @@
             });
         });
     </script>
-
-
-
 </body>
-
 </html>

@@ -1,464 +1,419 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBERTHERAPY</title>
-    <!-- Box-icon -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/favicon.png" type="image/png">
-</head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan</title>
+<!-- Box-icon -->
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="images/favicon.png" rel="icon" type="image/png"/>
+<meta content="Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan" name="description"/><meta content="Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan" property="og:title"/><link href="https://iqbalmln.my.id/blogpost12.html" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="https://iqbalmln.my.id/blogpost12.html" property="og:url"/></head>
 <body>
-    <header>
-        <div class="nav container">
-            <a href="index.html" class="logo">Cyber<span>Therapy</span></a>
-            <a href="/PortCyPhy" class="login">Get in Touch</a>
-        </div>
-    </header>
-
-    <section class="home" id="home">
-        <div class="home-text container">
-            <h2 class="home-title">CyberTherapy</h2>
-            <span class="home-subtitle">CyberSecurity X Physiotherapy Content</span>
-        </div>
-    </section>
-
-    <div class="konten">
-        <button class="sidebar-toggle">☰</button>
-      
-        <div class="intro">
-          <h1>Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan</h1>
-          <img src="images/blog12-1.png" alt="Malware Analysis" class="gambartikel fotoutama">
-          <p>Artikel ini mengupas tuntas evolusi malware dari cara pembuatannya, trik-trik obfuscation (proses mengubah kode program atau data menjadi bentuk yang sulit dibaca dan dipahami, tetapi tetap mempertahankan fungsinya atau semantik aslinya) dan evasi (menghindari deteksi oleh antivirus atau sistem keamanan) yang dipakai penyerang, hingga siklus hidup (lifecycle) malware—mulai eksekusi awal hingga pencurian data. Kita juga membahas tiga pendekatan analisis (statis, dinamis, hybrid), lalu melompat ke reverse engineering: persiapan lab, tools andalan (Ghidra, IDA Pro, Radare2), serta trik disassembly, decompilation, dan debugging. Tak ketinggalan, section tentang anti-analisis (anti-VM/anti-debug), forensik memori dengan Volatility, sampai serangan di level firmware/UEFI. Studi kasus Stuxnet dan WannaCry memperlihatkan bagaimana teori dipraktikkan dalam serangan nyata, dan di akhir kita ulas cara mitigasi, deteksi berbasis IOC & MITRE ATT&CK, serta peran YARA dan machine learning untuk otomatisasi analisis.</p>
-        </div>
-      
-        <div class="sidebar-container">
-          <div class="sidebar-wrapper">
-            <div class="sidebar">
-              <div class="reading-progress-container">
-                <div class="reading-progress-bar"></div>
-              </div>
-            </div>
-            <div class="author-box">
-              <img src="images/testi1.jpg" alt="Author's Gravatar" class="author-gravatar">
-              <div class="author-info">
-                <span class="author-title">Author</span>
-                <span class="author-name">Run</span>
-              </div>
-              <span id="dark-mode-toggle" class="material-symbols-outlined light-icon"></span>
-            </div>
-          </div>
-      
-          <div class="post-content">
-            <h3>1. Evolusi Malware: Dari Kode hingga Evasi</h3>
-            <p>Malware modern dibuat dengan bahasa low-level—Assembly atau C/C++—agar performa tinggi dan kontrol memori presisi. Penyerang sering “membungkus” binary menggunakan packer seperti UPX untuk menyamarkan payload dan menghindari signature AV. Lebih canggih lagi, obfuscation polymorfik/metamorfik menghasilkan varian unik setiap eksekusi, mempersulit deteksi berbasis signature.</p>
-            <p>Dalam fase initial compromise, vektor infeksi umum meliputi phishing email dengan lampiran macro jahat, exploit kit (misalnya RIG), atau drive-by download di situs kompromi. Setelah dijalankan, teknik process hollowing menciptakan proses sah yang di-“kosongkan” dan diisi kode jahat, sehingga malware bersembunyi dalam proses Windows asli.</p>
-      
-            <h3>2. Lifecycle Malware: Fase Kritis</h3>
-            <ul>
-              <li><strong>Inisialisasi:</strong> Malware dieksekusi dan menginjeksikan kode ke proses target via process hollowing.</li>
-              <li><strong>Persistence:</strong> Dengan memodifikasi registry atau Task Scheduler, malware menjamin dirinya aktif setelah reboot.</li>
-              <li><strong>Komunikasi C2:</strong> Koneksi ke server Command-and-Control lewat HTTP(S), DNS tunneling, atau protokol custom untuk menerima instruksi lanjutan.</li>
-              <li><strong>Eksfiltrasi:</strong> Data sensitif korban dikompresi dan dikirim ke penyerang, melengkapi tujuan akhir malware.</li>
-            </ul>
-      
-            <h3>3. Tri-Analisis: Statis, Dinamis, Hybrid</h3>
-            <p><strong>Analisis Statis:</strong> Memeriksa binary tanpa menjalankannya: tinjau header PE & import table dengan PE-bear atau CFF Explorer, ekstrak string tersemat (URLs, perintah) pakai <code>strings</code>, dan gunakan YARA rules untuk klasifikasi massal.</p>
-            <p><strong>Analisis Dinamis:</strong> Dijalankan di sandbox (ANY.RUN, Cuckoo Sandbox) untuk memantau perilaku runtime, perubahan file/registry, dan traffic jaringan.</p>
-            <p><strong>Analisis Hybrid & Otomasi:</strong> Menggabungkan keduanya sekaligus memanfaatkan machine learning (misalnya VirusTotal Intelligence, Cortex XDR) untuk percepatan klasifikasi varian baru.</p>
-      
-            <h3>4. Reverse Engineering: Lab & Tools Andalan</h3>
-            <h4>4.1 Membangun Lab Analisis</h4>
-            <p>Siapkan VM snapshot (VMWare/VirtualBox) terisolasi, captive C2 server untuk memantau komunikasi malware, dan alat rollback cepat jika analisis “lepas kendali”.</p>
-      
-            <h4>4.2 Tools Utama</h4>
-            <ul>
-              <li><strong>Ghidra:</strong> Decompiler open-source dari NSA, lengkap dengan scripting dan kolaborasi tim.</li>
-              <li><strong>IDA Pro + Hex-Rays:</strong> Disassembler/decompiler komersial dengan plugin kuat untuk menghasilkan pseudocode yang mudah dibaca.</li>
-              <li><strong>Radare2:</strong> Framework gratis untuk disassembly, debugging, patching, dan scripting.</li>
-            </ul>
-      
-            <h4>4.3 Trik Disassembly & Debugging</h4>
-            <ul>
-              <li><strong>Breakpoint & Stepping:</strong> Dengan x64dbg atau WinDbg untuk mengamati register dan memori real-time.</li>
-              <li><strong>Code Patching:</strong> Sunting instruksi di runtime untuk melewati cek keamanan atau memaksa logika cabang tertentu.</li>
-            </ul>
-      
-            <h3>5. Anti-Analisis & Forensik Memori</h3>
-            <p>Malware bisa mendeteksi VM lewat cek registry/CPUID atau API <code>IsDebuggerPresent</code> untuk menghindar dari sandbox. Beberapa memasang “time bomb” agar payload hanya aktif pada tanggal tertentu.</p>
-            <p>Di sisi defender, forensik memori menggunakan Volatility untuk menangkap RAM dump dan mengungkap proses terinjeksi, koneksi tersembunyi, serta artefak runtime lain sebelum malware membersihkan jejaknya.</p>
-      
-            <h3>6. Malware di Level Firmware & Rootkit</h3>
-            <p>UEFI/BIOS bootkits memuat malware sebelum OS, membuat pembersihan via reinstall jadi sia-sia. Kasus LoJax—rootkit UEFI pertama dari group Fancy Bear—membuktikan ancaman nyata di firmware. Analisis memerlukan dumping chip SPI dan tools seperti UEFITool atau CHIPSEC.</p>
-      
-            <h3>7. Studi Kasus: Stuxnet & WannaCry</h3>
-            <ul>
-              <li><strong>Stuxnet:</strong> Worm canggih yang menyerang PLC Siemens Iran pada 2010, memanfaatkan empat zero-day Windows dan rootkit kernel untuk menyembunyikan aktivitas sabotase fisik.</li>
-              <li><strong>WannaCry:</strong> Ransomware global Mei 2017 yang memanfaatkan exploit EternalBlue (MS17-010) dan berhenti berkat “kill switch” yang ditemukan Marcus Hutchins, memperlambat penyebaran sebelum patch dirilis.</li>
-            </ul>
-      
-            <h3>8. Mitigasi & Kecerdasan Ancaman</h3>
-            <p>Patch management menyeluruh—termasuk OS, aplikasi, dan firmware—menutup celah exploit sebelum diserang. Implementasi Secure Boot & measured boot (TPM) mencegah bootkit non-signed berjalan.</p>
-          </div>
-        </div>
-      
-        <div class="outro">
-            <p>Deteksi berbasis IOC dengan YARA rules, IOC feeds, dan peta taktik MITRE ATT&CK membantu monitoring berkelanjutan dan threat hunting proaktif. Kolaborasi lewat platform open source seperti MISP dan OpenCTI mempercepat sharing indikator dan mengurangi blind spot komunitas keamanan.</p>
-
-          <h3>Sumber Referensi</h3>
-          <ul>
-            <li><a href="https://hshrzd.wordpress.com/pe-bear/">PE-bear – Static Analysis Tool</a></li>
-            <li><a href="https://www.bitdefender.com/en-us/blog/businessinsights/what-is-dynamic-malware-analysis">What Is Dynamic Malware Analysis? – Bitdefender</a></li>
-            <li><a href="https://www.cynet.com/attack-techniques-hands-on/malware-anti-vm-techniques/">Malware Anti-VM Techniques – Cynet</a></li>
-            <li><a href="https://www.veeam.com/blog/yara-rules-malware-detection-analysis.html">YARA Rules Guide – Veeam</a></li>
-            <li><a href="https://attack.mitre.org/">MITRE ATT&CK®</a></li>
-            <li><a href="https://www.sciencedirect.com/science/article/pii/S2666827024000227">A survey of malware detection using deep learning – ScienceDirect</a></li>
-            <li><a href="https://intezer.com/blog/memory-analysis-forensic-tools/">Memory Analysis 101 – Intezer</a></li>
-            <li><a href="https://www.crowdstrike.com/en-us/cybersecurity-101/malware/malware-analysis/">Malware Analysis: Steps & Examples – CrowdStrike</a></li>
-            <li><a href="https://www.sans.org/media/score/checklists/rootkits-investigation-procedures.pdf">SANS Rootkits Investigation Procedures</a></li>
-          </ul>
-        </div>
-      
-        <script src="./script.js"></script>
-      </div>    
-    
-
-    <div class="post-filter container">
-        <span class="filter-item active-filter" data-filter="all">All Recomended Posts</span>
-    </div>
-
-    <div class="carousel-container">
-        <div class="mySwiper" id="1234">
-            <div class="swiper-wrapper">
-                
-                <!-- Post 1 -->
-                <div class="swiper-slide">
-                    <div class="post-box news">
-                        <img src="images/img1.jpg" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="page1.html" class="post-title">The Delightful World of Crayfish.</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
+<header>
+<div class="nav container">
+<a class="logo" href="index.html">Cyber<span>Therapy</span></a>
+<a class="login" href="/PortCyPhy">Get in Touch</a>
+</div>
+</header>
+<section class="home" id="home">
+<div class="home-text container">
+<h2 class="home-title">CyberTherapy</h2>
+<span class="home-subtitle">CyberSecurity X Physiotherapy Content</span>
+</div>
+</section>
+<div class="konten">
+<button class="sidebar-toggle">☰</button>
+<div class="intro">
+<h1>Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan</h1>
+<img alt="Malware Analysis" class="gambartikel fotoutama" src="images/blog12-1.png"/>
+<p>Artikel ini mengupas tuntas evolusi malware dari cara pembuatannya, trik-trik obfuscation (proses mengubah kode program atau data menjadi bentuk yang sulit dibaca dan dipahami, tetapi tetap mempertahankan fungsinya atau semantik aslinya) dan evasi (menghindari deteksi oleh antivirus atau sistem keamanan) yang dipakai penyerang, hingga siklus hidup (lifecycle) malware—mulai eksekusi awal hingga pencurian data. Kita juga membahas tiga pendekatan analisis (statis, dinamis, hybrid), lalu melompat ke reverse engineering: persiapan lab, tools andalan (Ghidra, IDA Pro, Radare2), serta trik disassembly, decompilation, dan debugging. Tak ketinggalan, section tentang anti-analisis (anti-VM/anti-debug), forensik memori dengan Volatility, sampai serangan di level firmware/UEFI. Studi kasus Stuxnet dan WannaCry memperlihatkan bagaimana teori dipraktikkan dalam serangan nyata, dan di akhir kita ulas cara mitigasi, deteksi berbasis IOC &amp; MITRE ATT&amp;CK, serta peran YARA dan machine learning untuk otomatisasi analisis.</p>
+</div>
+<div class="sidebar-container">
+<div class="sidebar-wrapper">
+<div class="sidebar">
+<div class="reading-progress-container">
+<div class="reading-progress-bar"></div>
+</div>
+</div>
+<div class="author-box">
+<img alt="Author's Gravatar" class="author-gravatar" src="images/testi1.jpg"/>
+<div class="author-info">
+<span class="author-title">Author</span>
+<span class="author-name">Run</span>
+</div>
+<span class="material-symbols-outlined light-icon" id="dark-mode-toggle"></span>
+</div>
+</div>
+<div class="post-content">
+<h3>1. Evolusi Malware: Dari Kode hingga Evasi</h3>
+<p>Malware modern dibuat dengan bahasa low-level—Assembly atau C/C++—agar performa tinggi dan kontrol memori presisi. Penyerang sering “membungkus” binary menggunakan packer seperti UPX untuk menyamarkan payload dan menghindari signature AV. Lebih canggih lagi, obfuscation polymorfik/metamorfik menghasilkan varian unik setiap eksekusi, mempersulit deteksi berbasis signature.</p>
+<p>Dalam fase initial compromise, vektor infeksi umum meliputi phishing email dengan lampiran macro jahat, exploit kit (misalnya RIG), atau drive-by download di situs kompromi. Setelah dijalankan, teknik process hollowing menciptakan proses sah yang di-“kosongkan” dan diisi kode jahat, sehingga malware bersembunyi dalam proses Windows asli.</p>
+<h3>2. Lifecycle Malware: Fase Kritis</h3>
+<ul>
+<li><strong>Inisialisasi:</strong> Malware dieksekusi dan menginjeksikan kode ke proses target via process hollowing.</li>
+<li><strong>Persistence:</strong> Dengan memodifikasi registry atau Task Scheduler, malware menjamin dirinya aktif setelah reboot.</li>
+<li><strong>Komunikasi C2:</strong> Koneksi ke server Command-and-Control lewat HTTP(S), DNS tunneling, atau protokol custom untuk menerima instruksi lanjutan.</li>
+<li><strong>Eksfiltrasi:</strong> Data sensitif korban dikompresi dan dikirim ke penyerang, melengkapi tujuan akhir malware.</li>
+</ul>
+<h3>3. Tri-Analisis: Statis, Dinamis, Hybrid</h3>
+<p><strong>Analisis Statis:</strong> Memeriksa binary tanpa menjalankannya: tinjau header PE &amp; import table dengan PE-bear atau CFF Explorer, ekstrak string tersemat (URLs, perintah) pakai <code>strings</code>, dan gunakan YARA rules untuk klasifikasi massal.</p>
+<p><strong>Analisis Dinamis:</strong> Dijalankan di sandbox (ANY.RUN, Cuckoo Sandbox) untuk memantau perilaku runtime, perubahan file/registry, dan traffic jaringan.</p>
+<p><strong>Analisis Hybrid &amp; Otomasi:</strong> Menggabungkan keduanya sekaligus memanfaatkan machine learning (misalnya VirusTotal Intelligence, Cortex XDR) untuk percepatan klasifikasi varian baru.</p>
+<h3>4. Reverse Engineering: Lab &amp; Tools Andalan</h3>
+<h4>4.1 Membangun Lab Analisis</h4>
+<p>Siapkan VM snapshot (VMWare/VirtualBox) terisolasi, captive C2 server untuk memantau komunikasi malware, dan alat rollback cepat jika analisis “lepas kendali”.</p>
+<h4>4.2 Tools Utama</h4>
+<ul>
+<li><strong>Ghidra:</strong> Decompiler open-source dari NSA, lengkap dengan scripting dan kolaborasi tim.</li>
+<li><strong>IDA Pro + Hex-Rays:</strong> Disassembler/decompiler komersial dengan plugin kuat untuk menghasilkan pseudocode yang mudah dibaca.</li>
+<li><strong>Radare2:</strong> Framework gratis untuk disassembly, debugging, patching, dan scripting.</li>
+</ul>
+<h4>4.3 Trik Disassembly &amp; Debugging</h4>
+<ul>
+<li><strong>Breakpoint &amp; Stepping:</strong> Dengan x64dbg atau WinDbg untuk mengamati register dan memori real-time.</li>
+<li><strong>Code Patching:</strong> Sunting instruksi di runtime untuk melewati cek keamanan atau memaksa logika cabang tertentu.</li>
+</ul>
+<h3>5. Anti-Analisis &amp; Forensik Memori</h3>
+<p>Malware bisa mendeteksi VM lewat cek registry/CPUID atau API <code>IsDebuggerPresent</code> untuk menghindar dari sandbox. Beberapa memasang “time bomb” agar payload hanya aktif pada tanggal tertentu.</p>
+<p>Di sisi defender, forensik memori menggunakan Volatility untuk menangkap RAM dump dan mengungkap proses terinjeksi, koneksi tersembunyi, serta artefak runtime lain sebelum malware membersihkan jejaknya.</p>
+<h3>6. Malware di Level Firmware &amp; Rootkit</h3>
+<p>UEFI/BIOS bootkits memuat malware sebelum OS, membuat pembersihan via reinstall jadi sia-sia. Kasus LoJax—rootkit UEFI pertama dari group Fancy Bear—membuktikan ancaman nyata di firmware. Analisis memerlukan dumping chip SPI dan tools seperti UEFITool atau CHIPSEC.</p>
+<h3>7. Studi Kasus: Stuxnet &amp; WannaCry</h3>
+<ul>
+<li><strong>Stuxnet:</strong> Worm canggih yang menyerang PLC Siemens Iran pada 2010, memanfaatkan empat zero-day Windows dan rootkit kernel untuk menyembunyikan aktivitas sabotase fisik.</li>
+<li><strong>WannaCry:</strong> Ransomware global Mei 2017 yang memanfaatkan exploit EternalBlue (MS17-010) dan berhenti berkat “kill switch” yang ditemukan Marcus Hutchins, memperlambat penyebaran sebelum patch dirilis.</li>
+</ul>
+<h3>8. Mitigasi &amp; Kecerdasan Ancaman</h3>
+<p>Patch management menyeluruh—termasuk OS, aplikasi, dan firmware—menutup celah exploit sebelum diserang. Implementasi Secure Boot &amp; measured boot (TPM) mencegah bootkit non-signed berjalan.</p>
+</div>
+</div>
+<div class="outro">
+<p>Deteksi berbasis IOC dengan YARA rules, IOC feeds, dan peta taktik MITRE ATT&amp;CK membantu monitoring berkelanjutan dan threat hunting proaktif. Kolaborasi lewat platform open source seperti MISP dan OpenCTI mempercepat sharing indikator dan mengurangi blind spot komunitas keamanan.</p>
+<h3>Sumber Referensi</h3>
+<ul>
+<li><a href="https://hshrzd.wordpress.com/pe-bear/">PE-bear – Static Analysis Tool</a></li>
+<li><a href="https://www.bitdefender.com/en-us/blog/businessinsights/what-is-dynamic-malware-analysis">What Is Dynamic Malware Analysis? – Bitdefender</a></li>
+<li><a href="https://www.cynet.com/attack-techniques-hands-on/malware-anti-vm-techniques/">Malware Anti-VM Techniques – Cynet</a></li>
+<li><a href="https://www.veeam.com/blog/yara-rules-malware-detection-analysis.html">YARA Rules Guide – Veeam</a></li>
+<li><a href="https://attack.mitre.org/">MITRE ATT&amp;CK®</a></li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S2666827024000227">A survey of malware detection using deep learning – ScienceDirect</a></li>
+<li><a href="https://intezer.com/blog/memory-analysis-forensic-tools/">Memory Analysis 101 – Intezer</a></li>
+<li><a href="https://www.crowdstrike.com/en-us/cybersecurity-101/malware/malware-analysis/">Malware Analysis: Steps &amp; Examples – CrowdStrike</a></li>
+<li><a href="https://www.sans.org/media/score/checklists/rootkits-investigation-procedures.pdf">SANS Rootkits Investigation Procedures</a></li>
+</ul>
+</div>
+<script src="./script.js"></script>
+</div>
+<div class="post-filter container">
+<span class="filter-item active-filter" data-filter="all">All Recomended Posts</span>
+</div>
+<div class="carousel-container">
+<div class="mySwiper" id="1234">
+<div class="swiper-wrapper">
+<!-- Post 1 -->
+<div class="swiper-slide">
+<div class="post-box news">
+<img alt="" class="post-img" src="images/img1.jpg"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="page1.html">The Delightful World of Crayfish.</a>
+<span class="post-date">10 Des 2024</span>
+<p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
                             freshwater ecosystems...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Post 2 -->
-                <div class="swiper-slide">
-                    
-                    <div class="post-box health">
-                        <img src="images/img2.png" alt="" class="post-img">
-                        <h2 class="category">Health</h2>
-                        <a href="blogpost1.html" class="post-title">Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Fisioterapi adalah profesi di bidang kesehatan yang berfokus pada rehabilitasi, pencegahan, dan 
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!-- Post 2 -->
+<div class="swiper-slide">
+<div class="post-box health">
+<img alt="" class="post-img" src="images/img2.png"/>
+<h2 class="category">Health</h2>
+<a class="post-title" href="blogpost1.html">Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting</a>
+<span class="post-date">10 Des 2024</span>
+<p class="post-description">Fisioterapi adalah profesi di bidang kesehatan yang berfokus pada rehabilitasi, pencegahan, dan 
                             pengelolaan gangguan gerak tubuh.</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-                <!--Post3-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/img13.jpg" alt="" class="post-img">
-                        <h2 class="category">Tech</h2>
-                        <a href="blogpost2.html" class="post-title">Simple WebApp Penetration Testing</a>
-                        <span class="post-date">10 Des 2024</span>
-                        <p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post3-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/img13.jpg"/>
+<h2 class="category">Tech</h2>
+<a class="post-title" href="blogpost2.html">Simple WebApp Penetration Testing</a>
+<span class="post-date">10 Des 2024</span>
+<p class="post-description">Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of
                             freshwater ecosystems...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-        
-                <!--Post4-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog3-1.png" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="blogpost3.html" class="post-title">Work Interview Series 101: Sebelum Interview</a>
-                        <span class="post-date">24 April 2025</span>
-                        <p class="post-description">Persiapan sebelum wawancara kerja meliputi riset mendalam tentang perusahaan dan posisi, penguasaan diri dengan personal branding, ...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post5-->
-                <div class="swiper-slide">
-                    <div class="post-box news">
-                        <img src="images/blog4-1.png" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="blogpost4.html" class="post-title">Work Interview Series 101: Saat Interview</a>
-                        <span class="post-date">24 April 2025</span>
-                        <p class="post-description">Wawancara kerja kerap menimbulkan perasaan tegang, apalagi keputusan pewawancara sering terbentuk lewat kesan pertama dalam hitungan detik...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post6-->
-                <div class="swiper-slide">
-                    <div class="post-box news">
-                        <img src="images/blog5-1.png" alt="" class="post-img">
-                        <h2 class="category">News</h2>
-                        <a href="blogpost5.html" class="post-title">Work Interview Series 101: Pasca Interview</a>
-                        <span class="post-date">24 April 2025</span>
-                        <p class="post-description">Kelihatannya tahap wawancara sudah berakhir, tapi sebenarnya perjalanan baru dimulai. Tindakan-tindakan setelah sesi interview berperan besar dalam memperkuat kesan profesionalismemu ...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post7-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog6-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost6.html" class="post-title">Basic CyberSecurity</a>
-                        <span class="post-date">26 April 2025</span>
-                        <p class="post-description">Cybersecurity adalah bidang yang kompleks namun sangat penting. Pemahaman dasar tentang ancaman digital, serta kebijakan</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post8-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog7-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost7.html" class="post-title">Cryptography: Seni Menulis Pesan Rahasia di Era Digital</a>
-                        <span class="post-date">28 April 2025</span>
-                        <p class="post-description">Di zaman serba digital seperti sekarang, keamanan informasi menjadi prioritas utama. Setiap aktivitas seperti mengirim pesan, ...</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post9-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog8-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost8.html" class="post-title">Jaringan Komputer dan Keamanan Jaringan: Memahami Protokol dan Teknologi Perlindungannya</a>
-                        <span class="post-date">30 April 2025</span>
-                        <p class="post-description">Jaringan komputer merupakan tulang punggung dunia digital. Dari komunikasi pribadi hingga sistem perbankan dan militer, semua bergantung pada keandalan dan keamanan jaringan</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post10-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog9-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost9.html" class="post-title">Sistem Operasi dan Keamanannya: Antara Windows dan Linux</a>
-                        <span class="post-date">30 April 2025</span>
-                        <p class="post-description">Di balik layar setiap perangkat komputer, terdapat sistem operasi (OS) yang berperan sebagai otak pengendali.</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post10-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog10-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost10.html" class="post-title">Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</a>
-                        <span class="post-date">5 Mei 2025</span>
-                        <p class="post-description">Aplikasi web rentan terhadap berbagai jenis serangan injeksi kode yang dapat mengakibatkan pencurian data atau pengambilalihan sistem</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post11-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog11-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost11.html" class="post-title">Penetration Testing: Hacking Secara Legal, Benarkah???</a>
-                        <span class="post-date">7 Mei 2025</span>
-                        <p class="post-description">Penetration testing atau ethical hacking adalah proses menguji keamanan sistem TI—termasuk jaringan, aplikasi, dan perangkat—dengan</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post11-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog12-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost12.html" class="post-title">Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan</a>
-                        <span class="post-date">8 Mei 2025</span>
-                        <p class="post-description">Artikel ini mengupas tuntas evolusi malware dari cara pembuatannya, trik-trik obfuscation (proses mengubah kode program atau</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post13-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog13-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost13.html" class="post-title">Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital</a>
-                        <span class="post-date">8 Mei 2025</span>
-                        <p class="post-description">Digital forensics adalah disiplin ilmu yang memfokuskan pada identifikasi, akuisisi, analisis, dan pelaporan bukti digital dari insiden keamanan siber</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post14-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog14-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost14.html" class="post-title">Manajemen Keamanan Informasi (ISMS & Kebijakan Keamanan)</a>
-                        <span class="post-date">9 Mei 2025</span>
-                        <p class="post-description">Manajemen Keamanan Informasi (Information Security Management System atau ISMS) adalah kerangka kerja</p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post15-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog15-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost15.html" class="post-title">Social Engineering & Psikologi Serangan : Mempelajari Cara Hacker Memanipulasi Manusia</a>
-                        <span class="post-date">9 Mei 2025</span>
-                        <p class="post-description">Social engineering adalah rangkaian teknik manipulasi psikologis yang digunakan penyerang untuk mengeksploitasi kepercayaan, emosi, </p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post16-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog16-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost16.html" class="post-title">Cloud Security: Melindungi Data dan Aplikasi yang Berjalan di Cloud</a>
-                        <span class="post-date">10 Mei 2025</span>
-                        <p class="post-description">Cloud Security melibatkan serangkaian tanggung jawab bersama antara penyedia layanan (CSP) dan pelanggan </p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Post17-->
-                <div class="swiper-slide">
-                    <div class="post-box tech">
-                        <img src="images/blog17-1.png" alt="" class="post-img">
-                        <h2 class="category">tech</h2>
-                        <a href="blogpost17.html" class="post-title">Pentingnya Keamanan Perangkat IoT: Menuju Rumah & Kota Pintar</a>
-                        <span class="post-date">11 Mei 2025</span>
-                        <p class="post-description">Perangkat Internet of Things (IoT) adalah milyaran objek fisik di seluruh dunia—mulai dari sensor, kamera, hingga peralatan </p>
-                        <div class="profile">
-                            <img src="images/testi1.jpg" alt="" class="profile-img">
-                            <span class="profile-name">Nur Iqbal M.</span>
-                        </div>
-                    </div>
-                </div>
-            
-            </div>
-
-
-            <div class="slider-button-wrap">
-                <div class="slider-button-prev swiperSignpostingPrev"> <span class="icon"></span></div>
-                <div class="slider-button-next swiperSignpostingNext"><span class="icon"></span></div>
-            </div>
-            
-            <div class="swiper-pagination"></div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-container">
-            <div class="sec aboutus">
-                <h2>About Us</h2>
-                <p>CyberSecurity and Physiotherapy Student at Universitas Indonesia. Care to learn and increasing knowledge from zero to hero.</p>
-                <ul class="sci">
-                    <li><a href="https://www.facebook.com/profile.php?id=100072590963891"><i class="bx bxl-facebook"></i></a></li>
-                    <li><a href="https://www.instagram.com/iqb.mln/"><i class="bx bxl-instagram"></i></a></li>
-                    <li><a href="https://github.com/iqbalkopling01" ><i class="bx bxl-github"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/nur-iqbal-maulana-7375371ba"><i class="bx bxl-linkedin"></i></a></li>
-                </ul>
-            </div>
-            <div class="sec quicklinks">
-                <h2>Quick Links</h2>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="/PortCyPhy">About</a></li>
-                </ul>
-            </div>
-            <div class="sec contactBx">
-                <h2>Contact Info</h2>
-                <ul class="info">
-                    <li>
-                        <span><i class='bx bxs-map'></i></span>
-                        <span>Universitas Indonesia, Depok <br> West Java <br> Id</span>
-                    </li>
-                    <li>
-                        <span><i class='bx bx-envelope' ></i></span>
-                        <p><a href="mailto:Iqbalmaulana5011@gmail.com">Iqbalmaulana5011@gmail.com</a></p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post4-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog3-1.png"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="blogpost3.html">Work Interview Series 101: Sebelum Interview</a>
+<span class="post-date">24 April 2025</span>
+<p class="post-description">Persiapan sebelum wawancara kerja meliputi riset mendalam tentang perusahaan dan posisi, penguasaan diri dengan personal branding, ...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post5-->
+<div class="swiper-slide">
+<div class="post-box news">
+<img alt="" class="post-img" src="images/blog4-1.png"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="blogpost4.html">Work Interview Series 101: Saat Interview</a>
+<span class="post-date">24 April 2025</span>
+<p class="post-description">Wawancara kerja kerap menimbulkan perasaan tegang, apalagi keputusan pewawancara sering terbentuk lewat kesan pertama dalam hitungan detik...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post6-->
+<div class="swiper-slide">
+<div class="post-box news">
+<img alt="" class="post-img" src="images/blog5-1.png"/>
+<h2 class="category">News</h2>
+<a class="post-title" href="blogpost5.html">Work Interview Series 101: Pasca Interview</a>
+<span class="post-date">24 April 2025</span>
+<p class="post-description">Kelihatannya tahap wawancara sudah berakhir, tapi sebenarnya perjalanan baru dimulai. Tindakan-tindakan setelah sesi interview berperan besar dalam memperkuat kesan profesionalismemu ...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post7-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog6-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost6.html">Basic CyberSecurity</a>
+<span class="post-date">26 April 2025</span>
+<p class="post-description">Cybersecurity adalah bidang yang kompleks namun sangat penting. Pemahaman dasar tentang ancaman digital, serta kebijakan</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post8-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog7-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost7.html">Cryptography: Seni Menulis Pesan Rahasia di Era Digital</a>
+<span class="post-date">28 April 2025</span>
+<p class="post-description">Di zaman serba digital seperti sekarang, keamanan informasi menjadi prioritas utama. Setiap aktivitas seperti mengirim pesan, ...</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post9-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog8-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost8.html">Jaringan Komputer dan Keamanan Jaringan: Memahami Protokol dan Teknologi Perlindungannya</a>
+<span class="post-date">30 April 2025</span>
+<p class="post-description">Jaringan komputer merupakan tulang punggung dunia digital. Dari komunikasi pribadi hingga sistem perbankan dan militer, semua bergantung pada keandalan dan keamanan jaringan</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post10-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog9-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost9.html">Sistem Operasi dan Keamanannya: Antara Windows dan Linux</a>
+<span class="post-date">30 April 2025</span>
+<p class="post-description">Di balik layar setiap perangkat komputer, terdapat sistem operasi (OS) yang berperan sebagai otak pengendali.</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post10-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog10-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost10.html">Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)</a>
+<span class="post-date">5 Mei 2025</span>
+<p class="post-description">Aplikasi web rentan terhadap berbagai jenis serangan injeksi kode yang dapat mengakibatkan pencurian data atau pengambilalihan sistem</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post11-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog11-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost11.html">Penetration Testing: Hacking Secara Legal, Benarkah???</a>
+<span class="post-date">7 Mei 2025</span>
+<p class="post-description">Penetration testing atau ethical hacking adalah proses menguji keamanan sistem TI—termasuk jaringan, aplikasi, dan perangkat—dengan</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post11-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog12-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost12.html">Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan</a>
+<span class="post-date">8 Mei 2025</span>
+<p class="post-description">Artikel ini mengupas tuntas evolusi malware dari cara pembuatannya, trik-trik obfuscation (proses mengubah kode program atau</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post13-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog13-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost13.html">Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital</a>
+<span class="post-date">8 Mei 2025</span>
+<p class="post-description">Digital forensics adalah disiplin ilmu yang memfokuskan pada identifikasi, akuisisi, analisis, dan pelaporan bukti digital dari insiden keamanan siber</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post14-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog14-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost14.html">Manajemen Keamanan Informasi (ISMS &amp; Kebijakan Keamanan)</a>
+<span class="post-date">9 Mei 2025</span>
+<p class="post-description">Manajemen Keamanan Informasi (Information Security Management System atau ISMS) adalah kerangka kerja</p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post15-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog15-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost15.html">Social Engineering &amp; Psikologi Serangan : Mempelajari Cara Hacker Memanipulasi Manusia</a>
+<span class="post-date">9 Mei 2025</span>
+<p class="post-description">Social engineering adalah rangkaian teknik manipulasi psikologis yang digunakan penyerang untuk mengeksploitasi kepercayaan, emosi, </p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post16-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog16-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost16.html">Cloud Security: Melindungi Data dan Aplikasi yang Berjalan di Cloud</a>
+<span class="post-date">10 Mei 2025</span>
+<p class="post-description">Cloud Security melibatkan serangkaian tanggung jawab bersama antara penyedia layanan (CSP) dan pelanggan </p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+<!--Post17-->
+<div class="swiper-slide">
+<div class="post-box tech">
+<img alt="" class="post-img" src="images/blog17-1.png"/>
+<h2 class="category">tech</h2>
+<a class="post-title" href="blogpost17.html">Pentingnya Keamanan Perangkat IoT: Menuju Rumah &amp; Kota Pintar</a>
+<span class="post-date">11 Mei 2025</span>
+<p class="post-description">Perangkat Internet of Things (IoT) adalah milyaran objek fisik di seluruh dunia—mulai dari sensor, kamera, hingga peralatan </p>
+<div class="profile">
+<img alt="" class="profile-img" src="images/testi1.jpg"/>
+<span class="profile-name">Nur Iqbal M.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="slider-button-wrap">
+<div class="slider-button-prev swiperSignpostingPrev"> <span class="icon"></span></div>
+<div class="slider-button-next swiperSignpostingNext"><span class="icon"></span></div>
+</div>
+<div class="swiper-pagination"></div>
+</div>
+</div>
+<footer>
+<div class="footer-container">
+<div class="sec aboutus">
+<h2>About Us</h2>
+<p>CyberSecurity and Physiotherapy Student at Universitas Indonesia. Care to learn and increasing knowledge from zero to hero.</p>
+<ul class="sci">
+<li><a href="https://www.facebook.com/profile.php?id=100072590963891"><i class="bx bxl-facebook"></i></a></li>
+<li><a href="https://www.instagram.com/iqb.mln/"><i class="bx bxl-instagram"></i></a></li>
+<li><a href="https://github.com/iqbalkopling01"><i class="bx bxl-github"></i></a></li>
+<li><a href="https://www.linkedin.com/in/nur-iqbal-maulana-7375371ba"><i class="bx bxl-linkedin"></i></a></li>
+</ul>
+</div>
+<div class="sec quicklinks">
+<h2>Quick Links</h2>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="/PortCyPhy">About</a></li>
+</ul>
+</div>
+<div class="sec contactBx">
+<h2>Contact Info</h2>
+<ul class="info">
+<li>
+<span><i class="bx bxs-map"></i></span>
+<span>Universitas Indonesia, Depok <br/> West Java <br/> Id</span>
+</li>
+<li>
+<span><i class="bx bx-envelope"></i></span>
+<p><a href="mailto:Iqbalmaulana5011@gmail.com">Iqbalmaulana5011@gmail.com</a></p>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+<script crossorigin="anonymous" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
         document.querySelectorAll('.mySwiper').forEach(function (thisSlider) {
             const id = thisSlider.id; // make sure your slider element has a unique ID
             const slider = document.getElementById(id);
@@ -494,9 +449,5 @@
             });
         });
     </script>
-
-
-
 </body>
-
 </html>

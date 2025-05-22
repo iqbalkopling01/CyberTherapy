@@ -1,0 +1,155 @@
+[
+  {
+    "title": "The Delightful World of Crayfish.",
+    "link": "page1.html",
+    "img": "images/img1.jpg",
+    "category": "News",
+    "author": "Nur Iqbal M.",
+    "date": "10 Des 2024",
+    "description": "Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of freshwater ecosystems..."
+  },
+  {
+    "title": "Fisioterapi 101: Pengertian, Sejarah, dan Tokoh Penting",
+    "link": "blogpost1.html",
+    "img": "images/img2.png",
+    "category": "Health",
+    "author": "Nur Iqbal M.",
+    "date": "10 Des 2024",
+    "description": "Fisioterapi adalah profesi di bidang kesehatan yang berfokus pada rehabilitasi, pencegahan, dan pengelolaan gangguan gerak tubuh."
+  },
+  {
+    "title": "Simple WebApp Penetration Testing",
+    "link": "blogpost2.html",
+    "img": "images/img13.jpg",
+    "category": "Tech",
+    "author": "Nur Iqbal M.",
+    "date": "10 Des 2024",
+    "description": "Crayfish, also known as crawfish or crawdads in certain regions, embody the fascinating diversity of freshwater ecosystems..."
+  },
+  {
+    "title": "Work Interview Series 101: Sebelum Interview",
+    "link": "blogpost3.html",
+    "img": "images/blog3-1.png",
+    "category": "News",
+    "author": "Nur Iqbal M.",
+    "date": "24 April 2025",
+    "description": "Persiapan sebelum wawancara kerja meliputi riset mendalam tentang perusahaan dan posisi, penguasaan diri dengan personal branding, ..."
+  },
+  {
+    "title": "Work Interview Series 101: Saat Interview",
+    "link": "blogpost4.html",
+    "img": "images/blog4-1.png",
+    "category": "News",
+    "author": "Nur Iqbal M.",
+    "date": "24 April 2025",
+    "description": "Wawancara kerja kerap menimbulkan perasaan tegang, apalagi keputusan pewawancara sering terbentuk lewat kesan pertama dalam hitungan detik..."
+  },
+  {
+    "title": "Work Interview Series 101: Pasca Interview",
+    "link": "blogpost5.html",
+    "img": "images/blog5-1.png",
+    "category": "News",
+    "author": "Nur Iqbal M.",
+    "date": "24 April 2025",
+    "description": "Kelihatannya tahap wawancara sudah berakhir, tapi sebenarnya perjalanan baru dimulai. Tindakan-tindakan setelah sesi interview berperan besar dalam memperkuat kesan profesionalismemu ..."
+  },
+  {
+    "title": "Basic CyberSecurity",
+    "link": "blogpost6.html",
+    "img": "images/blog6-1.png",
+    "category": "tech",
+    "author": "Nur Iqbal M.",
+    "date": "26 April 2025",
+    "description": "Cybersecurity adalah bidang yang kompleks namun sangat penting. Pemahaman dasar tentang ancaman digital, serta kebijakan"
+  },
+  {
+    "title": "Cryptography: Seni Menulis Pesan Rahasia di Era Digital",
+    "link": "blogpost7.html",
+    "img": "images/blog7-1.png",
+    "category": "tech",
+    "author": "Nur Iqbal M.",
+    "date": "28 April 2025",
+    "description": "Di zaman serba digital seperti sekarang, keamanan informasi menjadi prioritas utama. Setiap aktivitas seperti mengirim pesan, ..."
+  },
+  {
+    "title": "Jaringan Komputer dan Keamanan Jaringan: Memahami Protokol dan Teknologi Perlindungannya",
+    "link": "blogpost8.html",
+    "img": "images/blog8-1.png",
+    "category": "tech",
+    "author": "Nur Iqbal M.",
+    "date": "30 April 2025",
+    "description": "Jaringan komputer merupakan tulang punggung dunia digital. Dari komunikasi pribadi hingga sistem perbankan dan militer, semua bergantung pada keandalan dan keamanan jaringan"
+  },
+  {
+    "title": "Deteksi dan Penanganan Kerentanan Aplikasi (SQL Injection, XSS, CSRF)",
+    "link": "blogpost10.html",
+    "img": "images/blog10-1.png",
+    "category": "tech",
+    "author": "Nur Iqbal M.",
+    "date": "5 Mei 2025",
+    "description": "Aplikasi web rentan terhadap berbagai jenis serangan injeksi kode yang dapat mengakibatkan pencurian data atau pengambilalihan sistem"
+  },
+  {
+    "title": "Penetration Testing: Hacking Secara Legal, Benarkah???",
+    "link": "blogpost11.html",
+    "img": "images/blog11-1.png",
+    "category": "tech",
+    "author": "Nur Iqbal M.",
+    "date": "7 Mei 2025",
+    "description": "Penetration testing atau ethical hacking adalah proses menguji keamanan sistem TI—termasuk jaringan, aplikasi, dan perangkat—dengan"
+  },
+  {
+    "title": "Analisis Malware: Evolusi, Teknik, dan Strategi Pertahanan",
+    "link": "blogpost12.html",
+    "img": "images/blog12-1.png",
+    "category": "tech",
+    "author": "Nur Iqbal M.",
+    "date": "8 Mei 2025",
+    "description": "Artikel ini mengupas tuntas evolusi malware dari cara pembuatannya, trik-trik obfuscation (proses mengubah kode program atau"
+  },
+  {
+    "title": "Digital Forensics: Penyelidikan Jejak Kejahatan Dunia Digital",
+    "link": "blogpost13.html",
+    "img": "images/blog13-1.png",
+    "category": "tech",
+    "author": "Nur Iqbal M.",
+    "date": "8 Mei 2025",
+    "description": "Digital forensics adalah disiplin ilmu yang memfokuskan pada identifikasi, akuisisi, analisis, dan pelaporan bukti digital dari insiden keamanan siber"
+  },
+  {
+    "title": "Manajemen Keamanan Informasi (ISMS & Kebijakan Keamanan)",
+    "link": "blogpost14.html",
+    "img": "images/blog14-1.png",
+    "category": "tech",
+    "author": "Nur Iqbal M.",
+    "date": "9 Mei 2025",
+    "description": "Manajemen Keamanan Informasi (Information Security Management System atau ISMS) adalah kerangka kerja"
+  },
+  {
+    "title": "Social Engineering & Psikologi Serangan : Mempelajari Cara Hacker Memanipulasi Manusia",
+    "link": "blogpost15.html",
+    "img": "images/blog15-1.png",
+    "category": "tech",
+    "author": "Nur Iqbal M.",
+    "date": "9 Mei 2025",
+    "description": "Social engineering adalah rangkaian teknik manipulasi psikologis yang digunakan penyerang untuk mengeksploitasi kepercayaan, emosi,"
+  },
+  {
+    "title": "Cloud Security: Melindungi Data dan Aplikasi yang Berjalan di Cloud",
+    "link": "blogpost16.html",
+    "img": "images/blog16-1.png",
+    "category": "tech",
+    "author": "Nur Iqbal M.",
+    "date": "10 Mei 2025",
+    "description": "Cloud Security melibatkan serangkaian tanggung jawab bersama antara penyedia layanan (CSP) dan pelanggan"
+  },
+  {
+    "title": "Pentingnya Keamanan Perangkat IoT: Menuju Rumah & Kota Pintar",
+    "link": "blogpost17.html",
+    "img": "images/blog17-1.png",
+    "category": "tech",
+    "author": "Nur Iqbal M.",
+    "date": "11 Mei 2025",
+    "description": "Perangkat Internet of Things (IoT) adalah milyaran objek fisik di seluruh dunia—mulai dari sensor, kamera, hingga peralatan"
+  }
+]
